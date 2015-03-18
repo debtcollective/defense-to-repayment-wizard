@@ -1,44 +1,327 @@
-/* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
-body {font: 13px Helmet, Freesans, sans-serif;}
-
 /* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
+ins {
+  background-color: #fcd700;
+  color: #000;
+  text-decoration: none; }
 
-/* We like off-black for text. */
-body, select, input, textarea {color: #333;}
+mark {
+  background-color: #fcd700;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
 
-a {color: #03f;}
-a:hover {color: #69f;}
+header h2, footer ol:before {
+  text-transform: uppercase;
+  letter-spacing: 1px; }
 
-/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
-::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
-::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+#body00 section button, button {
+  font-family: "proxima-nova";
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0.33em;
+  background: #dd515b;
+  color: #fff;
+  font-size: 1.15em;
+  line-height: normal;
+  display: block;
+  margin: 1em auto;
+  padding: 0.85em 2em 0.75em;
+  vertical-align: middle;
+  transition: background-color 0.25s;
+  text-decoration: none;
+  -webkit-appearance: caret; }
+  #body00 section button:hover, button:hover {
+    color: #fff;
+    background: #d30e1d; }
 
-/*	j.mp/webkit-tap-highlight-color */
-a:link {-webkit-tap-highlight-color: #fcd700;} 
+#body00 section button {
+  min-width: 50%;
+  margin: 2.5em auto; }
 
-ins {background-color: #fcd700; color: #000; text-decoration: none;}
-mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+/*  j.mp/webkit-tap-highlight-color */
+a:link {
+  -webkit-tap-highlight-color: #fcd700; }
 
 /* Mozilla dosen't style place holders by default */
-input:-moz-placeholder { color:#a9a9a9; }
-textarea:-moz-placeholder { color:#a9a9a9; }
+input:-moz-placeholder {
+  color: #a9a9a9; }
 
+textarea:-moz-placeholder {
+  color: #a9a9a9; }
 
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection {
+  background: #fcd700;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #fcd700;
+  color: #fff;
+  text-shadow: none; }
+
+body {
+  background: #f1eee2; }
+
+/* We like off-black for text. */
+body, select, input, textarea {
+  color: #393d41;
+  font-family: "proxima-nova", "Gotham", "Helvetica Neue", "Helvetica", Helmet, Freesans, sans-serif;
+  font-size: 17px;
+  line-height: 1.5em; }
+
+a {
+  color: #eb1020;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-backface-visibility: hidden;
+  text-decoration: none; }
+
+a:hover {
+  color: #bb0d19; }
+
+.wrapper {
+  margin: 2em auto;
+  max-width: 750px; }
+
+h1 {
+  font-weight: 100;
+  font-size: 1.75em;
+  margin: 1em 0 1.25em;
+  text-align: center; }
+
+header {
+  position: relative;
+  padding: 1.15em 2em;
+  text-align: center;
+  background: #dcd7c4; }
+  header h2 {
+    font-size: 1.15em;
+    color: #a7a393; }
+    header h2:before {
+      background: #eb1020;
+      height: 0.75em;
+      width: 0.75em;
+      content: ' ';
+      display: inline-block;
+      margin-right: 0.5em; }
+  header #back {
+    position: absolute;
+    top: 1em;
+    left: 2em;
+    color: #a7a393; }
+    header #back:hover {
+      color: #393d41; }
+    header #back:before {
+      font-family: fontawesome;
+      margin-right: 0.5em;
+      content: '\f104'; }
+
+#body00 nav#steps {
+  display: none; }
+nav#steps ol {
+  list-style: none;
+  font-size: 0; }
+nav#steps li {
+  display: inline-block;
+  font-size: 17px;
+  width: 33.33333%;
+  border-right: 1px solid #ecebe7; }
+  nav#steps li:last-child {
+    border-right: 0; }
+  nav#steps li.active a {
+    background: #fff;
+    color: #a7a393; }
+  nav#steps li a {
+    padding: 0.75em;
+    display: block;
+    text-align: center;
+    line-height: normal;
+    background: #f9f8f3;
+    color: #dcd7c4; }
+  nav#steps li span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.87em; }
+
+section {
+  background: #fff;
+  padding: 2em 1.5em 0.5em;
+  min-height: 440px;
+  position: relative;
+  display: none; }
+  section.active {
+    display: block; }
+  section h2 {
+    color: #a7a393;
+    font-weight: 100;
+    font-size: 1.1em;
+    margin-bottom: 1em; }
+    section h2:first-child {
+      margin-top: -1em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #ecebe7; }
+  section .intro {
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ecebe7; }
+  section .form-language {
+    color: #a7a393;
+    font-size: 0.85em;
+    line-height: 1.5em;
+    max-width: 90%;
+    margin-bottom: 2em; }
+  section .button-text {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold; }
+  section p {
+    margin-bottom: 1em;
+    font-size: 1.05em; }
+  #body00 section {
+    padding-bottom: 3em;
+    min-height: 0; }
+  section form {
+    margin: 1.5em 0;
+    font-size: 0.9em; }
+  section input[type="text"] {
+    margin: 0.5em 0;
+    padding: 0.33em 0.5em;
+    display: block;
+    width: 100%;
+    line-height: normal; }
+  section .input-group input[type="text"] {
+    margin: 1em 0; }
+  section .input-group.text {
+    border-bottom: 0;
+    padding: 0;
+    margin: 1em 0; }
+    section .input-group.text span.light {
+      color: #a7a393; }
+    section .input-group.text input[type="text"] {
+      margin: 0; }
+  section .input-group.text label {
+    line-height: normal;
+    display: block; }
+  section input[type="text"], section textarea {
+    background-color: #f9f8f3;
+    border: 1px solid #ecebe7;
+    border-top-color: #d5d3cb;
+    border-left-color: #d5d3cb;
+    box-shadow: inset 0.1em 0.15em 0.25em rgba(167, 163, 147, 0.15); }
+  section input[type="checkbox"], section input[type="radio"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1.5em;
+    margin-top: -0.75em;
+    font-size: 0.5em;
+    -webkit-transform: scale(1.5); }
+  section input[type="checkbox"] + label, section input[type="radio"] + label {
+    display: inline-block;
+    vertical-align: top;
+    width: 92%; }
+  section .input-group .explain {
+    display: none;
+    margin-top: 1em; }
+  section .input-group {
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid #ecebe7;
+    padding-bottom: 0.75em;
+    line-height: 1.45em; }
+    section .input-group:last-child {
+      border: 0;
+      padding-bottom: 0; }
+  section select {
+    min-width: 50%; }
+  section p + textarea {
+    margin-top: 0; }
+  section textarea {
+    width: 100%;
+    margin: 1em 0;
+    padding: 0.5em 0.75em;
+    min-height: 5em; }
+
+footer {
+  position: relative;
+  text-align: center;
+  background: #fff; }
+  #body00 footer {
+    display: none; }
+  footer #previous, footer #next {
+    display: inline-block; }
+  footer #previous {
+    width: 5em;
+    margin-left: -5em;
+    color: #a7a393; }
+    footer #previous:hover {
+      color: #393d41; }
+    footer #previous:before {
+      font-family: fontawesome;
+      margin-right: 0.5em;
+      content: '\f104'; }
+  footer button {
+    margin-bottom: 2em; }
+  footer nav#pages {
+    padding: 1.25em 3em;
+    background: #dcd7c4; }
+  footer ol {
+    list-style: none;
+    font-size: 0.85em;
+    text-align: center;
+    height: 2.33em; }
+    footer ol:before {
+      content: 'page';
+      position: absolute;
+      left: 3em;
+      color: #a7a393;
+      font-size: 1em;
+      bottom: 1.75em; }
+    footer ol li {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+      height: 2.5em; }
+      footer ol li a {
+        padding: 0.5em 0;
+        text-align: center;
+        color: #a7a393;
+        border-radius: 2em;
+        display: block;
+        height: 2em;
+        width: 2em; }
+        footer ol li a:hover {
+          color: #a7a393; }
+      footer ol li.active a {
+        background: #fff;
+        color: #393d41;
+        font-size: 1.15em; }
+
+#phone_primary span.light:first-of-type, #phone_secondary span.light:first-of-type {
+  margin-left: -0.5em; }
+
+#employment-type {
+  display: none; }
 
 /* Media queries
 -------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 480px) {
-	
-		
-}
-
-
-
+@media screen and (min-width: 480px) {
+  section {
+    padding-left: 3em;
+    padding-right: 2.75em; }
+    section .input-group.text label {
+      width: 25%;
+      margin: 0.25em 0;
+      display: inline-block;
+      vertical-align: middle; }
+    section input[type="text"] {
+      width: 73.5%;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0; } }
 /* Print styles
 -------------------------------------------------------------------------------*/
-@media print {
-
-
-
-}

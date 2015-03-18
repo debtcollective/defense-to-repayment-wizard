@@ -1,8 +1,8 @@
 <!doctype html>
 
 <!--
-	HTML5 Reset: https://github.com/murtaugh/HTML5-Reset
-	Free to use
+    HTML5 Reset: https://github.com/murtaugh/HTML5-Reset
+    Free to use
 -->
 
 <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
@@ -14,110 +14,571 @@
 
 <head>
 
-	<meta charset="utf-8">
-	
-	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
-	<!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
-	<title></title>
-	<meta name="author" content="" />
-	<meta name="description" content="" />
-	
-	<!-- Don't forget to set your site up: http://google.com/webmasters -->
-	<meta name="google-site-verification" content="" />
-	
-	<!-- Who owns the content of this site? -->
-	<meta name="Copyright" content="" />
-	
-	<!--  Mobile Viewport
-	http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
-	device-width : Occupy full width of the screen in its current orientation
-	initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
-	maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
-	-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
-	<link rel="shortcut icon" href="favicon.ico" />
-	
-	<!-- concatenate and minify for production -->
-	<link rel="stylesheet" href="assets/css/reset.css" />
-	<link rel="stylesheet" href="assets/css/style.css" />
-	
-	<!-- Lea Verou's Prefix Free, lets you use un-prefixed properties in your CSS files -->
-	<script src="assets/js/libs/prefixfree.min.js"></script>
-	
-	<!-- This is an un-minified, complete version of Modernizr. 
-		 Before you move to production, you should generate a custom build that only has the detects you need. -->
-	<script src="assets/js/libs/modernizr-2.7.1.dev.js"></script>
-	
-	<!-- Application-specific meta tags -->
-	<!-- Windows 8: see http://msdn.microsoft.com/en-us/library/ie/dn255024%28v=vs.85%29.aspx for details -->
-	<meta name="application-name" content="" /> 
-	<meta name="msapplication-TileColor" content="" /> 
-	<meta name="msapplication-TileImage" content="" />
-	<meta name="msapplication-square150x150logo" content="" />
-	<meta name="msapplication-square310x310logo" content="" />
-	<meta name="msapplication-square70x70logo" content="" />
-	<meta name="msapplication-wide310x150logo" content="" />
-	<!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
-	<meta name="twitter:card" content="">
-	<meta name="twitter:site" content="">
-	<meta name="twitter:title" content="">
-	<meta name="twitter:description" content="">
-	<meta name="twitter:url" content="">
-	<!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
+    <meta charset="utf-8">
+    
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
+    <title></title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    
+    <!-- Don't forget to set your site up: http://google.com/webmasters -->
+    <meta name="google-site-verification" content="" />
+    
+    <!-- Who owns the content of this site? -->
+    <meta name="Copyright" content="" />
+    
+    <!--  Mobile Viewport
+    http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
+    device-width : Occupy full width of the screen in its current orientation
+    initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+    maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- DC kit -->
+    <script type="text/javascript" src="//use.typekit.net/fju1gby.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <!-- concatenate and minify for production -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/chosen.min.css" />
+    
+    <!-- Lea Verou's Prefix Free, lets you use un-prefixed properties in your CSS files -->
+    <script src="assets/js/libs/prefixfree.min.js"></script>
+    
+    <!-- This is an un-minified, complete version of Modernizr. 
+         Before you move to production, you should generate a custom build that only has the detects you need. -->
+    <script src="assets/js/libs/modernizr-2.7.1.dev.js"></script>
+    
+    <!-- Application-specific meta tags -->
+    <!-- Windows 8: see http://msdn.microsoft.com/en-us/library/ie/dn255024%28v=vs.85%29.aspx for details -->
+    <meta name="application-name" content="" /> 
+    <meta name="msapplication-TileColor" content="" /> 
+    <meta name="msapplication-TileImage" content="" />
+    <meta name="msapplication-square150x150logo" content="" />
+    <meta name="msapplication-square310x310logo" content="" />
+    <meta name="msapplication-square70x70logo" content="" />
+    <meta name="msapplication-wide310x150logo" content="" />
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
 
 </head>
 
-<body>
+<body id="body00">
 
-<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
+<header>
+    <a href="http://debtcollective.org" id="back">Back to the Debt Collective</a>
+    
+    <h2>Debt Collective</h2>
+</header>
 
-	<header>
-		
-		<h1><a href="/">Page Title</a></h1>
-		
-		<nav>
-		
-			<ol>
-				<li><a href="">Nav Link 1</a></li>
-				<li><a href="">Nav Link 2</a></li>
-				<li><a href="">Nav Link 3</a></li>
-			</ol>
-		
-		</nav>
-	
-	</header>
-	
-	<article>
-		
-		<h1>Article Header</h1>
-		
-		<p>Etiam pretium odio eu mi convallis vitae varius neque pharetra. Nulla vestibulum nisi ut sem cursus sed mattis nisi egestas.</p>
-		
-		<h2>Article Subhead</h2>
-		
-		<p>Vestibulum lacus erat, volutpat vel dignissim at, fringilla ut felis.</p>
-	
-	</article>
-	
-	<aside>
-	
-		<h2>Sidebar Content</h2>
-	
-	</aside>
-	
-	<footer>
-		
-		<p><small>&copy; Copyright Your Name Here 2014. All Rights Reserved.</small></p>
-		
-	</footer>
+<div class="wrapper">
+    
+    <h1>Defense to Repayment Wizard</h1>
+    
+    <section id="page00" class="active">
+        
+        <p>Welcome Corinthian Collective members! We built this wizard to help you dispute your federal student loan debt from your school. This tool will help you fill out a form, which we will submit on your behalf to the US Department of Education. You will be able to download your completed form after you submit..</p>
+
+        <p>Please answer the following questions and provide as much detail as you can in your response. The more information you can provide, the better chance you have of getting a loan discharge. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
+
+        <a href="#page01"><button>Get Started</button></a>
+
+        <p>If you prefer to fill out the form manually, you may download it here and send it as an attachment to <span style="color: blue;">support@debtcollective.org</span></p>
+    
+    </section>
+
+<form>
+    <nav id="steps"> 
+        <ol>
+            <li id="personal" class="active"><a href="#page01"><span>Step 1</span> Personal Information</a></li>
+            <li id="school"><a href="#page02"><span>Step 2</span> Your School</a></li>
+            <li id="experience"><a href="#page03"><span>Step 3</span> Your Experience</a></li>
+        </ol>
+    </nav>
+
+
+    <section id="page01">
+        
+        <div class="intro">
+            <p>First, we need some personal information.</p>
+        </div>
+
+        <div class="input-group text" id="ssn">
+            <label for="ssn_1">Social Security #</label>
+            <input type="text" name="ssn_1" style="max-width: 3.5em;" />
+            <span class="light"> - </span>
+            <input type="text" name="ssn_2" style="max-width: 2.5em;" />
+            <span class="light"> - </span>
+            <input type="text" name="ssn_3" style="max-width: 3.5em;" />
+        </div>
+
+        <div class="input-group text">
+            <label for="name">Name</label>
+            <input type="text" name="name" />
+        </div>
+
+        <div class="input-group text">
+            <label for="address">Address</label>
+            <input type="text" name="address" />
+        </div>
+
+        <div class="input-group text">
+            <label>City</label>
+            <input type="text" name="ssn" />
+        </div>
+
+        <div class="input-group text">
+            <label for="state">State</label>
+
+            <select name="state" class="chosen" style="width: 33%">
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+        </div>
+
+        <div class="input-group text" id="zip">
+            <label for="zip">Zip</label>
+            <input type="text" name="zip" style="max-width: 5.5em;" />
+        </div>
+    </section>
+
+
+    <section id="page02">
+
+        <div class="intro">
+            <p>Add your contact information (optional).</p>
+        </div>
+
+        <div class="input-group text" id="phone_primary">
+            <label for="phone_primary" class="optional">Primary Phone</label>
+            <span class="light">(</span>
+            <input type="text" name="phone_primary_1" style="max-width: 3.5em;" />
+            <span class="light">) &nbsp;</span>
+            <input type="text" name="phone_primary_2" style="max-width: 3.5em;" />
+            <span class="light"> - </span>
+            <input type="text" name="phone_primary_3" style="max-width: 4.5em;" />
+        </div>
+
+        <div class="input-group text" id="phone_secondary">
+            <label for="phone_secondary" class="optional">Secondary Phone</label>
+            <span class="light">(</span>
+            <input type="text" name="phone_secondary_1" style="max-width: 3.5em;" />
+            <span class="light">) &nbsp;</span>
+            <input type="text" name="phone_secondary_2" style="max-width: 3.5em;" />
+            <span class="light"> - </span>
+            <input type="text" name="phone_secondary_3" style="max-width: 4.5em;" />
+        </div>
+
+        <div class="input-group text">
+            <label>Email</label>
+            <input type="text" name="email" />
+        </div>
+
+    </section>
+
+
+    <section id="page03">
+
+        <div id="employment-status">
+            <p>Are you currently employed?</p>
+
+            <div class="input-group">
+                <input type="checkbox" name="employed" />
+                <label>Yes</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="checkbox" name="unemployed" />
+                <label>No</label>
+            </div>
+        </div>
+
+        <div id="employment-type">
+            <p>Is your job in your field of study?</p>
+
+            <div class="input-group">
+                <input type="checkbox" name="in_field" />
+                <label>Yes</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="checkbox" name="out_of_field" />
+                <label>No</label>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section id="page04">
+
+        <div class="input-group">
+            <label>Who is your loan servicer? (If you don't know, you can leave it blank.)</label>
+            <input type="text" name="email" />
+        </div>
+
+    </section>
+
+
+    <section id="page05">
+        
+        <div class="intro">
+            <p>Next, we need to know about the campus you went to.</p>
+        </div>
+
+        <script id="schools-list" type="text/x-handlebars-template">
+            <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
+        </script>
+
+        <select id="schools-select" class="chosen" data-placeholder="Choose a campus...">
+            <option></option>
+        </select>
+    </section>
+
+
+    <section id="page06">
+        <div class="intro">
+            <p>Now is the part where we’ll prompt you to describe different aspects of your experience with <span class="school-name">Corinthian</span>.</p>
+        </div>
+
+        <p>How did <span class="school-name">Corinthian</span> lie to you or misled you about your <strong>job prospects</strong>? Check all that apply.</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the money I could earn after earning a Corinthian degree</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They failed to provide promised job placement assistance</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They made other false promises relating to job prospects to convince me to enroll</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="page07">
+        <p>How did <span class="school-name">Corinthian</span> mislead you about the <strong>quality of the education you would receive</strong>? Check all that apply.</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about whether my credits would transfer to other colleges</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misreprented how seriously employers would treat my degree</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the quality of the education I would receive in other ways</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="page08">
+        <p>In what ways did <span class="school-name">Corinthian</span> mislead you about <strong>how you would pay for the program</strong>?</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the true cost of the program.</label>
+
+            <div class="explain">
+                <p>Please explain.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the total amount of money I would have to borrow to complete my program.</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about whether my loans were federal or private.</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me in other ways about the cost of the program or financial aid I would receive.</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="page09">
+        <p>Did your school close before you graduated?</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>Yes</label>
+        </div>
+        
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>No</label>
+        </div>
+    </section>
+
+
+    <section id="page10">
+        <p style="color: blue;">[if no to 5]</p>
+
+        <p>Did you withdraw within 120 of your school closing?</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>Yes</label>
+        </div>
+        
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>No</label>
+        </div>
+        
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>I'm not sure</label>
+        </div>
+    </section>
+
+
+    <section id="page11">
+        <p>How did <span class="school-name">Corinthian</span> mislead you about your options as the school shut down? Check all that apply.</p>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about the likelihood that my school would shut down</label>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" name="something" />
+            <label>They misled me about my option to decline the “teach-out” at the school.</label>
+
+            <p class="form-language">For example, did they fail to inform you that you had a right to receive a complete refund if you did not take the teach out?</p>
+
+            <div class="explain">
+                <p>Please explain. Include as many details as possible.</p>
+                <textarea></textarea>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="page12">
+        <p>Did Corinthian mislead you in other ways that you didn't already describe? Include as many details as possible.</p>
+
+        <div class="input-group">
+            <textarea></textarea>
+        </div>
+    </section>
+
+
+    <section id="page13">
+        <p>Absent this conduct, I would not have chosen to attend and/or continue attending <span class="school-name">Corinthian</span>.</p>
+
+        <div class="input-group">
+            <input type="radio" name="something" />
+
+            <level>I agree</level>
+        </div>
+        <div class="input-group">
+            <input type="radio" name="something" />
+
+            <level>I disagree</level>
+        </div>
+    </section>
+</form>
+
+
+    <section id="page14">
+        <p>Please review your responses to ensure they are accurate before submitting.</p>
+    </section>
+
+
+    <footer>
+        <a href="#page00" id="previous">Back</a>
+        <a href="#page02" id="next"><button>Next</button></a>
+
+        <nav id="pages">
+            <ol>
+                <li id="nav01"><a href="#page01">1</a></li>
+                <li id="nav02"><a href="#page02">2</a></li>
+                <li id="nav03"><a href="#page03">3</a></li>
+                <li id="nav04"><a href="#page04">4</a></li>
+                <li id="nav05"><a href="#page05">5</a></li>
+                <li id="nav06"><a href="#page06">6</a></li>
+                <li id="nav07"><a href="#page07">7</a></li>
+                <li id="nav08"><a href="#page08">8</a></li>
+                <li id="nav09"><a href="#page09">9</a></li>
+                <li id="nav10"><a href="#page10">10</a></li>
+                <li id="nav11"><a href="#page11">11</a></li>
+                <li id="nav12"><a href="#page12">12</a></li>
+            </ol>
+        </nav>
+    </footer>
 
 </div>
 
@@ -127,11 +588,14 @@
 
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify if needed -->
+<script src="assets/js/chosen.jquery.min.js"></script>
+<script src="assets/js/libs/tabletop.js"></script>
+<script src="assets/js/libs/handlebars-v3.0.0.js"></script>
 <script src="assets/js/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
-	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
-	 
+     Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
+     
 <script>
 
   var _gaq = _gaq || [];
