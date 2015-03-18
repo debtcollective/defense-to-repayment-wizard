@@ -122,8 +122,8 @@ var section_page = 1;
 	$(document).ready(function (){
 
 		// toggle "explain" textarea field when box is checked
-		$('input[type="checkbox"]').click(function() {
-		    $(this).parent().find(".explain").toggle(this.checked);
+		$('.checkbox input').click(function() {
+		    $(this).parent().parent().find(".explain").toggle(this.checked);
 		});
 
 
@@ -136,6 +136,7 @@ var section_page = 1;
 		// make steps nav work
 		$("nav#steps li#school a").attr("href", "#page" + zeroFill(school_first_page, 2));
 		$("nav#steps li#experience a").attr("href", "#page" + zeroFill(experience_first_page, 2));
+
 
 		// employment question
 
@@ -151,6 +152,25 @@ var section_page = 1;
 					// let them move on to page 04
 					window.setTimeout( function() {
 						$("#body03 #next").attr("href", "#page04");
+					}, 300);
+				});
+			}
+		});
+
+		// school closing question
+
+		$("#school-close input[type='radio']").on("change", function() {
+			var input = $("#school-close input[value='no']")[0];
+			if (input.checked) {
+				$("#body10 #next").attr("href", "#page10");
+
+				$("#next").click( function() {
+					$("#withdraw").show();
+					$("#school-close").hide();
+
+					// let them move on to page 04
+					window.setTimeout( function() {
+						$("#body10 #next").attr("href", "#page11");
 					}, 300);
 				});
 			}
