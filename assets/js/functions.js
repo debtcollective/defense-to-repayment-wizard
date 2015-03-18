@@ -140,8 +140,8 @@ var section_page = 1;
 
 		// employment question
 
-		$("#employment-status input[name='employed']").on("change", function() {
-			var input = $("#employment-status input[name='employed']")[0];
+		$("#employment-status input[type='radio']").on("change", function() {
+			var input = $("#employment-status input[value='yes']")[0];
 			if (input.checked) {
 				$("#body03 #next").attr("href", "#page03");
 
@@ -154,6 +154,9 @@ var section_page = 1;
 						$("#body03 #next").attr("href", "#page04");
 					}, 300);
 				});
+			}
+			else {
+				$("#body03 #next").attr("href", "#page04");
 			}
 		});
 
@@ -173,6 +176,9 @@ var section_page = 1;
 						$("#body10 #next").attr("href", "#page11");
 					}, 300);
 				});
+			}
+			else {
+				$("#body10 #next").attr("href", "#page11");
 			}
 		});
 

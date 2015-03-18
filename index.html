@@ -250,12 +250,18 @@
             <p>Are you currently employed?</p>
 
             <div class="input-group">
-                <input type="checkbox" name="employed" />
+                <div class="radio">
+                    <input type="radio" name="employed" value="yes" />
+                    <label></label>
+                </div>
                 <label>Yes</label>
             </div>
             
             <div class="input-group">
-                <input type="checkbox" name="unemployed" />
+                <div class="radio">
+                    <input type="radio" name="employed" value="no" />
+                    <label></label>
+                </div>
                 <label>No</label>
             </div>
         </div>
@@ -264,12 +270,18 @@
             <p>Is your job in your field of study?</p>
 
             <div class="input-group">
-                <input type="checkbox" name="in_field" />
+                <div class="radio">
+                    <input type="radio" name="field" value="yes" />
+                    <label></label>
+                </div>
                 <label>Yes</label>
             </div>
             
             <div class="input-group">
-                <input type="checkbox" name="out_of_field" />
+                <div class="radio">
+                    <input type="checkbox" name="field" value="no" />
+                    <label></label>
+                </div>
                 <label>No</label>
             </div>
         </div>
@@ -290,32 +302,73 @@
     <section id="page05">
         
         <div class="intro">
-            <p>Next, we need to know about the campus you went to.</p>
+            <p>Next, we need to know about the school you went to.</p>
         </div>
+
+        <label for="school-select" style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</label>
 
         <script id="schools-list" type="text/x-handlebars-template">
             <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
         </script>
 
-        <select id="schools-select" class="chosen" data-placeholder="Choose a campus...">
+        <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus...">
             <option></option>
         </select>
+
+        <div class="input-group" style="margin-top: 2.5em;">
+            <label>What was the name of your program?</label>
+            <input type="text" name="program_name" />
+        </div>
     </section>
 
 
     <section id="page06">
         
-        <div class="intro">
-            <p>Next, we need to know about the campus you went to.</p>
+        <p>When did you attend <span class="school-name">Corinthian</span>?</p>
+
+        <div class="input-group text">
+            <label>From</label>
+            <input type="text" style="width: 25%" />
+
+            <label style="width: auto; margin-left: 2em; margin-right: 1em;">To</label>
+            <input type="text" style="width: 25%" />
         </div>
 
-        <script id="schools-list" type="text/x-handlebars-template">
-            <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
-        </script>
+        <p>What type of degree were you working on?</p>
 
-        <select id="schools-select" class="chosen" data-placeholder="Choose a campus...">
-            <option></option>
-        </select>
+        <div class="input-group">
+            <div class="radio">
+                <input type="radio" name="degree" value="Associates" />
+                <label></label>
+            </div>
+            <label for="degree">Associates</label>
+        </div>
+        
+        <div class="input-group" style="border: 0; margin-bottom: 1.5em;">
+            <div class="radio">
+                <input type="radio" name="degree" value="Certificate" />
+                <label></label>
+            </div>
+            <label for="degree">Certificate</label>
+        </div>
+
+        <p>Did you complete the program?</p>
+
+        <div class="input-group">
+            <div class="radio">
+                <input type="radio" name="complete" value="yes" />
+                <label></label>
+            </div>
+            <label for="complete">Yes</label>
+        </div>
+        
+        <div class="input-group">
+            <div class="radio">
+                <input type="radio" name="complete" value="no" />
+                <label></label>
+            </div>
+            <label for="complete">No</label>
+        </div>
     </section>
 
 
@@ -324,7 +377,7 @@
             <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">Corinthian</span>.</p>
         </div>
 
-        <p>How did <span class="school-name">Corinthian</span> lie to you or mislead you about your <strong>job prospects</strong>? Check all that&nbsp;apply.</p>
+        <p>How did <span class="school-name">Corinthian</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>? Check all that&nbsp;apply.</p>
 
         <div class="input-group">
             <div class="checkbox">

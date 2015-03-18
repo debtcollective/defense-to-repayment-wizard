@@ -168,7 +168,8 @@ section {
       border-bottom: 1px solid #ecebe7; }
   section .intro {
     margin-bottom: 2em;
-    border-bottom: 1px solid #ecebe7; }
+    border-bottom: 1px solid #ecebe7;
+    font-weight: 100; }
   section .example {
     color: #a7a393;
     font-size: 0.85em;

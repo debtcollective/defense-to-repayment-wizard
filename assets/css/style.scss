@@ -237,10 +237,7 @@ section {
     .intro {
         margin-bottom: 2em;
         border-bottom: $border;
-        p {
-            // font-weight: bold;
-            // color: $mid-grey;
-        }
+        font-weight: 100;
     }
 
     .example {
