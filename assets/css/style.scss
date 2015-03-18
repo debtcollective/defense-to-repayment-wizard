@@ -112,20 +112,20 @@ a {
 a:hover {color: darken($red, 10%);}
 
 .wrapper {
-    margin: 2em auto;
+    margin: 0 auto;
     max-width: 750px;
 }
 
 h1 {
     font-weight: 100;
-    font-size: 1.75em;
-    margin: 1em 0 1.25em;
     text-align: center;
+    margin: 1em 0;
+    font-size: 1.15em;
 }
 
 header {
     position: relative;
-    padding: 1.15em 2em;
+    padding: 0.75em 2em;
     text-align: center;
     background: $dark-tan;
 
@@ -136,15 +136,15 @@ header {
 
         &:before {
             background: $red;
-            height: 0.75em;
-            width: 0.75em;
+            height: 0.65em;
+            width: 0.65em;
             content: ' ';
             display: inline-block;
             margin-right: 0.65em;
         }
 
         img {
-            max-height: 0.8em;
+            max-height: 0.65em;
             opacity: 0.8;
         }
     }
@@ -154,6 +154,7 @@ header {
         top: 1em;
         left: 2em;
         color: $mid-grey;
+        display: none;
 
         &:hover {
             color: $text;
@@ -198,18 +199,23 @@ nav#steps {
         }
 
         a {
-            padding: 0.75em;
+            padding: 0.75em 0;
             display: block;
             text-align: center;
             line-height: normal;
             background: $light-tan;
             color: $dark-tan;
+            font-size: 0.9em;
         }
 
-        span {
+        span.step {
             text-transform: uppercase;
             display: block;
-            font-size: 0.87em;
+            font-size: 0.8em;
+        }
+
+        span.extra {
+            display: none;
         }
     }
 }
@@ -217,7 +223,6 @@ nav#steps {
 section {
     background: #fff;
     padding: 2em 1.5em 0.5em;
-    min-height: 440px;
     position: relative;
     display: none;
     // box-shadow: 0 -0.1em 0.5em rgba(#000,0.05);
@@ -526,9 +531,46 @@ nav#pages {
 
 @media screen and (min-width: 480px) {
 
+    .wrapper {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    h1 {
+        font-size: 1.75em;
+        line-height: normal;
+        margin: 1em 0 1.25em;
+    }
+
+    header {
+        padding: 1.15em 2em;
+
+         h2 {
+            &:before {
+                height: 0.75em;
+                width: 0.75em;
+            }
+
+            img {
+                max-height: 0.75em;
+            }
+        }
+    }
+
+    nav#steps {
+        li a {
+            font-size: 1em;
+
+            span.step {
+                font-size: 0.87em;
+            }
+        }
+    }
+
     section {
         padding-left: 3em;
         padding-right: 2.75em;
+        min-height: 440px;
     
         .input-group.text label {
             width: 25%;
@@ -562,6 +604,15 @@ nav#pages {
         }
     }
         
+}
+
+@media screen and (min-width: 800px) {
+
+    header {
+        #back {
+            display: block;
+        }
+    }
 }
 
 

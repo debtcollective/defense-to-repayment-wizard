@@ -86,18 +86,18 @@ a:hover {
   color: #bb0d19; }
 
 .wrapper {
-  margin: 2em auto;
+  margin: 0 auto;
   max-width: 750px; }
 
 h1 {
   font-weight: 100;
-  font-size: 1.75em;
-  margin: 1em 0 1.25em;
-  text-align: center; }
+  text-align: center;
+  margin: 1em 0;
+  font-size: 1.15em; }
 
 header {
   position: relative;
-  padding: 1.15em 2em;
+  padding: 0.75em 2em;
   text-align: center;
   background: #dcd7c4; }
   header h2 {
@@ -105,19 +105,20 @@ header {
     color: #a7a393; }
     header h2:before {
       background: #eb1020;
-      height: 0.75em;
-      width: 0.75em;
+      height: 0.65em;
+      width: 0.65em;
       content: ' ';
       display: inline-block;
       margin-right: 0.65em; }
     header h2 img {
-      max-height: 0.8em;
+      max-height: 0.65em;
       opacity: 0.8; }
   header #back {
     position: absolute;
     top: 1em;
     left: 2em;
-    color: #a7a393; }
+    color: #a7a393;
+    display: none; }
     header #back:hover {
       color: #393d41; }
     header #back:before {
@@ -141,21 +142,23 @@ nav#steps li {
     background: #fff;
     color: #a7a393; }
   nav#steps li a {
-    padding: 0.75em;
+    padding: 0.75em 0;
     display: block;
     text-align: center;
     line-height: normal;
     background: #f9f8f3;
-    color: #dcd7c4; }
-  nav#steps li span {
+    color: #dcd7c4;
+    font-size: 0.9em; }
+  nav#steps li span.step {
     text-transform: uppercase;
     display: block;
-    font-size: 0.87em; }
+    font-size: 0.8em; }
+  nav#steps li span.extra {
+    display: none; }
 
 section {
   background: #fff;
   padding: 2em 1.5em 0.5em;
-  min-height: 440px;
   position: relative;
   display: none; }
   section.active {
@@ -342,9 +345,32 @@ nav#pages {
 /* Media queries
 -------------------------------------------------------------------------------*/
 @media screen and (min-width: 480px) {
+  .wrapper {
+    margin-top: 2em;
+    margin-bottom: 2em; }
+
+  h1 {
+    font-size: 1.75em;
+    line-height: normal;
+    margin: 1em 0 1.25em; }
+
+  header {
+    padding: 1.15em 2em; }
+    header h2:before {
+      height: 0.75em;
+      width: 0.75em; }
+    header h2 img {
+      max-height: 0.75em; }
+
+  nav#steps li a {
+    font-size: 1em; }
+    nav#steps li a span.step {
+      font-size: 0.87em; }
+
   section {
     padding-left: 3em;
-    padding-right: 2.75em; }
+    padding-right: 2.75em;
+    min-height: 440px; }
     section .input-group.text label {
       width: 25%;
       margin: 0.25em 0;
@@ -367,5 +393,8 @@ nav#pages {
     color: #a7a393;
     font-size: 1em;
     bottom: 1.75em; } }
+@media screen and (min-width: 800px) {
+  header #back {
+    display: block; } }
 /* Print styles
 -------------------------------------------------------------------------------*/
