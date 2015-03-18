@@ -85,8 +85,6 @@ var section_page = 1;
 			section_pages = experience_pages;
 		}
 
-		console.log(section_pages);
-
 		// update "steps" nav
 		$("nav#steps li.active").removeClass("active");
 		$("nav#steps li#" + current_section).addClass("active");

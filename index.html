@@ -21,14 +21,8 @@
     
     <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
     <title></title>
-    <meta name="author" content="" />
-    <meta name="description" content="" />
-    
-    <!-- Don't forget to set your site up: http://google.com/webmasters -->
-    <meta name="google-site-verification" content="" />
-    
-    <!-- Who owns the content of this site? -->
-    <meta name="Copyright" content="" />
+    <meta name="author" content="The Debt Collective" />
+    <meta name="description" content="Defense to Repayment Form Wizard" />
     
     <!--  Mobile Viewport
     http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
@@ -50,8 +44,9 @@
     
     <!-- concatenate and minify for production -->
     <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/jquery.ui.datepicker.min.css" />
     <link rel="stylesheet" href="assets/css/chosen.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     
     <!-- Lea Verou's Prefix Free, lets you use un-prefixed properties in your CSS files -->
     <script src="assets/js/libs/prefixfree.min.js"></script>
@@ -88,7 +83,7 @@
 <header>
     <a href="http://debtcollective.org" id="back">Back to the Debt Collective</a>
     
-    <h2>Debt Collective</h2>
+    <h2><img src="assets/dc_name.png" alt="Debt Collective" /></h2>
 </header>
 
 <div class="wrapper">
@@ -103,8 +98,10 @@
 
         <a href="#page01"><button>Get Started</button></a>
 
-        <p>If you prefer to fill out the form manually, you may download it here and send it as an attachment to <span style="color: blue;">support@debtcollective.org</span></p>
-    
+        <p class="example" style="font-style: normal;">If you prefer to fill out the form manually, you may download it and send it as an attachment to <a style="color: #000" href="mailto:support@debtcollective.org">support@debtcollective.org</a><br /><br />
+
+        <a style="color: #000" href=""><i class="fa fa-file-pdf-o"></i>&nbsp; Download</a></p>
+
     </section>
 
     <nav id="steps"> 
@@ -279,7 +276,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="checkbox" name="field" value="no" />
+                    <input type="radio" name="field" value="no" />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -305,7 +302,7 @@
             <p>Next, we need to know about the school you went to.</p>
         </div>
 
-        <label for="school-select" style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</label>
+        <p style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
 
         <script id="schools-list" type="text/x-handlebars-template">
             <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
@@ -315,8 +312,8 @@
             <option></option>
         </select>
 
-        <div class="input-group" style="margin-top: 2.5em;">
-            <label>What was the name of your program?</label>
+        <p style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
+        <div class="input-group" style="margin-top: 0;">
             <input type="text" name="program_name" />
         </div>
     </section>
@@ -659,7 +656,7 @@
 
 
     <section id="page12">
-        <p>Did Corinthian mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
+        <p>Did <span class="school-name">Corinthian</span> mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
 
         <div class="input-group">
             <textarea style="min-height: 8em;"></textarea>
@@ -715,6 +712,7 @@
 <script src="assets/js/libs/chosen.jquery.min.js"></script>
 <script src="assets/js/libs/tabletop.js"></script>
 <script src="assets/js/libs/handlebars-v3.0.0.js"></script>
+<script src="assets/js/libs/jquery.validate.min.js"></script>
 <script src="assets/js/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.

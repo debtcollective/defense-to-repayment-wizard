@@ -109,7 +109,10 @@ header {
       width: 0.75em;
       content: ' ';
       display: inline-block;
-      margin-right: 0.5em; }
+      margin-right: 0.65em; }
+    header h2 img {
+      max-height: 0.8em;
+      opacity: 0.8; }
   header #back {
     position: absolute;
     top: 1em;
@@ -286,10 +289,12 @@ footer {
   #body00 footer {
     display: none; }
   footer #previous, footer #next {
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: middle; }
   footer #previous {
     width: 5em;
     margin-left: -5em;
+    margin-bottom: 1em;
     color: #a7a393; }
     footer #previous:hover {
       color: #393d41; }
@@ -350,6 +355,10 @@ nav#pages {
       display: inline-block;
       vertical-align: middle;
       margin: 0; }
+
+  #body00 section {
+    padding-top: 3em;
+    padding-bottom: 2em; }
 
   nav#pages ol:before {
     content: 'page';

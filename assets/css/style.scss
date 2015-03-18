@@ -140,7 +140,12 @@ header {
             width: 0.75em;
             content: ' ';
             display: inline-block;
-            margin-right: 0.5em;
+            margin-right: 0.65em;
+        }
+
+        img {
+            max-height: 0.8em;
+            opacity: 0.8;
         }
     }
 
@@ -434,11 +439,13 @@ footer {
 
     #previous, #next {
         display: inline-block;
+        vertical-align: middle;
     }
 
     #previous {
         width: 5em;
         margin-left: -5em;
+        margin-bottom: 1em;
 
         color: $mid-grey;
 
@@ -536,6 +543,11 @@ nav#pages {
             vertical-align: middle;
             margin: 0;
         }
+    }
+
+    #body00 section {
+        padding-top: 3em;
+        padding-bottom: 2em;
     }
 
     nav#pages {
