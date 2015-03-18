@@ -4,9 +4,11 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 
 var screen_width = $(window).width();
 
-var school_page = 5;		// first page of school section
-var experience_page = 7; 	// first page of experience section
-var currentSection;
+var school_first_page = 		5;	// first page of school section
+var experience_first_page = 	7; 	// first page of experience section
+
+var current_section, total_pages, school_pages, experience_pages, personal_pages;
+var section_page = 1;
 
 // remap jQuery to $
 (function($){
@@ -59,38 +61,58 @@ var currentSection;
 			$("section" + hash).addClass("active");
 		}
 
-		// change nav state
-		$("footer nav li.active").removeClass("active");
-		$("footer nav li#nav" + hash.substring(5)).addClass("active");
-
 		// update nav links
-		var currentPage = parseInt(hash.substring(5));
-		var nextPage = zeroFill(currentPage + 1, 2);
-		var prevPage = zeroFill(currentPage - 1, 2);
-		$("footer #next").attr("href", "#page" + nextPage);
-		$("footer #previous").attr("href", "#page" + prevPage);
+		var current_page = parseInt(hash.substring(5));
+		var next_page = zeroFill(current_page + 1, 2);
+		var prev_page = zeroFill(current_page - 1, 2);
+		$("footer #next").attr("href", "#page" + next_page);
+		$("footer #previous").attr("href", "#page" + prev_page);
 
 		// determine current section
-		if (currentPage < school_page)
-			currentSection = "school";
-		else if (currentPage >= school_page && currentPage < experience_page)
-			currentSection = "experience";
-		else
-			currentSection = "personal";
+		if (current_page < school_first_page){
+			current_section = "personal";
+			section_page = 1;
+			section_pages = personal_pages;
+		}
+		else if (current_page >= school_first_page && current_page < experience_first_page) {
+			current_section = "school";
+			section_page = school_first_page;
+			section_pages = school_pages;
+		}
+		else {
+			current_section = "experience";
+			section_page = experience_first_page;
+			section_pages = experience_pages;
+		}
+
+		console.log(section_pages);
 
 		// update "steps" nav
 		$("nav#steps li.active").removeClass("active");
-		$("nav#steps li#" + currentSection).addClass("active");
+		$("nav#steps li#" + current_section).addClass("active");
+
+		// build bottom nav
+		var li = '<li id="nav01"><a href="#page01">1</a></li>';
+		$("nav#pages ol").children().remove();
+
+		for(var i = 0; i < section_pages; i++) {
+			$("nav#pages ol").append(li);
+			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
+			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(i+1);
+		}
+
+		// change nav state
+		$("nav#pages li#nav" + hash.substring(5)).addClass("active");
 
 
 		// initialize chosen plugin for <select>s
 		if (hash && $(hash + " select.chosen").length
 			// make sure it's not the schools list
-			&& currentPage != 5) {
+			&& current_page != 5) {
 
 			// some may need custom widths
 			var ch_width = null;
-			if (currentPage == 1 && screen_width > 480)
+			if (current_page == 1 && screen_width > 480)
 				ch_width = "33%";
 
 			$(hash + " select.chosen").chosen({ width: ch_width });
@@ -104,6 +126,16 @@ var currentSection;
 		    $(this).parent().find(".explain").toggle(this.checked);
 		});
 
+
+		// how many pages total?
+		total_pages = 		$("section").length - 1;
+		personal_pages = 	school_first_page - 1;
+		experience_pages = 	total_pages - experience_first_page + 1;
+		school_pages = 		experience_first_page - school_first_page;
+
+		// make steps nav work
+		$("nav#steps li#school a").attr("href", "#page" + zeroFill(school_first_page, 2));
+		$("nav#steps li#experience a").attr("href", "#page" + zeroFill(experience_first_page, 2));
 
 		// employment question
 
@@ -123,11 +155,11 @@ var currentSection;
 				});
 			}
 		});
+
+
+		$(window).on( 'hashchange', getPage );
 	
 	});
-
-
-	$(window).on( 'hashchange', getPage );
 
 	
 	$(window).load(function() {

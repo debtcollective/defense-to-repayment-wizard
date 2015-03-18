@@ -168,7 +168,6 @@ section {
       border-bottom: 1px solid #ecebe7; }
   section .intro {
     margin-bottom: 2em;
-    padding-bottom: 0.5em;
     border-bottom: 1px solid #ecebe7; }
   section .form-language {
     color: #a7a393;
@@ -181,7 +180,7 @@ section {
     font-size: 0.9em;
     font-weight: bold; }
   section p {
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
     font-size: 1.05em; }
   #body00 section {
     padding-bottom: 3em;
