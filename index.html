@@ -121,11 +121,11 @@
 
         <div class="input-group text" id="ssn">
             <label for="ssn_1">Social Security #</label>
-            <input type="text" name="ssn_1" style="max-width: 3.25em;" rangelength="3" required digits />
+            <input type="text" name="ssn_1" style="max-width: 3.25em;" minlength="3" maxlength="3" required digits />
             <span class="light"> - </span>
-            <input type="text" name="ssn_2" style="max-width: 2.5em;" rangelength="2" required digits />
+            <input type="text" name="ssn_2" style="max-width: 2.5em;" minlength="2" maxlength="2" required digits />
             <span class="light"> - </span>
-            <input type="text" name="ssn_3" style="max-width: 4em;" rangelength="4" required digits />
+            <input type="text" name="ssn_3" style="max-width: 4em;" minlength="4" maxlength="4" required digits />
         </div>
 
         <div class="input-group text">
@@ -203,7 +203,7 @@
 
         <div class="input-group text" id="zip">
             <label for="zip">Zip</label>
-            <input type="text" name="zip" style="max-width: 5.5em;" required digits rangelength="5" />
+            <input type="text" name="zip" style="max-width: 5.5em;" required digits minlength="5" maxlength="5" />
         </div>
     </section>
 
@@ -217,21 +217,21 @@
         <div class="input-group text" id="phone_primary">
             <label for="phone_primary" class="optional">Primary Phone</label>
             <span class="light">(</span>
-            <input type="text" name="phone_primary_1" style="max-width: 3.25em;" rangelength="3" digits />
+            <input type="text" name="phone_primary_1" style="max-width: 3.25em;" minlength="3" maxlength="3" digits />
             <span class="light">) &nbsp;</span>
-            <input type="text" name="phone_primary_2" style="max-width: 3.25em;" rangelength="3,3" />
+            <input type="text" name="phone_primary_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
             <span class="light"> - </span>
-            <input type="text" name="phone_primary_3" style="max-width: 4em;" rangelength="4" digits />
+            <input type="text" name="phone_primary_3" style="max-width: 4em;" minlength="4" maxlength="4" digits />
         </div>
 
         <div class="input-group text" id="phone_secondary">
             <label for="phone_secondary" class="optional">Secondary Phone</label>
             <span class="light">(</span>
-            <input type="text" name="phone_secondary_1" style="max-width: 3.25em;" rangelength="3" />
+            <input type="text" name="phone_secondary_1" style="max-width: 3.25em;" minlength="3" maxlength="3" />
             <span class="light">) &nbsp;</span>
-            <input type="text" name="phone_secondary_2" style="max-width: 3.25em;" rangelength="3" />
+            <input type="text" name="phone_secondary_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
             <span class="light"> - </span>
-            <input type="text" name="phone_secondary_3" style="max-width: 4em;" rangelength="4" />
+            <input type="text" name="phone_secondary_3" style="max-width: 4em;" minlength="4" maxlength="4" />
         </div>
 
         <div class="input-group text">
@@ -249,7 +249,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="yes" />
+                    <input type="radio" name="employed" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -257,7 +257,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="no" />
+                    <input type="radio" name="employed" value="false" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -269,7 +269,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="field" value="yes" />
+                    <input type="radio" name="field" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -277,7 +277,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="field" value="no" />
+                    <input type="radio" name="field" value="false" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -309,8 +309,8 @@
             <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
         </script>
 
-        <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus...">
-            <option></option>
+        <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus..." required>
+            <option value=""></option>
         </select>
 
         <p style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
@@ -354,7 +354,7 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="complete" value="yes" />
+                <input type="radio" name="complete" value="true" required />
                 <label></label>
             </div>
             <label for="complete">Yes</label>
@@ -362,7 +362,7 @@
         
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="complete" value="no" />
+                <input type="radio" name="complete" value="false" required />
                 <label></label>
             </div>
             <label for="complete">No</label>
@@ -578,7 +578,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="yes" />
+                    <input type="radio" name="school-close" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -586,7 +586,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="no" />
+                    <input type="radio" name="school-close" value="false" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -598,7 +598,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="yes" />
+                    <input type="radio" name="withdraw" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -606,7 +606,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="no" />
+                    <input type="radio" name="withdraw" value="false" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -614,7 +614,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="not sure" />
+                    <input type="radio" name="withdraw" value="not sure" required />
                     <label></label>
                 </div>
                 <label>I'm not sure</label>
@@ -666,11 +666,11 @@
 
 
     <section id="page13">
-        <p>Absent this conduct, I would not have chosen to attend and/or continue attending <span class="school-name">Corinthian</span>.</p>
+        <p>If <span class="school-name">Corinthian</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="something" />
+                <input type="radio" name="agreement" value="true" required />
                 <label></label>
             </div>
 
@@ -678,24 +678,29 @@
         </div>
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="something" />
+                <input type="radio" name="agreement" value="false" />
                 <label></label>
             </div>
 
             <level>I disagree</level>
         </div>
     </section>
-</form>
 
 
     <section id="page14">
         <p>Please review your responses to ensure they are accurate before submitting.</p>
+
+
+        <input type="submit" value="Submit" />
     </section>
+</form>
 
 
     <footer>
-        <a href="#page00" id="previous">Back</a>
-        <a href="#page02" id="next"><button>Next</button></a>
+        <nav>
+            <a href="#page00" id="previous">Back</a>
+            <a href="#page02" id="next"><button>Next</button></a>
+        </nav>
 
         <nav id="pages">
             <ol></ol>

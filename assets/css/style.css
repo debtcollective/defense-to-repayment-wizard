@@ -14,7 +14,7 @@ header h2, nav#pages ol:before {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-#body00 section button, button {
+#body00 section button, section input[type="submit"], button {
   font-family: "proxima-nova";
   font-weight: 100;
   letter-spacing: 1px;
@@ -32,11 +32,11 @@ header h2, nav#pages ol:before {
   transition: background-color 0.25s;
   text-decoration: none;
   -webkit-appearance: caret; }
-  #body00 section button:hover, button:hover {
+  #body00 section button:hover, section input[type="submit"]:hover, button:hover {
     color: #fff;
     background: #d30e1d; }
 
-#body00 section button {
+#body00 section button, section input[type="submit"] {
   min-width: 50%;
   margin: 2.5em auto; }
 
@@ -226,10 +226,9 @@ section {
     color: #eb1020;
     font-size: 0.9em;
     display: block; }
+  section input.error {
+    border-color: #eb1020; }
   section .input-group.text label.error {
-    margin-left: 25%;
-    padding-left: 0.2em;
-    margin-top: 0.5em;
     width: auto;
     display: block; }
   section .checkbox, section .radio {
@@ -238,7 +237,8 @@ section {
     margin-right: 1em;
     position: relative;
     height: 1.5em;
-    width: 1.5em; }
+    width: 1.5em;
+    clear: left; }
     section .checkbox input, section .radio input {
       opacity: 0;
       height: 1.5em;
@@ -292,7 +292,7 @@ section {
     border-bottom: 1px solid #ecebe7;
     padding-bottom: 0.75em;
     line-height: 1.45em; }
-    section .input-group:last-child {
+    section .input-group:last-of-type {
       border: 0;
       padding-bottom: 0; }
   section select {
@@ -365,6 +365,12 @@ section #phone_primary input, section #phone_secondary input, section #ssn input
 #employment-type, #withdraw {
   display: none; }
 
+#body14 #next {
+  opacity: 0;
+  visibility: hidden; }
+#body14 #previous {
+  margin-left: 7.5em; }
+
 /* Media queries
 -------------------------------------------------------------------------------*/
 @media screen and (min-width: 480px) {
@@ -396,11 +402,16 @@ section #phone_primary input, section #phone_secondary input, section #ssn input
     padding-left: 3em;
     padding-right: 2.75em;
     min-height: 440px; }
+    section label.error {
+      margin-top: 0.5em; }
     section .input-group.text label {
       width: 25%;
       margin: 0.25em 0;
       display: inline-block;
       vertical-align: middle; }
+    section .input-group.text label.error {
+      margin-left: 25%;
+      padding-left: 0.2em; }
     section .input-group.text input[type="text"], section .input-group.text input[type="email"] {
       margin: 0; }
     section input[type="text"], section input[type="email"] {

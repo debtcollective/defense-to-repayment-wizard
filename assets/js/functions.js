@@ -102,6 +102,14 @@ var section_page = 1;
 		// change nav state
 		$("nav#pages li#nav" + hash.substring(5)).addClass("active");
 
+		// validate the form before letting the user move on
+		$("nav a").click( function(e) {
+			var isValid = $("form").valid();
+			console.log(isValid);
+			if (!isValid)
+				e.preventDefault();
+		});
+
 
 		// initialize chosen plugin for <select>s
 		if (hash && $(hash + " select.chosen").length
@@ -139,13 +147,13 @@ var section_page = 1;
 		// employment question
 
 		$("#employment-status input[type='radio']").on("change", function() {
-			var input = $("#employment-status input[value='yes']")[0];
+			var input = $("#employment-status input[value='true']")[0];
 			if (input.checked) {
 				$("#body03 #next").attr("href", "#page03");
 
 				$("#next").click( function() {
-					$("#employment-type").show();
 					$("#employment-status").hide();
+					$("#employment-type").show();
 
 					// let them move on to page 04
 					window.setTimeout( function() {
@@ -184,15 +192,42 @@ var section_page = 1;
 		$(window).on( 'hashchange', getPage );
 
 
-		$("form").validate({
-			// onfocusout: function(element) { $(element).valid(); },
-		});
+		// jquery.validate
 
-		// $("#next").click( function(e) {
-		// 	var isValid = $("section.active").valid();
-		// 	if (!isValid)
-		// 		e.stopPropagation();
-		// });
+		// don't ignore chosen
+		$.validator.setDefaults({ ignore: ":hidden:not(.active select)" })
+
+		$("form").validate({
+			messages: {
+				ssn_3: "A valid Social Security Number is required to submit the form.",
+				name: "Please enter your name.",
+				address: "Please enter your address.",
+				city: "Please enter your city.",
+				state: "Please enter your state.",
+				zip: "Please enter your zip code.",
+				phone_primary_3: "Please enter a valid phone number, or you may leave it blank.",
+				email: "Please enter a valid email address, or you may leave it blank."
+			},
+			groups: {
+			    ssn: "ssn_1 ssn_2 ssn_3",
+			    phone_primary: "phone_primary_1 phone_primary_2 phone_primary_3",
+			    phone_secondary: "phone_secondary_1 phone_secondary_2 phone_secondary_3"
+			},
+			errorPlacement: function(error, element) {
+			    if (element.attr("type") == "radio" || element.attr("type") == "checkbox" )
+			    	error.insertAfter(".input-group:last-of-type");
+			    else if (element.attr("name") == "ssn_1" || element.attr("name") == "ssn_2" )
+			    	error.insertAfter("input[name='ssn_3']");
+			    else if (element.attr("name") == "phone_primary_1" || element.attr("name") == "phone_primary_2" )
+			    	error.insertAfter("input[name='phone_primary_3']");
+			    else if (element.attr("name") == "phone_secondary_1" || element.attr("name") == "phone_secondary_2" )
+			    	error.insertAfter("input[name='phone_secondary_3']");
+			    else if (element.hasClass("chosen"))
+			    	error.insertAfter(".chosen-container")
+			    else
+			    	error.insertAfter(element);
+			},
+		});
 	
 	});
 
@@ -206,6 +241,8 @@ var section_page = 1;
 	});
 	
 	$(window).resize(function() {
+
+		screen_width = $(window).width();
 		
 	});
 	

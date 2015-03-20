@@ -289,6 +289,10 @@ section {
         }
     }
 
+    input[type="submit"] {
+        @extend %lg-button;
+    }
+
     input[type="text"], input[type="email"] {
         margin: 0.5em 0;
         padding: 0.33em 0.5em;
@@ -344,10 +348,11 @@ section {
         display: block;
     }
 
+    input.error {
+        border-color: $red;
+    }
+
     .input-group.text label.error {
-        margin-left: 25%;
-        padding-left: 0.2em;
-        margin-top: 0.5em;
         width: auto;
         display: block;
     }
@@ -359,6 +364,7 @@ section {
         position: relative;
         height: 1.5em;
         width: 1.5em;
+        clear: left;
 
         input {
             opacity: 0;
@@ -436,7 +442,7 @@ section {
         padding-bottom: 0.75em;
         line-height: 1.45em;
 
-        &:last-child {
+        &:last-of-type {
             border: 0;
             padding-bottom: 0;
         }
@@ -541,6 +547,7 @@ nav#pages {
 
 
 section {
+
     #phone_primary, #phone_secondary, #ssn {
         input {
             display: inline;
@@ -557,6 +564,19 @@ section {
 
 #employment-type, #withdraw {
     display: none;
+}
+
+
+// hide next button on last page
+#body14 {
+    #next {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #previous {
+        margin-left: 7.5em;
+    }
 }
 
 
@@ -609,6 +629,10 @@ section {
         padding-left: 3em;
         padding-right: 2.75em;
         min-height: 440px;
+
+        label.error {
+            margin-top: 0.5em;
+        }
     
         .input-group.text {
             label {
@@ -616,6 +640,11 @@ section {
                 margin: 0.25em 0;
                 display: inline-block;
                 vertical-align: middle;
+            }
+
+            label.error {
+                margin-left: 25%;
+                padding-left: 0.2em;
             }
 
             input[type="text"], input[type="email"] {
