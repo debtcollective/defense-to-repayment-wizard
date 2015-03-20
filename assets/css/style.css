@@ -195,13 +195,13 @@ section {
   #body00 section {
     padding-bottom: 3em;
     min-height: 0; }
-  section input[type="text"] {
+  section input[type="text"], section input[type="email"] {
     margin: 0.5em 0;
     padding: 0.33em 0.5em;
     display: block;
     width: 100%;
     line-height: normal; }
-  section .input-group input[type="text"] {
+  section .input-group input[type="text"], section .input-group input[type="email"] {
     margin: 1em 0; }
   section .input-group.text {
     border-bottom: 0;
@@ -209,12 +209,12 @@ section {
     margin: 1em 0; }
     section .input-group.text span.light {
       color: #a7a393; }
-    section .input-group.text input[type="text"] {
-      margin: 0; }
+    section .input-group.text input[type="text"], section .input-group.text input[type="email"] {
+      margin: 0.33em 0; }
   section .input-group.text label {
     line-height: normal;
     display: block; }
-  section input[type="text"], section textarea {
+  section input, section textarea {
     background-color: #f9f8f3;
     border: 1px solid #ecebe7;
     border-top-color: #d5d3cb;
@@ -222,6 +222,16 @@ section {
     box-shadow: inset 0.1em 0.15em 0.25em rgba(167, 163, 147, 0.15); }
   section label {
     cursor: default; }
+  section label.error {
+    color: #eb1020;
+    font-size: 0.9em;
+    display: block; }
+  section .input-group.text label.error {
+    margin-left: 25%;
+    padding-left: 0.2em;
+    margin-top: 0.5em;
+    width: auto;
+    display: block; }
   section .checkbox, section .radio {
     float: left;
     vertical-align: middle;
@@ -261,6 +271,16 @@ section {
         font-size: 2em;
         margin-left: -0.15em;
         color: #ed414e; }
+  section .radio input + label {
+    border-radius: 1em; }
+  section .radio input:checked + label:before {
+    content: '\f111';
+    font-size: 0.95em;
+    margin: 0.31em; }
+  section .checkbox + label, section .radio + label {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 2.5em); }
   section .input-group .explain {
     display: none;
     margin-top: 1em; }
@@ -336,6 +356,9 @@ nav#pages {
         color: #393d41;
         font-size: 1.15em; }
 
+section #phone_primary input, section #phone_secondary input, section #ssn input {
+  display: inline; }
+
 #phone_primary span.light:first-of-type, #phone_secondary span.light:first-of-type {
   margin-left: -0.5em; }
 
@@ -366,6 +389,8 @@ nav#pages {
     font-size: 1em; }
     nav#steps li a span.step {
       font-size: 0.87em; }
+    nav#steps li a span.extra {
+      display: inline; }
 
   section {
     padding-left: 3em;
@@ -376,7 +401,9 @@ nav#pages {
       margin: 0.25em 0;
       display: inline-block;
       vertical-align: middle; }
-    section input[type="text"] {
+    section .input-group.text input[type="text"], section .input-group.text input[type="email"] {
+      margin: 0; }
+    section input[type="text"], section input[type="email"] {
       width: 73.5%;
       display: inline-block;
       vertical-align: middle;

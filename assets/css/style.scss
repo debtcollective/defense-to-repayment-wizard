@@ -289,7 +289,7 @@ section {
         }
     }
 
-    input[type="text"] {
+    input[type="text"], input[type="email"] {
         margin: 0.5em 0;
         padding: 0.33em 0.5em;
         display: block;
@@ -297,7 +297,7 @@ section {
         line-height: normal;
     }
 
-    .input-group input[type="text"] {
+    .input-group input[type="text"], .input-group input[type="email"] {
         margin: 1em 0;
     }
 
@@ -310,8 +310,8 @@ section {
             color: $mid-grey;
         }
 
-        input[type="text"] {
-            margin: 0;
+        input[type="text"], input[type="email"] {
+            margin: 0.33em 0;
         }
     }
 
@@ -326,7 +326,7 @@ section {
         // }
     }
 
-    input[type="text"], textarea {
+    input, textarea {
         background-color: $light-tan;
         border: 1px solid $light-grey;
         border-top-color: darken($light-grey, 10%);
@@ -336,6 +336,20 @@ section {
 
     label {
         cursor: default;
+    }
+
+    label.error {
+        color: $red;
+        font-size: 0.9em;
+        display: block;
+    }
+
+    .input-group.text label.error {
+        margin-left: 25%;
+        padding-left: 0.2em;
+        margin-top: 0.5em;
+        width: auto;
+        display: block;
     }
 
     .checkbox, .radio {
@@ -380,7 +394,7 @@ section {
             &:before {
                 // content: '\2713';
                 font-family: "fontawesome";
-                content: '\f00c';
+                content: '\f00c'; // check mark
                 font-size: 2em;
                 margin-left: -0.15em;
                 color: saturate($mute-red, 15%);
@@ -388,10 +402,22 @@ section {
         }
     }
 
+    .radio input {
+        & + label {
+            border-radius: 1em;
+        }
+
+        &:checked + label:before {
+            content: '\f111'; // circle
+            font-size: 0.95em;
+            margin: 0.31em;
+        }
+    }
+
     .checkbox + label, .radio + label {
-        // display: inline-block;
-        // vertical-align: top;
-        // width: calc(100% - 3em);
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 2.5em);
     }
 
     .input-group .explain {
@@ -514,6 +540,14 @@ nav#pages {
 }
 
 
+section {
+    #phone_primary, #phone_secondary, #ssn {
+        input {
+            display: inline;
+        }
+    }
+}
+
 #phone_primary, #phone_secondary {
 
     span.light:first-of-type {
@@ -564,6 +598,10 @@ nav#pages {
             span.step {
                 font-size: 0.87em;
             }
+
+            span.extra {
+                display: inline;
+            }
         }
     }
 
@@ -572,14 +610,20 @@ nav#pages {
         padding-right: 2.75em;
         min-height: 440px;
     
-        .input-group.text label {
-            width: 25%;
-            margin: 0.25em 0;
-            display: inline-block;
-            vertical-align: middle;
+        .input-group.text {
+            label {
+                width: 25%;
+                margin: 0.25em 0;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            input[type="text"], input[type="email"] {
+                margin: 0;
+            }
         }
 
-        input[type="text"] {
+        input[type="text"], input[type="email"] {
             width: 73.5%;
             display: inline-block;
             vertical-align: middle;

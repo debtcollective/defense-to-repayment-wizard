@@ -182,6 +182,17 @@ var section_page = 1;
 
 
 		$(window).on( 'hashchange', getPage );
+
+
+		$("form").validate({
+			// onfocusout: function(element) { $(element).valid(); },
+		});
+
+		// $("#next").click( function(e) {
+		// 	var isValid = $("section.active").valid();
+		// 	if (!isValid)
+		// 		e.stopPropagation();
+		// });
 	
 	});
 
