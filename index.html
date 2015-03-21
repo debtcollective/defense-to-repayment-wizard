@@ -303,7 +303,7 @@
             <p>Next, we need to know about the school you went to.</p>
         </div>
 
-        <p style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
+        <label for="school_name" style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
 
         <script id="schools-list" type="text/x-handlebars-template">
             <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
@@ -313,7 +313,7 @@
             <option value=""></option>
         </select>
 
-        <p style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
+        <label for="program_name" style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
         <div class="input-group" style="margin-top: 0;">
             <input type="text" name="program_name" />
         </div>
@@ -336,7 +336,7 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="degree" value="Associates" />
+                <input type="radio" name="degree" value="associates" />
                 <label></label>
             </div>
             <label for="degree">Associates</label>
@@ -344,7 +344,7 @@
         
         <div class="input-group" style="border: 0; margin-bottom: 1.5em;">
             <div class="radio">
-                <input type="radio" name="degree" value="Certificate" />
+                <input type="radio" name="degree" value="certificate" />
                 <label></label>
             </div>
             <label for="degree">Certificate</label>
@@ -354,18 +354,18 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="complete" value="true" required />
+                <input type="radio" name="completed" value="true" required />
                 <label></label>
             </div>
-            <label for="complete">Yes</label>
+            <label for="completed">Yes</label>
         </div>
         
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="complete" value="false" required />
+                <input type="radio" name="completed" value="false" required />
                 <label></label>
             </div>
-            <label for="complete">No</label>
+            <label for="completed">No</label>
         </div>
     </section>
 
@@ -379,53 +379,57 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="placement-stats" />
+                <input type="checkbox" name="misleading_job_stats_check" />
                 <label></label>
             </div>
-            <label for="placement-stats">They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
+            <label for="misleading_job_stats_check">They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_job_stats"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_job_assistance_1_check" />
                 <label></label>
             </div>
-            <label>They misled me about the money I could earn after earning a Corinthian degree</label>
+            <label for="misleading_job_assistance_1_check">They misled me about the money I could earn after earning a Corinthian degree</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_job_assistance_1"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_job_assistance_2_check" />
                 <label></label>
             </div>
-            <label>They failed to provide promised job placement assistance</label>
+            <label for="misleading_job_assistance_2_check">They failed to provide promised job placement assistance</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_job_assistance_2"></textarea>
             </div>
         </div>
 
+        <!-- combine the last two questions into one on the PDF -->
+        <input type="hidden" name="misleading_job_assistance_check" value="" />
+        <input type="hidden" name="misleading_job_assistance" value="" />
+
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_job_other_check" />
                 <label></label>
             </div>
-            <label>They made other false promises relating to job prospects to convince me to enroll</label>
+            <label for="misleading_job_other_check">They made other false promises relating to job prospects to convince me to enroll</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_job_other"></textarea>
             </div>
         </div>
     </section>
@@ -436,53 +440,57 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_pass_rate_check" />
                 <label></label>
             </div>
-            <label>They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
+            <label for="misleading_pass_rate_check">They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_pass_rate"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_accreditation_1_check" />
                 <label></label>
             </div>
-            <label>They misled me about whether my credits would transfer to other colleges</label>
+            <label for="misleading_accreditation_1_check">They misled me about whether my credits would transfer to other colleges</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_accreditation_1"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_accreditation_2_check" />
                 <label></label>
             </div>
-            <label>They misreprented how seriously employers would treat my degree</label>
+            <label for="misleading_accreditation_2_check">They misreprented how seriously employers would treat my degree</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_accreditation_2"></textarea>
             </div>
         </div>
 
+        <!-- combine the last two questions into one on the PDF -->
+        <input type="hidden" name="misleading_accreditation_check" value="" />
+        <input type="hidden" name="misleading_accreditation" value="" />
+
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_quality_other_check" />
                 <label></label>
             </div>
-            <label>They misled me about the quality of the education I would receive in other ways</label>
+            <label for="misleading_quality_other_check">They misled me about the quality of the education I would receive in other ways</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_quality_other"></textarea>
             </div>
         </div>
     </section>
@@ -493,79 +501,79 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_truecost_check" />
                 <label></label>
             </div>
-            <label>They misled me about the true cost of the program.</label>
+            <label for="misleading_truecost_check">They misled me about the true cost of the program.</label>
 
             <div class="explain">
                 <p>Please explain.</p>
-                <textarea></textarea>
+                <textarea name="misleading_truecost"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_grants_check" />
                 <label></label>
             </div>
-            <label>They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
+            <label for="misleading_grants_check">They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_grants"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_loans_check" />
                 <label></label>
             </div>
-            <label>They misled me about the total amount of money I would have to borrow to complete my program.</label>
+            <label name="misleading_loans_check">They misled me about the total amount of money I would have to borrow to complete my program.</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_loans"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_loan_type_check" />
                 <label></label>
             </div>
-            <label>They misled me about whether my loans were federal or private.</label>
+            <label for="misleading_loan_type_check">They misled me about whether my loans were federal or private.</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_loan_type"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_terms_check" />
                 <label></label>
             </div>
-            <label>They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
+            <label for="misleading_terms">They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_terms"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_pay_other_check" />
                 <label></label>
             </div>
-            <label>They misled me in other ways about the cost of the program or financial aid I would receive.</label>
+            <label for="misleading_pay_other_check">They misled me in other ways about the cost of the program or financial aid I would receive.</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_pay_other"></textarea>
             </div>
         </div>
     </section>
@@ -614,7 +622,7 @@
             
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="not sure" required />
+                    <input type="radio" name="withdraw" value="not_sure" required />
                     <label></label>
                 </div>
                 <label>I'm not sure</label>
@@ -628,29 +636,29 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_likelihood_check" />
                 <label></label>
             </div>
-            <label>They misled me about the likelihood that my school would shut down</label>
+            <label for="misleading_likelihood_check">They misled me about the likelihood that my school would shut down</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_likelihood"></textarea>
             </div>
         </div>
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="something" />
+                <input type="checkbox" name="misleading_teachout_check" />
                 <label></label>
             </div>
-            <label>They misled me about my option to decline the “teach-out” at the school.</label>
+            <label for="misleading_teachout_check">They misled me about my option to decline the “teach-out” at the school.</label>
 
             <p class="example">For example, did they fail to inform you that you had a right to receive a complete refund if you did not take the teach out?</p>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
-                <textarea></textarea>
+                <textarea name="misleading_teachout"></textarea>
             </div>
         </div>
     </section>
@@ -660,7 +668,7 @@
         <p>Did <span class="school-name">Corinthian</span> mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
 
         <div class="input-group">
-            <textarea style="min-height: 8em;"></textarea>
+            <textarea style="min-height: 8em;" name="misleading_other"></textarea>
         </div>
     </section>
 
