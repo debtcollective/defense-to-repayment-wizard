@@ -39,7 +39,6 @@ var section_page = 1;
 
 		// save state data
 		state_laws = tabletop.sheets("State Laws").all();
-		console.log(state_laws);
     }
 
     function getStateLaw(state) {
