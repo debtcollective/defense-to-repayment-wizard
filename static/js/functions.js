@@ -135,6 +135,21 @@ var section_page = 1;
 		}
 	}
 
+	// combine two questions from the wizard into one form field to send to the PDF
+	function combineValues(question1, question2, combined) {
+
+		$("input[name='"+question1+"_check'], input[name='"+question2+"_check']").on("change", function() {
+			var isChecked = $(this).val();
+			if (isChecked)
+				$("input[name='"+combined+"_check']").attr("value", "true");
+		});
+
+		$("textarea[name='"+question1+"'], textarea[name='"+question2+"']").on("change", function() {
+			var combined_vals = $("textarea[name='"+question1+"']").val() + " " + $("textarea[name='"+question2+"']").val();
+			$("input[name='"+combined+"']").val(combined_vals);
+		});
+	}
+
 	$(document).ready(function (){
 
 		// toggle "explain" textarea field when box is checked
@@ -207,6 +222,10 @@ var section_page = 1;
 
 		// show the correct page on hash change
 		$(window).on( 'hashchange', getPage );
+
+		// combine values from two wizard fields into one PDF field
+		combineValues("misleading_job_assistance_1", "misleading_job_assistance_2", "misleading_job_assistance");
+		combineValues("misleading_accreditation_1", "misleading_job_accreditation_2", "misleading_job_accreditation");
 
 
 		// jquery.validate
