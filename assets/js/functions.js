@@ -7,7 +7,7 @@ var screen_width = $(window).width();
 var school_first_page = 		5;	// first page of school section
 var experience_first_page = 	7; 	// first page of experience section
 
-var current_section, total_pages, school_pages, experience_pages, personal_pages;
+var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
 var section_page = 1;
 
 // remap jQuery to $
@@ -37,6 +37,18 @@ var section_page = 1;
 			$(".school-name").html( $(this).val() );
 		});
 
+		// save state data
+		state_laws = tabletop.sheets("State Laws").all();
+		console.log(state_laws);
+    }
+
+    function getStateLaw(state) {
+
+    	// filter state laws table for the selected state
+    	var state_law = state_laws.filter( function(item){return (item.State==state);} );
+
+    	// fill hidden input with state law text
+		$("input[name='state_law']").attr("value", state_law[0].Law);
     }
 
     // pad with leading 0
@@ -188,6 +200,13 @@ var section_page = 1;
 		});
 
 
+		// update state law based on state <select>
+		$("select[name='state']").on("change", function() {
+			var state = $(this).val();
+			getStateLaw(state);
+		});
+
+		// show the correct page on hash change
 		$(window).on( 'hashchange', getPage );
 
 
