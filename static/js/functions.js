@@ -5,7 +5,7 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 var screen_width = $(window).width();
 
 var school_first_page = 		5;	// first page of school section
-var experience_first_page = 	7; 	// first page of experience section
+var experience_first_page = 	8; 	// first page of experience section
 
 var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
 var section_page = 1;
@@ -174,42 +174,22 @@ var section_page = 1;
 		$("#employment-status input[type='radio']").on("change", function() {
 			var input = $("#employment-status input[value='true']")[0];
 			if (input.checked) {
-				$("#body03 #next").attr("href", "#page03");
-
-				$("#next").click( function() {
-					$("#employment-status").hide();
-					$("#employment-type").show();
-
-					// let them move on to page 04
-					window.setTimeout( function() {
-						$("#body03 #next").attr("href", "#page04");
-					}, 300);
-				});
+				$("#employment-type").show();
 			}
 			else {
-				$("#body03 #next").attr("href", "#page04");
+				$("#employment-type").hide();
 			}
 		});
 
 		// school closing question
 
 		$("#school-close input[type='radio']").on("change", function() {
-			var input = $("#school-close input[value='no']")[0];
+			var input = $("#school-close input[value='false']")[0];
 			if (input.checked) {
-				$("#body10 #next").attr("href", "#page10");
-
-				$("#next").click( function() {
-					$("#withdraw").show();
-					$("#school-close").hide();
-
-					// let them move on to page 04
-					window.setTimeout( function() {
-						$("#body10 #next").attr("href", "#page11");
-					}, 300);
-				});
+				$("#withdraw").show();
 			}
 			else {
-				$("#body10 #next").attr("href", "#page11");
+				$("#withdraw").hide();
 			}
 		});
 
