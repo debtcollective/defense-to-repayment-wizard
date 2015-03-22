@@ -747,29 +747,45 @@
         <p>If <span class="school-name">Corinthian</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
 
         <div class="input-group">
-            <div class="radio">
-                <input type="radio" name="agreement" value="true" required />
+            <div class="checkbox">
+                <input type="checkbox" name="agreement" value="true" required />
                 <label></label>
             </div>
 
             <level>I agree</level>
-        </div>
-        <div class="input-group">
-            <div class="radio">
-                <input type="radio" name="agreement" value="false" />
-                <label></label>
-            </div>
-
-            <level>I disagree</level>
         </div>
     </section>
 
 
     <section id="page15">
         <p>Please review your responses to ensure they are accurate before submitting.</p>
+    </section>
 
+    <section id="page16">
+        <p>You're almost done! By signing below, you declare the following:</p>
 
-        <input type="submit" value="Submit" />
+        <div class="form-language">
+            <p>I acknowledge that any person who knowingly makes a false statement or misrepresentation on this form or any accompanying document is subject to penalties that may include fines, imprisonment, or both, under the U.S. Criminal Code and 20 U.S.C. § 1097.</p>
+    
+            <p>I certify, under penalty of perjury, that all of the information I have provided on this form and in any accompanying documentation is true and accurate to the best of my knowledge and belief.</p>
+    
+            <p>I certify that I will provide, upon request, testimony, a sworn statement, or other documentation reasonably available to me that demonstrates to the satisfaction of the Department that I meet the qualifications for defense to repayment of my student loans.</p>
+    
+            <p>I certify that, if my defense is successful, upon request I will provide assistance and cooperation to the U.S. Department of Education (the Department)in any proceedings or enforcement actions against the school related to my defense or the conduct asserted herein.</p>
+    
+            <p>I hereby assign and transfer to the U.S. Department of Education (the Department) any right to a refund on the amount discharged that I may have received from the school and/or any owners, affiliates, or assignees of the school, and from any third party that may pay claims for a refund because of the actions or omissions of the school, up to the amount discharged by the Department on my loan(s).</p>
+    
+            <p>I authorize the loan holder to which I submit this request (and its agents or contractors) to contact me regarding my request or my loan(s), including repayment of my loan(s), at the number that I provide on this form or any future number that I provide for my cellular telephone or other wireless device using automated telephone dialing equipment or artificial or prerecorded voice or text messages.</p>
+        </div>
+
+        <div class="input-group text">
+            <label for="signature">Type your full name.</label>
+            <input type="text" name="signature" />
+        </div>
+
+        <input type="hidden" name="date" value="" />
+
+        <input type="submit" value="Sign and submit" />
     </section>
 </form>
 

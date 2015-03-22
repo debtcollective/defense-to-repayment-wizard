@@ -205,7 +205,8 @@ var section_page = 1;
 				state: "Please enter your state.",
 				zip: "Please enter your zip code.",
 				phone_primary_3: "Please enter a valid phone number, or you may leave it blank.",
-				email: "Please enter a valid email address, or you may leave it blank."
+				email: "Please enter a valid email address, or you may leave it blank.",
+				agreement: "You must check this box in order to submit the form and contest your loans."
 			},
 			groups: {
 			    ssn: "ssn_1 ssn_2 ssn_3",

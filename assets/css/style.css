@@ -194,6 +194,8 @@ section {
   #body00 section {
     padding-bottom: 3em;
     min-height: 0; }
+  section input[type="submit"] {
+    margin: 1.5em auto 0; }
   section input[type="text"], section input[type="email"] {
     margin: 0.5em 0;
     padding: 0.33em 0.5em;
@@ -355,6 +357,12 @@ nav#pages {
         color: #393d41;
         font-size: 1.15em; }
 
+.form-language {
+  color: #a7a393;
+  font-size: 0.85em;
+  line-height: 1.5em;
+  margin-bottom: 2em; }
+
 section #phone_primary input, section #phone_secondary input, section #ssn input {
   display: inline; }
 
@@ -364,10 +372,10 @@ section #phone_primary input, section #phone_secondary input, section #ssn input
 #employment-type, #withdraw {
   display: none; }
 
-#body15 #next {
+#body16 #next {
   opacity: 0;
   visibility: hidden; }
-#body15 #previous {
+#body16 #previous {
   margin-left: 7.5em; }
 
 /* Media queries
@@ -429,7 +437,14 @@ section #phone_primary input, section #phone_secondary input, section #ssn input
     left: 3em;
     color: #a7a393;
     font-size: 1em;
-    bottom: 1.75em; } }
+    bottom: 1.75em; }
+
+  .form-language {
+    max-height: 200px;
+    overflow: scroll;
+    padding: 0.5em 0.75em;
+    background: #f9f8f3;
+    border: 1px solid #ecebe7; } }
 @media screen and (min-width: 800px) {
   header #back {
     display: block; } }

@@ -3,7 +3,7 @@
 //
 // specify the last page of the form
 //
-$last-page: 15;
+$last-page: 16;
 //
 //////////////////////////////////////////////
 
@@ -298,6 +298,7 @@ section {
 
     input[type="submit"] {
         @extend %lg-button;
+        margin: 1.5em auto 0;
     }
 
     input[type="text"], input[type="email"] {
@@ -552,6 +553,13 @@ nav#pages {
     }
 }
 
+.form-language {
+    color: $mid-grey;
+    font-size: 0.85em;
+    line-height: 1.5em;
+    margin-bottom: 2em;
+}
+
 
 section {
 
@@ -682,6 +690,14 @@ section {
             font-size: 1em;
             bottom: 1.75em;
         }
+    }
+
+    .form-language {
+        max-height: 200px;
+        overflow: scroll;
+        padding: 0.5em 0.75em;
+        background: $light-tan;
+        border: $border;
     }
         
 }
