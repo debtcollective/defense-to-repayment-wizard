@@ -10,6 +10,9 @@ var experience_first_page = 	8; 	// first page of experience section
 var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
 var section_page = 1;
 
+// did the user's school shut down?
+var shutdown = false;
+
 // remap jQuery to $
 (function($){
 
@@ -79,6 +82,12 @@ var section_page = 1;
 		$("footer #next").attr("href", "#page" + next_page);
 		$("footer #previous").attr("href", "#page" + prev_page);
 
+		// skip shutdown page if the school didn't shut down
+		if (!shutdown && next_page == 11)
+			$("footer #next").attr("href", "#page" + zeroFill(current_page + 2, 2));
+		else if (!shutdown && prev_page == 11)
+			$("footer #previous").attr("href", "#page" + zeroFill(current_page - 2, 2));
+
 		// determine current section
 		if (current_page < school_first_page){
 			current_section = "personal";
@@ -94,6 +103,7 @@ var section_page = 1;
 			current_section = "experience";
 			section_page = experience_first_page;
 			section_pages = experience_pages;
+			if (!shutdown) section_pages = experience_pages - 1;
 		}
 
 		// update "steps" nav
@@ -105,6 +115,8 @@ var section_page = 1;
 		$("nav#pages ol").children().remove();
 
 		for(var i = 0; i < section_pages; i++) {
+			if (!shutdown && section_page + i == 11)
+				i++
 			$("nav#pages ol").append(li);
 			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
 			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(i+1);
@@ -183,7 +195,7 @@ var section_page = 1;
 
 		// school closing question
 
-		$("#school-close input[type='radio']").on("change", function() {
+		$("input[name='school-close']").on("change", function() {
 			var input = $("#school-close input[value='false']")[0];
 			if (input.checked) {
 				$("#withdraw").show();
@@ -193,6 +205,11 @@ var section_page = 1;
 			}
 		});
 
+		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
+			if ($("input[name='school-close']").val() == true || $("input[name='withdraw']").val() == true) {
+				shutdown = true;
+			}
+		});
 
 		// update state law based on state <select>
 		$("select[name='state']").on("change", function() {
