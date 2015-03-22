@@ -105,7 +105,6 @@ var section_page = 1;
 		// validate the form before letting the user move on
 		$("nav a").click( function(e) {
 			var isValid = $("form").valid();
-			console.log(isValid);
 			if (!isValid)
 				e.preventDefault();
 		});
