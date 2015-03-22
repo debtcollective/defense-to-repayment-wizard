@@ -10,20 +10,20 @@
 <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<!-- the "no-js" class is for Modernizr. --> 
+<!-- the "no-js" class is for Modernizr. -->
 
 <head>
 
     <meta charset="utf-8">
-    
+
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
+
     <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
     <title></title>
     <meta name="author" content="The Debt Collective" />
     <meta name="description" content="Defense to Repayment Form Wizard" />
-    
+
     <!--  Mobile Viewport
     http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
     device-width : Occupy full width of the screen in its current orientation
@@ -31,7 +31,7 @@
     maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
     <link rel="shortcut icon" href="favicon.ico" />
 
@@ -41,24 +41,24 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
+
     <!-- concatenate and minify for production -->
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/jquery.ui.datepicker.min.css" />
-    <link rel="stylesheet" href="assets/css/chosen.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/jquery.ui.datepicker.min.css" />
+    <link rel="stylesheet" href="/static/css/chosen.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+
     <!-- Lea Verou's Prefix Free, lets you use un-prefixed properties in your CSS files -->
-    <script src="assets/js/libs/prefixfree.min.js"></script>
-    
-    <!-- This is an un-minified, complete version of Modernizr. 
+    <script src="/static/js/libs/prefixfree.min.js"></script>
+
+    <!-- This is an un-minified, complete version of Modernizr.
          Before you move to production, you should generate a custom build that only has the detects you need. -->
-    <script src="assets/js/libs/modernizr-2.7.1.dev.js"></script>
-    
+    <script src="/static/js/libs/modernizr-2.7.1.dev.js"></script>
+
     <!-- Application-specific meta tags -->
     <!-- Windows 8: see http://msdn.microsoft.com/en-us/library/ie/dn255024%28v=vs.85%29.aspx for details -->
-    <meta name="application-name" content="" /> 
-    <meta name="msapplication-TileColor" content="" /> 
+    <meta name="application-name" content="" />
+    <meta name="msapplication-TileColor" content="" />
     <meta name="msapplication-TileImage" content="" />
     <meta name="msapplication-square150x150logo" content="" />
     <meta name="msapplication-square310x310logo" content="" />
@@ -82,16 +82,16 @@
 
 <header>
     <a href="http://debtcollective.org" id="back">Back to the Debt Collective</a>
-    
-    <h2><img src="assets/dc_name.png" alt="Debt Collective" /></h2>
+
+    <h2><img src="/static/dc_name.png" alt="Debt Collective" /></h2>
 </header>
 
 <div class="wrapper">
-    
+
     <h1>Defense to Repayment Wizard</h1>
-    
+
     <section id="page00" class="active">
-        
+
         <p>Welcome Corinthian Collective members! We built this wizard to help you dispute your federal student loan debt from your school. This tool will help you fill out a form, which we will submit on your behalf to the US Department of Education. You will be able to download your completed form after you submit..</p>
 
         <p>Please answer the following questions and provide as much detail as you can in your response. The more information you can provide, the better chance you have of getting a loan discharge. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
@@ -102,7 +102,7 @@
 
     </section>
 
-    <nav id="steps"> 
+    <nav id="steps">
         <ol>
             <li id="personal" class="active"><a href="#page01"><span class="step">Step 1</span> Personal Info<span class="extra">rmation</span></a></li>
             <li id="school"><a href="#page02"><span class="step">Step 2</span> <span class="extra">Your </span>School</a></li>
@@ -112,7 +112,7 @@
 
     <form>
     <section id="page01">
-        
+
         <div class="intro">
             <p>First, we need some personal information.</p>
         </div>
@@ -254,7 +254,7 @@
                 </div>
                 <label>Yes</label>
             </div>
-            
+
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="employed" value="false" required />
@@ -274,7 +274,7 @@
                 </div>
                 <label>Yes</label>
             </div>
-            
+
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="field" value="false" required />
@@ -298,7 +298,7 @@
 
 
     <section id="page05">
-        
+
         <div class="intro">
             <p>Next, we need to know about the school you went to.</p>
         </div>
@@ -321,7 +321,7 @@
 
 
     <section id="page06">
-        
+
         <p>When did you attend <span class="school-name">Corinthian</span>?</p>
 
         <div class="input-group text">
@@ -341,7 +341,7 @@
             </div>
             <label for="degree">Associates</label>
         </div>
-        
+
         <div class="input-group" style="border: 0; margin-bottom: 1.5em;">
             <div class="radio">
                 <input type="radio" name="degree" value="certificate" />
@@ -359,7 +359,7 @@
             </div>
             <label for="completed">Yes</label>
         </div>
-        
+
         <div class="input-group">
             <div class="radio">
                 <input type="radio" name="completed" value="false" required />
@@ -591,7 +591,7 @@
                 </div>
                 <label>Yes</label>
             </div>
-            
+
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="school-close" value="false" required />
@@ -611,7 +611,7 @@
                 </div>
                 <label>Yes</label>
             </div>
-            
+
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="withdraw" value="false" required />
@@ -619,7 +619,7 @@
                 </div>
                 <label>No</label>
             </div>
-            
+
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="withdraw" value="not_sure" required />
@@ -766,15 +766,15 @@
 
         <div class="form-language">
             <p>I acknowledge that any person who knowingly makes a false statement or misrepresentation on this form or any accompanying document is subject to penalties that may include fines, imprisonment, or both, under the U.S. Criminal Code and 20 U.S.C. § 1097.</p>
-    
+
             <p>I certify, under penalty of perjury, that all of the information I have provided on this form and in any accompanying documentation is true and accurate to the best of my knowledge and belief.</p>
-    
+
             <p>I certify that I will provide, upon request, testimony, a sworn statement, or other documentation reasonably available to me that demonstrates to the satisfaction of the Department that I meet the qualifications for defense to repayment of my student loans.</p>
-    
+
             <p>I certify that, if my defense is successful, upon request I will provide assistance and cooperation to the U.S. Department of Education (the Department)in any proceedings or enforcement actions against the school related to my defense or the conduct asserted herein.</p>
-    
+
             <p>I hereby assign and transfer to the U.S. Department of Education (the Department) any right to a refund on the amount discharged that I may have received from the school and/or any owners, affiliates, or assignees of the school, and from any third party that may pay claims for a refund because of the actions or omissions of the school, up to the amount discharged by the Department on my loan(s).</p>
-    
+
             <p>I authorize the loan holder to which I submit this request (and its agents or contractors) to contact me regarding my request or my loan(s), including repayment of my loan(s), at the number that I provide on this form or any future number that I provide for my cellular telephone or other wireless device using automated telephone dialing equipment or artificial or prerecorded voice or text messages.</p>
         </div>
 
@@ -805,19 +805,19 @@
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='assets/js/libs/jquery-1.11.0.min.js'>\x3C/script>")</script>
+<script>window.jQuery || document.write("<script src='/static/js/libs/jquery-1.11.0.min.js'>\x3C/script>")</script>
 
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify if needed -->
-<script src="assets/js/libs/chosen.jquery.min.js"></script>
-<script src="assets/js/libs/tabletop.js"></script>
-<script src="assets/js/libs/handlebars-v3.0.0.js"></script>
-<script src="assets/js/libs/jquery.validate.min.js"></script>
-<script src="assets/js/functions.js"></script>
+<script src="/static/js/libs/chosen.jquery.min.js"></script>
+<script src="/static/js/libs/tabletop.js"></script>
+<script src="/static/js/libs/handlebars-v3.0.0.js"></script>
+<script src="/static/js/libs/jquery.validate.min.js"></script>
+<script src="/static/js/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
      Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
-     
+
 <script>
 
   var _gaq = _gaq || [];
@@ -832,6 +832,6 @@
 
 </script>
 -->
-  
+
 </body>
 </html>
