@@ -68,6 +68,8 @@ var shutdown = false;
 	function getPage() {
 		var hash = window.location.hash;
 
+		console.log(shutdown);
+
 		// change question state
 		if (hash) {
 			$("body").attr("id", "body" + hash.substring(5));
@@ -103,7 +105,6 @@ var shutdown = false;
 			current_section = "experience";
 			section_page = experience_first_page;
 			section_pages = experience_pages;
-			if (!shutdown) section_pages = experience_pages - 1;
 		}
 
 		// update "steps" nav
@@ -114,12 +115,16 @@ var shutdown = false;
 		var li = '<li id="nav01"><a href="#page01">1</a></li>';
 		$("nav#pages ol").children().remove();
 
+		var j;
 		for(var i = 0; i < section_pages; i++) {
+			j = i;
 			if (!shutdown && section_page + i == 11)
 				i++
+			else if (!shutdown && section_page + i > 11)
+				j--
 			$("nav#pages ol").append(li);
 			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
-			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(i+1);
+			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(j+1);
 		}
 
 		// change nav state
@@ -197,18 +202,18 @@ var shutdown = false;
 
 		$("input[name='school-close']").on("change", function() {
 			var input = $("#school-close input[value='false']")[0];
-			if (input.checked) {
+			if (input.checked)
 				$("#withdraw").show();
-			}
-			else {
+			else
 				$("#withdraw").hide();
-			}
 		});
 
 		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
-			if ($("input[name='school-close']").val() == true || $("input[name='withdraw']").val() == true) {
+			console.log($("input[name='school-close']:checked").val(), $("input[name='withdraw']:checked").val());
+			if ($("input[name='school-close']:checked").val() == "true" || $("input[name='withdraw']:checked").val() == "true")
 				shutdown = true;
-			}
+			else
+				shutdown = false;
 		});
 
 		// update state law based on state <select>
