@@ -242,7 +242,9 @@ var shutdown = false;
 				zip: "Please enter your zip code.",
 				phone_primary_3: "Please enter a valid phone number, or you may leave it blank.",
 				email: "Please enter a valid email address, or you may leave it blank.",
-				agreement: "You must check this box in order to submit the form and contest your loans."
+				agreement: "You must check this box in order to submit the form and contest your loans.",
+				attendance_from_year: "Please enter a start date.",
+				attendance_to_year: "Please enter an end date.",
 			},
 			groups: {
 			    ssn: "ssn_1 ssn_2 ssn_3",
@@ -258,6 +260,8 @@ var shutdown = false;
 			    	error.insertAfter("input[name='phone_primary_3']");
 			    else if (element.attr("name") == "phone_secondary_1" || element.attr("name") == "phone_secondary_2" )
 			    	error.insertAfter("input[name='phone_secondary_3']");
+			    else if (element.attr("name") == "attendance_from_year" || element.attr("name") == "attendance_to_year" )
+			    	error.insertAfter("#attendance-to");
 			    else if (element.hasClass("chosen"))
 			    	error.insertAfter(".chosen-container")
 			    else
