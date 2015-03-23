@@ -44,7 +44,6 @@
 
     <!-- concatenate and minify for production -->
     <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/jquery.ui.datepicker.min.css" />
     <link rel="stylesheet" href="/static/css/chosen.min.css" />
     <link rel="stylesheet" href="/static/css/style.css" />
 
@@ -325,12 +324,42 @@
 
         <p>When did you attend <span class="school-name">Corinthian</span>?</p>
 
-        <div class="input-group text">
-            <label>From</label>
-            <input type="text" style="width: 25%" />
+        <div id="attendance-from" class="input-group" style="border: 0;">
+            <label style="margin-right: 1em;">From</label>
+            <select name="attendance_from_month" class="chosen" style="margin: 0;" required>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <input type="text" name="attendance_from_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" />
+        </div>
 
-            <label style="width: auto; margin-left: 2em; margin-right: 1em;">To</label>
-            <input type="text" style="width: 25%" />
+        <div id="attendance-to" class="input-group" style="border: 0;">
+            <label style="width: auto; margin-right: 1em;">To</label>
+            <select name="attendance_from_month" class="chosen" style="margin: 0;" required>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <input type="text" name="attendance_to_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" />
         </div>
 
         <p>What type of degree were you working on?</p>

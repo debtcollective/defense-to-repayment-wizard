@@ -141,14 +141,14 @@ var shutdown = false;
 		// initialize chosen plugin for <select>s
 		if (hash && $(hash + " select.chosen").length
 			// make sure it's not the schools list
-			&& current_page != 5) {
+			&& current_page != school_first_page) {
 
 			// some may need custom widths
 			var ch_width = null;
 			if (current_page == 1 && screen_width > 480)
 				ch_width = "33%";
 
-			$(hash + " select.chosen").chosen({ width: ch_width });
+			$(hash + " select.chosen").chosen({ width: ch_width, disable_search_threshold: 12 });
 		}
 	}
 
