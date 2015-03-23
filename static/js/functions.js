@@ -68,8 +68,6 @@ var shutdown = false;
 	function getPage() {
 		var hash = window.location.hash;
 
-		console.log(shutdown);
-
 		// change question state
 		if (hash) {
 			$("body").attr("id", "body" + hash.substring(5));
@@ -209,7 +207,6 @@ var shutdown = false;
 		});
 
 		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
-			console.log($("input[name='school-close']:checked").val(), $("input[name='withdraw']:checked").val());
 			if ($("input[name='school-close']:checked").val() == "true" || $("input[name='withdraw']:checked").val() == "true")
 				shutdown = true;
 			else
@@ -267,6 +264,15 @@ var shutdown = false;
 			    	error.insertAfter(element);
 			},
 		});
+
+		// fill the "today's date" field for the signature!
+		var today = new Date();
+		var d = today.getDate();
+		var m = today.getMonth()+1; //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = m+'/'+d+'/'+yyyy;
+		$("input[name='date_today']").attr("value", today);
 	
 	});
 
