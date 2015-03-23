@@ -63,6 +63,23 @@ var shutdown = false;
 	  return number + ""; // always return a string
 	}
 
+	$('#dtr-form').submit(function(event) {
+		var data = $(this).serializeObject()
+		$.ajax({
+			method: 'POST',
+			url: '/corinthian/dtr_generate',
+			data: data,
+			success: function (data) {
+				window.location.hash = '#page17'
+				$('#pdf-view').attr('src', data['pdf_link'])
+			},
+			error: function (data) {
+				console.log(data)
+			}
+		})
+	  event.preventDefault();
+	});
+
 
 	// show the appropriate page of the form
 	function getPage() {
@@ -277,10 +294,9 @@ var shutdown = false;
 
 		today = m+'/'+d+'/'+yyyy;
 		$("input[name='date_today']").attr("value", today);
-	
 	});
 
-	
+
 	$(window).load(function() {
 		init();
 
@@ -288,13 +304,28 @@ var shutdown = false;
 
 		getPage();
 	});
-	
+
 	$(window).resize(function() {
 
 		screen_width = $(window).width();
-		
+
 	});
-	
-	
+
+	$.fn.serializeObject = function()
+	{
+	    var o = {};
+	    var a = this.serializeArray();
+	    $.each(a, function() {
+	        if (o[this.name] !== undefined) {
+	            if (!o[this.name].push) {
+	                o[this.name] = [o[this.name]];
+	            }
+	            o[this.name].push(this.value || '');
+	        } else {
+	            o[this.name] = this.value || '';
+	        }
+	    });
+	    return o;
+	};
 
 })(window.jQuery);
