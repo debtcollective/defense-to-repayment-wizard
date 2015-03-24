@@ -387,6 +387,11 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   display: inline-block;
   min-width: 2.5em; }
 
+.input-group.degree {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top; }
+
 #body16 #next {
   opacity: 0;
   visibility: hidden; }
