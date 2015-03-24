@@ -209,7 +209,7 @@ var shutdown = false;
 
 
 		// how many pages total?
-		total_pages = 		$("section").length - 1;
+		total_pages = 		$("section").length - 2; // -2 for download and intro
 		personal_pages = 	school_first_page - 1;
 		experience_pages = 	total_pages - experience_first_page + 1;
 		school_pages = 		experience_first_page - school_first_page;
