@@ -249,7 +249,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="true" required />
+                    <input type="radio" name="employed" value="0" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -257,7 +257,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="false" required />
+                    <input type="radio" name="employed" value="1" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -269,7 +269,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="field" value="true" required />
+                    <input type="radio" name="field" value="0" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -277,7 +277,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="field" value="false" required />
+                    <input type="radio" name="field" value="1" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -365,7 +365,7 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="degree" value="associates" />
+                <input type="radio" name="degree" value="0" />
                 <label></label>
             </div>
             <label for="degree">Associates</label>
@@ -373,7 +373,7 @@
 
         <div class="input-group" style="border: 0; margin-bottom: 1.5em;">
             <div class="radio">
-                <input type="radio" name="degree" value="certificate" />
+                <input type="radio" name="degree" value="1" />
                 <label></label>
             </div>
             <label for="degree">Certificate</label>
@@ -383,7 +383,7 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="completed" value="true" required />
+                <input type="radio" name="completed" value="0" required />
                 <label></label>
             </div>
             <label for="completed">Yes</label>
@@ -391,7 +391,7 @@
 
         <div class="input-group">
             <div class="radio">
-                <input type="radio" name="completed" value="false" required />
+                <input type="radio" name="completed" value="1" required />
                 <label></label>
             </div>
             <label for="completed">No</label>
@@ -406,7 +406,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="true" required />
+                    <input type="radio" name="school-close" value="0" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -414,7 +414,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="false" required />
+                    <input type="radio" name="school-close" value="1" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -426,7 +426,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="true" required />
+                    <input type="radio" name="withdraw" value="0" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -434,7 +434,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="false" required />
+                    <input type="radio" name="withdraw" value="1" required />
                     <label></label>
                 </div>
                 <label>No</label>
@@ -442,7 +442,7 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="not_sure" required />
+                    <input type="radio" name="withdraw" value="2" required />
                     <label></label>
                 </div>
                 <label>I'm not sure</label>
@@ -460,7 +460,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_job_stats_check" />
+                <input type="checkbox" name="misleading_job_stats_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_job_stats_check">They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
@@ -473,7 +473,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_1_check" />
+                <input type="checkbox" name="misleading_job_assistance_1_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_job_assistance_1_check">They misled me about the money I could earn after earning a Corinthian degree</label>
@@ -486,7 +486,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_2_check" />
+                <input type="checkbox" name="misleading_job_assistance_2_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_job_assistance_2_check">They failed to provide promised job placement assistance</label>
@@ -503,7 +503,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_job_other_check" />
+                <input type="checkbox" name="misleading_job_other_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_job_other_check">They made other false promises relating to job prospects to convince me to enroll</label>
@@ -521,7 +521,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_pass_rate_check" />
+                <input type="checkbox" name="misleading_pass_rate_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_pass_rate_check">They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
@@ -534,7 +534,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_1_check" />
+                <input type="checkbox" name="misleading_accreditation_1_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_accreditation_1_check">They misled me about whether my credits would transfer to other colleges</label>
@@ -547,7 +547,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_2_check" />
+                <input type="checkbox" name="misleading_accreditation_2_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_accreditation_2_check">They misreprented how seriously employers would treat my degree</label>
@@ -564,7 +564,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_quality_other_check" />
+                <input type="checkbox" name="misleading_quality_other_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_quality_other_check">They misled me about the quality of the education I would receive in other ways</label>
@@ -582,7 +582,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_truecost_check" />
+                <input type="checkbox" name="misleading_truecost_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_truecost_check">They misled me about the true cost of the program.</label>
@@ -595,7 +595,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_grants_check" />
+                <input type="checkbox" name="misleading_grants_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_grants_check">They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
@@ -608,7 +608,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_loans_check" />
+                <input type="checkbox" name="misleading_loans_check" value="true" />
                 <label></label>
             </div>
             <label name="misleading_loans_check">They misled me about the total amount of money I would have to borrow to complete my program.</label>
@@ -621,7 +621,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_loan_type_check" />
+                <input type="checkbox" name="misleading_loan_type_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_loan_type_check">They misled me about whether my loans were federal or private.</label>
@@ -634,7 +634,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_terms_check" />
+                <input type="checkbox" name="misleading_terms_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_terms">They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
@@ -647,7 +647,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_pay_other_check" />
+                <input type="checkbox" name="misleading_pay_other_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_pay_other_check">They misled me in other ways about the cost of the program or financial aid I would receive.</label>
@@ -665,7 +665,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_likelihood_check" />
+                <input type="checkbox" name="misleading_likelihood_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_likelihood_check">They misled me about the likelihood that my school would shut down</label>
@@ -678,7 +678,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="misleading_teachout_check" />
+                <input type="checkbox" name="misleading_teachout_check" value="true" />
                 <label></label>
             </div>
             <label for="misleading_teachout_check">They misled me about my option to decline the “teach-out” at the school.</label>
@@ -709,7 +709,7 @@
 
          <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="injury_debt_check" />
+                <input type="checkbox" name="injury_debt_check" value="true" />
                 <label></label>
             </div>
             <label for="injury_debt_check">Student loan debt</label>
@@ -721,7 +721,7 @@
         </div>
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="injury_school_check" />
+                <input type="checkbox" name="injury_school_check" value="true" />
                 <label></label>
             </div>
             <label for="injury_school_check">I couldn't enroll in another school because my credits wouldn’t transfer.</label>
@@ -733,7 +733,7 @@
         </div>
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="injuty_opportunity_1_check" />
+                <input type="checkbox" name="injuty_opportunity_1_check" value="true" />
                 <label></label>
             </div>
             <label for="injury_opportunity_1_check">I couldn't enroll in another school because I couldn't take out more student loan&nbsp;debt.</label>
@@ -746,7 +746,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="injury_employment_check" />
+                <input type="checkbox" name="injury_employment_check" value="true" />
                 <label></label>
             </div>
             <label for="injury_employment_check">I had a hard time finding a job in my field because <span class="school-name">Corinthian</span> was on my resume</label>
@@ -759,7 +759,7 @@
 
         <div class="input-group">
             <div class="checkbox">
-                <input type="checkbox" name="injury_other_check" />
+                <input type="checkbox" name="injury_other_check" value="true" />
                 <label></label>
             </div>
             <label for="injury_other_check">Other injury, including stress or emotional pain</label>
