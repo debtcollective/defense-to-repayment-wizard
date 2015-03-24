@@ -125,6 +125,15 @@ header {
       margin-right: 0.5em;
       content: '\f104'; }
 
+.back {
+  color: #a7a393; }
+  .back:hover {
+    color: #393d41; }
+  .back:before {
+    font-family: fontawesome;
+    margin-right: 0.5em;
+    content: '\f104'; }
+
 #body00 nav#steps {
   display: none; }
 nav#steps ol {
@@ -378,6 +387,9 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   visibility: hidden; }
 #body16 #previous {
   margin-left: 7.5em; }
+
+#bodyload nav {
+  display: none; }
 
 /* Media queries
 -------------------------------------------------------------------------------*/

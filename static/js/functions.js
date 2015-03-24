@@ -70,8 +70,8 @@ var shutdown = false;
 			url: '/corinthian/dtr_generate',
 			data: data,
 			success: function (data) {
-				window.location.hash = '#page17'
-				$('#pdf-view').attr('src', data['pdf_link'])
+				window.location.hash = '#download'
+				$('#pdf-view').attr('href', data['pdf_link'])
 			},
 			error: function (data) {
 				console.log(data)

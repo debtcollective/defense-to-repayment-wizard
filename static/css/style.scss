@@ -175,6 +175,20 @@ header {
     }
 }
 
+.back {
+    color: $mid-grey;
+
+    &:hover {
+        color: $text;
+    }
+
+    &:before {
+        font-family: fontawesome;
+        margin-right: 0.5em;
+        content: '\f104';
+    }
+}
+
 button {
     @extend %button;
 }
@@ -599,6 +613,17 @@ section {
     #previous {
         margin-left: 7.5em;
     }
+}
+
+// download section
+#bodyload {
+    nav {
+        display: none;
+    }
+
+    // section {
+    //     background: none;
+    // }
 }
 
 
