@@ -241,7 +241,7 @@ var shutdown = false;
 
 		// combine values from two wizard fields into one PDF field
 		combineValues("misleading_job_assistance_1", "misleading_job_assistance_2", "misleading_job_assistance");
-		combineValues("misleading_accreditation_1", "misleading_job_accreditation_2", "misleading_job_accreditation");
+		combineValues("misleading_accreditation_1", "misleading_accreditation_2", "misleading_accreditation");
 
 
 		// jquery.validate
