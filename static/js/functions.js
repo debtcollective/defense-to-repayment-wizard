@@ -216,7 +216,7 @@ var shutdown = false;
 		// school closing question
 
 		$("input[name='school-close']").on("change", function() {
-			var input = $("#school-close input[value='false']")[0];
+			var input = $("#school-close input[value='1']")[0];
 			if (input.checked)
 				$("#withdraw").show();
 			else
