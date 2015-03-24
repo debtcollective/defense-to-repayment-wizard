@@ -44,6 +44,13 @@ var shutdown = false;
 
 			// fill in the address field
 			$("input[name='school_address']").attr("value", $(this).find("option:selected").attr("data-address") );
+
+			// fill in the school_state field
+			var state = $(this).find("option:selected").attr("data-state");
+			$("input[name='school_state']").attr("value", state );
+
+			// update state law based on state <select>
+			getStateLaw(state);
 		});
 
 		// save state data
@@ -246,13 +253,6 @@ var shutdown = false;
 				shutdown = true;
 			else
 				shutdown = false;
-		});
-
-		// update state law based on state <select>
-		$("#schools-select").on("change", function() {
-			var state = $(this).find("option:selected").attr("data-state");
-
-			getStateLaw(state);
 		});
 
 		// show the correct page on hash change
