@@ -563,14 +563,14 @@ nav#pages {
 
 section {
 
-    #phone_primary, #phone_secondary, #ssn {
+    #phone_primary, #phone_alt, #ssn {
         input {
             display: inline;
         }
     }
 }
 
-#phone_primary, #phone_secondary {
+#phone_primary, #phone_alt {
 
     span.light:first-of-type {
         margin-left: -0.5em;

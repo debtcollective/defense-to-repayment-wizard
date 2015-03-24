@@ -360,10 +360,10 @@ nav#pages {
   line-height: 1.5em;
   margin-bottom: 2em; }
 
-section #phone_primary input, section #phone_secondary input, section #ssn input {
+section #phone_primary input, section #phone_alt input, section #ssn input {
   display: inline; }
 
-#phone_primary span.light:first-of-type, #phone_secondary span.light:first-of-type {
+#phone_primary span.light:first-of-type, #phone_alt span.light:first-of-type {
   margin-left: -0.5em; }
 
 #employment-type, #withdraw {

@@ -204,7 +204,7 @@ var shutdown = false;
 		// employment question
 
 		$("#employment-status input[type='radio']").on("change", function() {
-			var input = $("#employment-status input[value='true']")[0];
+			var input = $("#employment-status input[value='0']")[0];
 			if (input.checked) {
 				$("#employment-type").show();
 			}
@@ -224,7 +224,7 @@ var shutdown = false;
 		});
 
 		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
-			if ($("input[name='school-close']:checked").val() == "true" || $("input[name='withdraw']:checked").val() == "true")
+			if ($("input[name='school-close']:checked").val() == "0" || $("input[name='withdraw']:checked").val() == "0")
 				shutdown = true;
 			else
 				shutdown = false;
