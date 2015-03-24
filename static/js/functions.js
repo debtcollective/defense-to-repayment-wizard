@@ -249,9 +249,9 @@ var shutdown = false;
 		});
 
 		// update state law based on state <select>
-		$("#schools-select']").on("change", function() {
+		$("#schools-select").on("change", function() {
 			var state = $(this).find("option:selected").attr("data-state");
-			
+
 			getStateLaw(state);
 		});
 
