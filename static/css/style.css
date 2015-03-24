@@ -390,6 +390,9 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
 
 #bodyload nav {
   display: none; }
+#bodyload button {
+  font-size: 0.9em;
+  margin: 3em auto; }
 
 /* Media queries
 -------------------------------------------------------------------------------*/
