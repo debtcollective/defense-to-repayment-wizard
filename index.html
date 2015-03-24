@@ -289,10 +289,15 @@
 
     <section id="page04">
 
-        <div class="input-group">
-            <label>Who is your loan servicer? (If you don't know, you can leave it blank.)</label>
-            <input type="text" name="servicer" />
-        </div>
+        <p>Who is your loan servicer? (If you don't know, you can leave it blank.)</p>
+
+        <script id="servicers-list" type="text/x-handlebars-template">
+            <option value="{{Name}}">{{Name}}</option>
+        </script>
+
+        <select id="servicers-select" class="chosen" name="servicer" data-placeholder="Choose a servicer...">
+            <option></option>
+        </select>
 
     </section>
 
@@ -826,7 +831,7 @@
         <a href="" id="pdf-view" target="_blank"><button><i class="fa fa-file-pdf-o"></i> &nbsp;Download your form</button></a>
         </iframe>
 
-        <p>The Corinthian Collective will submit your form to the US Department of Education on March 31. We are giving them 30 days to respond. For more updates, check our <a href="http://debtcollective.org/">website</a>.</p>
+        <p>The Corinthian Collective will submit your form to the US Department of Education. We are giving them 30 days to respond. For more updates, check our <a href="http://blog.debtcollective.org">blog</a>.</p>
 
 
         <p style="text-align: center;"><a href="http://debtcollective.org" class="back">Back to the Debt Collective</a></p>

@@ -27,6 +27,8 @@ var shutdown = false;
 
     function showInfo(data, tabletop) {
 
+    	console.log("spreadsheet loaded");
+
     	// list of schools
 		var schools_source = $('#schools-list').html();
 		var schools_template = Handlebars.compile(schools_source);
@@ -42,6 +44,17 @@ var shutdown = false;
 
 		// save state data
 		state_laws = tabletop.sheets("State Laws").all();
+
+		// save servicer names
+		var servicers_source = $('#servicers-list').html();
+		var servicers_template = Handlebars.compile(servicers_source);
+
+		$.each( tabletop.sheets("Servicers").all(), function(index,element) {
+			var html = servicers_template(element);
+			$("#servicers-select").append(html);
+		});
+
+		$("#servicers-select").chosen({ width: "50%" });
     }
 
     function getStateLaw(state) {
@@ -155,8 +168,9 @@ var shutdown = false;
 
 		// initialize chosen plugin for <select>s
 		if (hash && $(hash + " select.chosen").length
-			// make sure it's not the schools list
-			&& current_page != school_first_page) {
+			// make sure it's not the schools or servicers
+			&& current_page != school_first_page
+			&& current_page != school_first_page-1) {
 
 			// some may need custom widths
 			var ch_width = null;
