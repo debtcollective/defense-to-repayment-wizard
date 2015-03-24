@@ -266,7 +266,7 @@ var shutdown = false;
 			groups: {
 			    ssn: "ssn_1 ssn_2 ssn_3",
 			    phone_primary: "phone_primary_1 phone_primary_2 phone_primary_3",
-			    phone_secondary: "phone_secondary_1 phone_secondary_2 phone_secondary_3"
+			    phone_alt: "phone_alt_1 phone_alt_2 phone_alt_3"
 			},
 			errorPlacement: function(error, element) {
 			    if (element.attr("type") == "radio" || element.attr("type") == "checkbox" )
@@ -275,8 +275,8 @@ var shutdown = false;
 			    	error.insertAfter("input[name='ssn_3']");
 			    else if (element.attr("name") == "phone_primary_1" || element.attr("name") == "phone_primary_2" )
 			    	error.insertAfter("input[name='phone_primary_3']");
-			    else if (element.attr("name") == "phone_secondary_1" || element.attr("name") == "phone_secondary_2" )
-			    	error.insertAfter("input[name='phone_secondary_3']");
+			    else if (element.attr("name") == "phone_alt_1" || element.attr("name") == "phone_alt_2" )
+			    	error.insertAfter("input[name='phone_alt_3']");
 			    else if (element.attr("name") == "attendance_from_year" || element.attr("name") == "attendance_to_year" )
 			    	error.insertAfter("#attendance-to");
 			    else if (element.hasClass("chosen"))
