@@ -311,12 +311,14 @@
         <p style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
 
         <script id="schools-list" type="text/x-handlebars-template">
-            <option value="{{Brand}} {{Campus}}">{{Brand}} {{Campus}}</option>
+            <option value="{{Brand}} {{Campus}}" data-address="{{Address}}">{{Brand}} {{Campus}}</option>
         </script>
 
         <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus..." required>
             <option value=""></option>
         </select>
+
+        <input type="hidden" name="school_address" value="N/A" />
 
         <p style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
         <div class="input-group" style="margin-top: 0;">

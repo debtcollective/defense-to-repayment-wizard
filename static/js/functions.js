@@ -38,8 +38,12 @@ var shutdown = false;
 			$("#schools-select").append(html);
 		});
 
+
 		$("#schools-select").chosen({ width: "50%" }).on("change", function() {
 			$(".school-name").html( $(this).val() );
+
+			// fill in the address field
+			$("input[name='school_address']").attr("value", $(this).find("option:selected").attr("data-address") );
 		});
 
 		// save state data
