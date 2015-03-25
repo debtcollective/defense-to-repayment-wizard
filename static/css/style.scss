@@ -629,6 +629,7 @@ section {
 
 // download section
 #bodyload {
+    text-align: center;
     nav {
         display: none;
     }
@@ -641,6 +642,21 @@ section {
     // section {
     //     background: none;
     // }
+
+    #soc {
+        margin: 2.5em auto;
+        max-width: 500px;
+
+        button {
+            border-radius: 2em;
+            padding: 0.66em;
+            height: 2.25em;
+            width: 2.25em;
+            font-size: 1.25em;
+            margin: 0;
+            display: inline-block;
+        }
+    }
 }
 
 

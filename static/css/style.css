@@ -398,11 +398,24 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
 #body16 #previous {
   margin-left: 7.5em; }
 
-#bodyload nav {
-  display: none; }
-#bodyload button {
-  font-size: 0.9em;
-  margin: 3em auto; }
+#bodyload {
+  text-align: center; }
+  #bodyload nav {
+    display: none; }
+  #bodyload button {
+    font-size: 0.9em;
+    margin: 3em auto; }
+  #bodyload #soc {
+    margin: 2.5em auto;
+    max-width: 500px; }
+    #bodyload #soc button {
+      border-radius: 2em;
+      padding: 0.66em;
+      height: 2.25em;
+      width: 2.25em;
+      font-size: 1.25em;
+      margin: 0;
+      display: inline-block; }
 
 /* Media queries
 -------------------------------------------------------------------------------*/
