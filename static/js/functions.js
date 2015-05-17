@@ -270,7 +270,6 @@ var shutdown = false;
 
 		$("form").validate({
 			messages: {
-				ssn_3: "A valid Social Security Number is required to submit the form.",
 				name: "Please enter your name.",
 				address: "Please enter your address.",
 				city: "Please enter your city.",
@@ -283,15 +282,12 @@ var shutdown = false;
 				attendance_to_year: "Please enter an end date.",
 			},
 			groups: {
-			    ssn: "ssn_1 ssn_2 ssn_3",
 			    phone_primary: "phone_primary_1 phone_primary_2 phone_primary_3",
 			    phone_alt: "phone_alt_1 phone_alt_2 phone_alt_3"
 			},
 			errorPlacement: function(error, element) {
 			    if (element.attr("type") == "radio" || element.attr("type") == "checkbox" )
 			    	error.insertAfter(".input-group:last-of-type");
-			    else if (element.attr("name") == "ssn_1" || element.attr("name") == "ssn_2" )
-			    	error.insertAfter("input[name='ssn_3']");
 			    else if (element.attr("name") == "phone_primary_1" || element.attr("name") == "phone_primary_2" )
 			    	error.insertAfter("input[name='phone_primary_3']");
 			    else if (element.attr("name") == "phone_alt_1" || element.attr("name") == "phone_alt_2" )
