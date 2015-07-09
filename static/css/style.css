@@ -388,8 +388,7 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   min-width: 2.5em; }
 
 #corinthian-list {
-  display: none;
-  margin-top: 2em; }
+  display: none; }
 
 .input-group.degree {
   display: inline-block;
