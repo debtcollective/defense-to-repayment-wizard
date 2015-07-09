@@ -107,11 +107,6 @@
             <p>First, we need some personal information.</p>
         </div>
 
-        <div class="input-group text" id="ssn">
-            <label for="ssn_1">Social Security # (Last&nbsp;4)</label>
-            <input type="text" name="ssn_3" style="max-width: 4em;" minlength="4" maxlength="4" required digits />
-        </div>
-
         <div class="input-group text">
             <label for="name">Name</label>
             <input type="text" name="name" required />
@@ -293,27 +288,15 @@
             <p>Next, we need to know about the school you went to.</p>
         </div>
 
-        <div class="input-group text">
-            <p style="margin-bottom: 0.75em">What was the name of your school?</p>
+        <p style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
 
-            <input type="text" name="school_name" />
+        <script id="schools-list" type="text/x-handlebars-template">
+            <option value="{{Brand}} {{Campus}}" data-address="{{Address}}" data-state="{{State}}">{{Brand}} {{Campus}}</option>
+        </script>
 
-            <div id="corinthian-list">
-                <script id="schools-list" type="text/x-handlebars-template">
-                    <option value="{{Brand}} {{Campus}}" data-address="{{Address}}" data-state="{{State}}">{{Brand}} {{Campus}}</option>
-                </script>
-
-                <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus..." required>
-                    <option value=""></option>
-                </select>
-            </div>
-        </div>
-
-        <div class="checkbox">
-            <input type="checkbox" name="corinthian" value="true" />
-            <label></label>
-        </div>
-        <label for="corinthian">I attended a Corinthian campus (Everst, WyoTech, Heald)</label>
+        <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus..." required>
+            <option value=""></option>
+        </select>
 
         <input type="hidden" name="school_address" value="N/A" />
         <input type="hidden" name="school_state" value="N/A" />
