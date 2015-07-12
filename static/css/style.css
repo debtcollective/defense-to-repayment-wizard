@@ -205,7 +205,7 @@ section {
     min-height: 0; }
   section input[type="submit"] {
     margin: 1.5em auto 0; }
-  section input[type="text"], section input[type="email"] {
+  section input[type="text"], section input[type="email"], section input[type="password"] {
     margin: 0.5em 0;
     padding: 0.33em 0.5em;
     display: block;
