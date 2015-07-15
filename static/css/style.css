@@ -291,10 +291,10 @@ section {
     display: inline-block;
     vertical-align: top;
     width: calc(100% - 2.5em); }
-  section .input-group .explain {
+  section .explain {
     display: none;
     margin-top: 1em; }
-    section .input-group .explain p {
+    section .explain p {
       font-size: 1em;
       margin-bottom: 0.75em; }
   section .input-group {

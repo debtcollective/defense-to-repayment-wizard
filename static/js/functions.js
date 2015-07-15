@@ -210,8 +210,11 @@ var shutdown = false;
 	$(document).ready(function (){
 
 		// toggle "explain" textarea field when box is checked
-		$('.checkbox input').click(function() {
-		    $(this).parent().parent().find(".explain").toggle(this.checked);
+		$('.radio input[value="true"]').click(function() {
+		    $(this).parent().parent().parent().find(".explain").show();
+		});
+		$('.radio input[value=""]').click(function() {
+		    $(this).parent().parent().parent().find(".explain").hide();
 		});
 
 
