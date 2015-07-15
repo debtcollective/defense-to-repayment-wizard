@@ -82,13 +82,15 @@
 
     <section id="page00" class="active">
 
-        <p>Welcome Corinthian Collective members! We built this app to help you dispute your federal student loan debt from your school. It will guide you through a series of questions about your experience with Corinthian, and turn your answers into a form that we will submit on your behalf to the US Department of Education. You will be able to download your completed form after you submit to keep for your own records.</p>
+        <p>Welcome! This app will help you dispute your federal student loan debt from your school. It will guide you through a series of questions about your experience and turn your answers into a form that will automatically be electronically submitted to the Department of Education. You will be able to download a copy of the completed form after you submit to keep for your own records.</p>
 
-        <p>The personal information you provide here will only be used to fill out the Defense to Repayment form. We will not share it with anybody else without your permission.</p>
-
-        <p>Please answer the following questions and provide as much detail as you can in your response. The more information you can provide, the better chance you have of getting a loan discharge. Filling out the form will probably take around 30 minutes. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
+        <p>When answering these questions, please provide as much detail as possible. The more information you can provide, the better a chance you will have of getting a discharge. We recommend setting aside at least 30 minutes to fill out the form. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
 
         <a href="#page01"><button>Get Started</button></a>
+
+        <p>This form is very secure. The information you enter into it will only be used for two purposes: (1) to submit an application to the Department of Education and (2) to help us keep track of who is filling out this form so that we can better plan strategies for convincing the Department of Education to erase illegitimate debts. We will never share it with anybody outside the small group of organizers and lawyers working to that end unless you expressly give us permission to do so.</p>
+
+        <p>By creating this app, we only mean to help making the Defense to Repayment application process easier. It does not constitute and cannot substitute for legal advice.</p>
 
     </section>
 
@@ -207,16 +209,6 @@
             <input type="text" name="phone_primary_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
             <span class="light"> - </span>
             <input type="text" name="phone_primary_3" style="max-width: 4em;" minlength="4" maxlength="4" digits />
-        </div>
-
-        <div class="input-group text" id="phone_alt">
-            <label for="phone_alt" class="optional">Secondary Phone</label>
-            <span class="light">(</span>
-            <input type="text" name="phone_alt_1" style="max-width: 3.25em;" minlength="3" maxlength="3" />
-            <span class="light">) &nbsp;</span>
-            <input type="text" name="phone_alt_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
-            <span class="light"> - </span>
-            <input type="text" name="phone_alt_3" style="max-width: 4em;" minlength="4" maxlength="4" />
         </div>
 
         <div class="input-group text">
@@ -399,7 +391,7 @@
 
 
     <section id="page06">
-        <p>When did you attend <span class="school-name">Corinthian</span>?</p>
+        <p>When did you attend <span class="school-name">your school</span>?</p>
 
         <div id="attendance-from" class="input-group" style="border: 0;">
             <label style="margin-right: 1em;">From</label>
@@ -547,71 +539,37 @@
 
     <section id="page08">
         <div class="intro">
-            <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">Corinthian</span>.</p>
+            <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">your&nbsp;school</span>.</p>
         </div>
 
-        <p>How did <span class="school-name">Corinthian</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>? Check all that&nbsp;apply.</p>
+        <p>Did <span class="school-name">your school</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>?</p>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_stats_check" value="true" />
+        <div class="input-group degree">
+            <div class="radio">
+                <input type="radio" name="misleading_job_stats_check" value="true" required />
                 <label></label>
             </div>
-            <label for="misleading_job_stats_check">They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_stats"></textarea>
-            </div>
+            <label>Yes</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_1_check" value="true" />
+        <div class="input-group degree">
+            <div class="radio">
+                <input type="radio" name="misleading_job_stats_check" value="" required />
                 <label></label>
             </div>
-            <label for="misleading_job_assistance_1_check">They misled me about the money I could earn after earning a Corinthian degree</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_assistance_1"></textarea>
-            </div>
+            <label>No</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_2_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_job_assistance_2_check">They failed to provide promised job placement assistance</label>
+        <div class="explain">
+            <p>Please explain in detail. This could include, for instance, citing false or misleading statistics about job placement rates, promising inflated salaries, or promising but failing to provide support in finding and landing a job.</p>
 
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_assistance_2"></textarea>
-            </div>
-        </div>
-
-        <!-- combine the last two questions into one on the PDF -->
-        <input type="hidden" name="misleading_job_assistance_check" value="" />
-        <input type="hidden" name="misleading_job_assistance" value="" />
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_job_other_check">They made other false promises relating to job prospects to convince me to enroll</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_other"></textarea>
-            </div>
+            <textarea maxlength="950" name="misleading_job_stats"></textarea>
         </div>
     </section>
 
 
     <section id="page09">
-        <p>How did <span class="school-name">Corinthian</span> mislead you about the <strong>quality of the education you would receive</strong>?</p>
+        <p>How did <span class="school-name">your school</span> mislead you about the <strong>quality of the education you would receive</strong>?</p>
 
         <div class="input-group">
             <div class="checkbox">
@@ -672,7 +630,7 @@
 
 
     <section id="page10">
-        <p>In what ways did <span class="school-name">Corinthian</span> mislead you about <strong>how you would pay for the&nbsp;program</strong>?</p>
+        <p>In what ways did <span class="school-name">your school</span> mislead you about <strong>how you would pay for the&nbsp;program</strong>?</p>
 
         <div class="input-group">
             <div class="checkbox">
@@ -755,7 +713,7 @@
 
 
     <section id="page11">
-        <p>How did <span class="school-name">Corinthian</span> mislead you about your options as the school shut down? Check all that apply.</p>
+        <p>How did <span class="school-name">your school</span> mislead you about your options as the school shut down? Check all that apply.</p>
 
         <div class="input-group">
             <div class="checkbox">
@@ -788,7 +746,7 @@
 
 
     <section id="page12">
-        <p>Did <span class="school-name">Corinthian</span> mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
+        <p>Did <span class="school-name">your school</span> mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
 
         <div class="input-group">
             <textarea maxlength="1200" style="min-height: 8em;" name="misleading_other"></textarea>
@@ -797,7 +755,7 @@
 
 
     <section id="page13">
-        <p>Now we'll ask you to explain how the conduct you’ve already described here by <span class="school-name">Corinthian</span> caused you harm you and put you in debt.</p>
+        <p>Now we'll ask you to explain how the conduct you’ve already described here by <span class="school-name">your school</span> caused you harm you and put you in debt.</p>
 
         <p>Because of this conduct, I've suffered the following harm:</p>
 
@@ -843,7 +801,7 @@
                 <input type="checkbox" name="injury_employment_check" value="true" />
                 <label></label>
             </div>
-            <label for="injury_employment_check">I had a hard time finding a job in my field because <span class="school-name">Corinthian</span> was on my resume</label>
+            <label for="injury_employment_check">I had a hard time finding a job in my field because <span class="school-name">your school</span> was on my resume</label>
 
             <div class="explain">
                 <p>Please explain. Include as many details as possible.</p>
@@ -867,7 +825,7 @@
 
 
     <section id="page14">
-        <p>If <span class="school-name">Corinthian</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
+        <p>If <span class="school-name">your school</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
 
         <div class="input-group">
             <div class="checkbox">
