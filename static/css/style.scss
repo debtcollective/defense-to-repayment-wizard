@@ -302,6 +302,30 @@ section {
         }
     }
 
+    ul {
+        margin: 0 0 1.5em 2em;
+
+        li {
+            list-style: none;
+            text-indent: -0.65em;
+            margin-bottom: 0.5em;
+            line-height: 1.4em;
+
+            &:before {
+                content: '\25a0'; //square
+                color: $red;
+                font-size: 1.05em;
+                width: 0.65em;
+                display: inline-block;
+            }
+        }
+
+        &.short li {
+            margin-bottom: 0;
+            line-height: 1.6em;
+        }
+    }
+
     #body00 & {
         padding-bottom: 3em;
         min-height: 0;
@@ -457,6 +481,10 @@ section {
             font-size: 1em;
             margin-bottom: 0.75em;
         }
+
+        textarea {
+            margin-bottom: 0;
+        }
     }
 
     .input-group {
@@ -483,7 +511,7 @@ section {
         width: 100%;
         margin: 1em 0;
         padding: 0.5em 0.75em;
-        min-height: 5em;
+        min-height: 8em;
     }
 }
 
@@ -617,6 +645,13 @@ section {
     display: inline-block;
     width: 48%;
     vertical-align: top;
+}
+
+.input-group.yesno {
+    display: inline-block;
+    padding-right: 3.5em;
+    border: 0;
+    padding-bottom: 0;
 }
 
 

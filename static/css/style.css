@@ -200,6 +200,22 @@ section {
   section p {
     margin-bottom: 1.25em;
     font-size: 1.05em; }
+  section ul {
+    margin: 0 0 1.5em 2em; }
+    section ul li {
+      list-style: none;
+      text-indent: -0.65em;
+      margin-bottom: 0.5em;
+      line-height: 1.4em; }
+      section ul li:before {
+        content: '\25a0';
+        color: #eb1020;
+        font-size: 1.05em;
+        width: 0.65em;
+        display: inline-block; }
+    section ul.short li {
+      margin-bottom: 0;
+      line-height: 1.6em; }
   #body00 section {
     padding-bottom: 3em;
     min-height: 0; }
@@ -297,6 +313,8 @@ section {
     section .explain p {
       font-size: 1em;
       margin-bottom: 0.75em; }
+    section .explain textarea {
+      margin-bottom: 0; }
   section .input-group {
     margin-bottom: 0.75em;
     border-bottom: 1px solid #ecebe7;
@@ -311,7 +329,7 @@ section {
     width: 100%;
     margin: 1em 0;
     padding: 0.5em 0.75em;
-    min-height: 5em; }
+    min-height: 8em; }
 
 footer {
   position: relative;
@@ -395,6 +413,12 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   display: inline-block;
   width: 48%;
   vertical-align: top; }
+
+.input-group.yesno {
+  display: inline-block;
+  padding-right: 3.5em;
+  border: 0;
+  padding-bottom: 0; }
 
 #body16 #next {
   opacity: 0;

@@ -486,234 +486,152 @@
 
 
     <section id="page07">
-
-        <div id="school-close">
-            <p>Did your school close before you graduated?</p>
-
-            <div class="input-group">
-                <div class="radio">
-                    <input type="radio" name="school-close" value="0" required />
-                    <label></label>
-                </div>
-                <label>Yes</label>
-            </div>
-
-            <div class="input-group">
-                <div class="radio">
-                    <input type="radio" name="school-close" value="1" required />
-                    <label></label>
-                </div>
-                <label>No</label>
-            </div>
-        </div>
-
-        <div id="withdraw" style="margin-top: 2em;">
-            <p>Did you withdraw within <strong>120 days</strong> of your school closing?</p>
-
-            <div class="input-group">
-                <div class="radio">
-                    <input type="radio" name="withdraw" value="0" required />
-                    <label></label>
-                </div>
-                <label>Yes</label>
-            </div>
-
-            <div class="input-group">
-                <div class="radio">
-                    <input type="radio" name="withdraw" value="1" required />
-                    <label></label>
-                </div>
-                <label>No</label>
-            </div>
-
-            <div class="input-group">
-                <div class="radio">
-                    <input type="radio" name="withdraw" value="2" required />
-                    <label></label>
-                </div>
-                <label>I'm not sure</label>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="page08">
         <div class="intro">
             <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">your&nbsp;school</span>.</p>
         </div>
 
-        <p>Did <span class="school-name">your school</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>?</p>
+        <p>Did <span class="school-name">your school</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>? This could&nbsp;include:</p>
 
-        <div class="input-group degree">
+        <ul>
+            <li>Citing false or misleading statistics about job placement rates</li>
+            <li>Promising inflated salaries</li>
+            <li>Promising but failing to provide support in finding and landing a job.</li>
+        </ul>
+
+        <div class="input-group yesno">
             <div class="radio">
-                <input type="radio" name="misleading_job_stats_check" value="true" required />
+                <input type="radio" name="misleading_job_check" value="true" required />
                 <label></label>
             </div>
             <label>Yes</label>
         </div>
 
-        <div class="input-group degree">
+        <div class="input-group yesno">
             <div class="radio">
-                <input type="radio" name="misleading_job_stats_check" value="" required />
+                <input type="radio" name="misleading_job_check" value="" required />
                 <label></label>
             </div>
             <label>No</label>
         </div>
 
         <div class="explain">
-            <p>Please explain in detail. This could include, for instance, citing false or misleading statistics about job placement rates, promising inflated salaries, or promising but failing to provide support in finding and landing a job.</p>
+            <p>Please explain in detail.</p>
 
-            <textarea maxlength="950" name="misleading_job_stats"></textarea>
+            <textarea maxlength="950" name="misleading_job" required></textarea>
+        </div>
+    </section>
+
+
+    <section id="page08">
+        <p>Did <span class="school-name">your school</span> mislead you about the <strong>quality of the education</strong> you would receive? This could&nbsp;include:</p>
+
+        <ul>
+            <li>Falsely claiming that the school had the proper accreditation to allow its graduates to take a particular licensing exam</li>
+            <li>Falsely claiming that it offered the classes necessary to achieve employment and/or certification in a particular field</li>
+            <li>Citing misleading statistics about the pass rate of students on required licensing or certification exams.</li>
+        </ul>
+
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_accreditation_check" value="true" required />
+                <label></label>
+            </div>
+            <label>Yes</label>
+        </div>
+
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_accreditation_check" value="" required />
+                <label></label>
+            </div>
+            <label>No</label>
+        </div>
+
+        <div class="explain">
+            <p>Please explain in detail.</p>
+
+            <textarea maxlength="950" name="misleading_accreditation" required></textarea>
         </div>
     </section>
 
 
     <section id="page09">
-        <p>How did <span class="school-name">your school</span> mislead you about the <strong>quality of the education you would receive</strong>?</p>
+        <p>Did <span class="school-name">your school</span> mislead you about whether you were <strong>eligible to benefit</strong> from the program? This could&nbsp;include:</p>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_pass_rate_check" value="true" />
+        <ul>
+            <li>Enrolling you even though you did not have a high school diploma or GED</li>
+            <li>Claiming that a felony record or disability would not stand in the way of employment in a particular field.</li>
+        </ul>
+
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_eligible_check" value="true" required />
                 <label></label>
             </div>
-            <label for="misleading_pass_rate_check">They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_pass_rate"></textarea>
-            </div>
+            <label>Yes</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_1_check" value="true" />
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_eligible_check" value="" required />
                 <label></label>
             </div>
-            <label for="misleading_accreditation_1_check">They misled me about whether my credits would transfer to other colleges</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_accreditation_1"></textarea>
-            </div>
+            <label>No</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_2_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_accreditation_2_check">They misrepresented how seriously employers would treat my degree</label>
+        <div class="explain">
+            <p>Please explain in detail.</p>
 
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_accreditation_2"></textarea>
-            </div>
-        </div>
-
-        <!-- combine the last two questions into one on the PDF -->
-        <input type="hidden" name="misleading_accreditation_check" value="" />
-        <input type="hidden" name="misleading_accreditation" value="" />
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_quality_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_quality_other_check">They misled me about the quality of the education I would receive in other ways</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_quality_other"></textarea>
-            </div>
+            <textarea maxlength="950" name="misleading_eligible" required></textarea>
         </div>
     </section>
 
 
     <section id="page10">
-        <p>In what ways did <span class="school-name">your school</span> mislead you about <strong>how you would pay for the&nbsp;program</strong>?</p>
+        <p>Did <span class="school-name">your school</span> mislead you about <strong>how you would pay for the program</strong>? This could&nbsp;include:</p>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_truecost_check" value="true" />
+        <ul>
+            <li>Understating the total cost of the program</li>
+            <li>Signing loan paperwork without your permission</li>
+            <li>Understating the amount of loans necessary</li>
+            <li>Treating grants and loans as if they were the same thing</li>
+            <li>Treating federal and private loans as if they were the same thing
+            <li>Refusing to disclose loan terms or allow review of loan documents</li>
+        </ul>
+
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_pay_check" value="true" required />
                 <label></label>
             </div>
-            <label for="misleading_truecost_check">They misled me about the true cost of the program.</label>
-
-            <div class="explain">
-                <p>Please explain.</p>
-                <textarea maxlength="950" name="misleading_truecost"></textarea>
-            </div>
+            <label>Yes</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_grants_check" value="true" />
+        <div class="input-group yesno">
+            <div class="radio">
+                <input type="radio" name="misleading_pay_check" value="" required />
                 <label></label>
             </div>
-            <label for="misleading_grants_check">They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_grants"></textarea>
-            </div>
+            <label>No</label>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_loans_check" value="true" />
-                <label></label>
-            </div>
-            <label name="misleading_loans_check">They misled me about the total amount of money I would have to borrow to complete my program.</label>
+        <div class="explain">
+            <p>Please explain in detail.</p>
 
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_loans"></textarea>
-            </div>
+            <textarea maxlength="950" name="misleading_pay" required></textarea>
         </div>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_loan_type_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_loan_type_check">They misled me about whether my loans were federal or private.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_loan_type"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_terms_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_terms">They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_terms"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_pay_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_pay_other_check">They misled me in other ways about the cost of the program or financial aid I would receive.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_pay_other"></textarea>
-            </div>
-        </div>
+        
     </section>
 
 
     <section id="page11">
-        <p>How did <span class="school-name">your school</span> mislead you about your options as the school shut down? Check all that apply.</p>
+        <p>Did <span class="school-name">your school</span> mislead you about the extent of the illegal activities there, and the effect those activities would have on <span class="school-name">your school</span>’s reputation and continued existence? This could include:</p>
+
+        <ul>
+            <li>The school shutting down in light of lawsuits or financial mismanagement</li>
+            <li>Finding that having <span class="school-name">your school</span> on a resume repels employers who have heard about its illegal practices</li>
+        </ul>
 
         <div class="input-group">
             <div class="checkbox">
