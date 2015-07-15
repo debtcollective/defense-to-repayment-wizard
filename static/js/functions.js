@@ -5,13 +5,10 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 var screen_width = $(window).width();
 
 var school_first_page = 		5;	// first page of school section
-var experience_first_page = 	8; 	// first page of experience section
+var experience_first_page = 	7; 	// first page of experience section
 
 var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
 var section_page = 1;
-
-// did the user's school shut down?
-var shutdown = false;
 
 // remap jQuery to $
 (function($){
@@ -123,12 +120,6 @@ var shutdown = false;
 		$("footer #next").attr("href", "#page" + next_page);
 		$("footer #previous").attr("href", "#page" + prev_page);
 
-		// skip shutdown page if the school didn't shut down
-		if (!shutdown && next_page == 11)
-			$("footer #next").attr("href", "#page" + zeroFill(current_page + 2, 2));
-		else if (!shutdown && prev_page == 11)
-			$("footer #previous").attr("href", "#page" + zeroFill(current_page - 2, 2));
-
 		// determine current section
 		if (current_page < school_first_page){
 			current_section = "personal";
@@ -154,16 +145,10 @@ var shutdown = false;
 		var li = '<li id="nav01"><a href="#page01">1</a></li>';
 		$("nav#pages ol").children().remove();
 
-		var j;
 		for(var i = 0; i < section_pages; i++) {
-			j = i;
-			if (!shutdown && section_page + i == 11)
-				i++
-			else if (!shutdown && section_page + i > 11)
-				j--
 			$("nav#pages ol").append(li);
 			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
-			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(j+1);
+			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(i+1);
 		}
 
 		// change nav state
@@ -249,13 +234,6 @@ var shutdown = false;
 				$("#withdraw").show();
 			else
 				$("#withdraw").hide();
-		});
-
-		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
-			if ($("input[name='school-close']:checked").val() == "0" || $("input[name='withdraw']:checked").val() == "0")
-				shutdown = true;
-			else
-				shutdown = false;
 		});
 
 		// show the correct page on hash change
