@@ -18,6 +18,7 @@ $mid-grey:  desaturate(darken($dark-tan, 20%), 15%);
 $light-grey:lighten($mid-grey, 30%);
 $red:       #eb1020;
 $mute-red:  desaturate(lighten($red, 10%), 20%);
+$green:     #19c29a;
 
 $text:  $grey;
 
@@ -120,13 +121,19 @@ a:hover {color: darken($red, 10%);}
 
 .wrapper {
     margin: 0 auto;
-    max-width: 750px;
+    max-width: 1000px;
+    font-size: 0;
+
+    & > * {
+        font-size: $base;
+    }
 }
 
 h1 {
     font-weight: 100;
     text-align: center;
-    margin: 1em 0;
+    margin: 1em auto;
+    max-width: 750px;
     font-size: 1.15em;
 }
 
@@ -193,6 +200,49 @@ button {
     @extend %button;
 }
 
+nav#side-pages {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    margin-top: 5em;
+
+    li {
+        border-bottom: $border;
+        font-size: 0.9em;
+
+        &.active a {
+            background: #fff;
+            color: $mid-grey;
+        }
+
+
+        &.complete {
+            a:before {
+                // content: '\2713';
+                font-family: "fontawesome";
+                content: '\f00c'; // check mark
+                font-size: 1.2em;
+                display: inline-block;
+                width: 1.5em;
+                margin-left: -1.5em;
+                color: saturate($green, 15%);
+            }
+        }
+
+        a {
+            padding: 0.75em 0 0.75em 2.8em;
+            display: block;
+            line-height: normal;
+            background: $light-tan;
+            color: $dark-tan;
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}
+
 nav#steps {
 
     #body00 & {
@@ -214,7 +264,7 @@ nav#steps {
             border-right: 0;
         }
 
-        &.active a {
+        &.active > a {
             background: #fff;
             color: $mid-grey;
         }
@@ -238,6 +288,10 @@ nav#steps {
         span.extra {
             display: none;
         }
+
+        ol {
+            display: none;
+        }
     }
 }
 
@@ -259,6 +313,11 @@ section {
 
     &.active {
         display: block;
+    }
+
+    &#page00 {
+        max-width: 750px;
+        margin: 0 auto;
     }
 
     h2 {
@@ -713,7 +772,7 @@ section {
     h1 {
         font-size: 1.75em;
         line-height: normal;
-        margin: 1em 0 1.25em;
+        margin: 1em auto 1.25em;
     }
 
     header {
@@ -821,6 +880,59 @@ section {
 }
 
 @media screen and (min-width: 800px) {
+
+
+    #formwrap {
+        display: inline-block;
+        vertical-align: top;
+        width: 75%;
+    }
+
+    nav#steps {
+        display: inline-block;
+        vertical-align: top;
+        width: 25%;
+        margin-top: 2.25em;
+
+        ol {
+            font-size: 1em;
+        }
+
+        li {
+            display: block;
+            width: auto;
+            border-bottom: $border;
+            border-right: 0;
+            font-size: 0.9em;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            ol {
+                display: block;
+            }
+
+            a {
+                padding: 0.75em 0 0.75em 2.8em;
+                display: block;
+                text-align: left;
+            }
+
+            &.complete {
+                a:before {
+                    // content: '\2713';
+                    font-family: "fontawesome";
+                    content: '\f00c'; // check mark
+                    font-size: 1.2em;
+                    display: inline-block;
+                    width: 1.5em;
+                    margin-left: -1.5em;
+                    color: saturate($green, 15%);
+                }
+            }
+        }
+    }
 
     header {
         #back {

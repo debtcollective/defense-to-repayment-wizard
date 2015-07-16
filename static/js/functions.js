@@ -146,17 +146,18 @@ var section_page = 1;
 		$("nav#steps li#" + current_section).addClass("active");
 
 		// build bottom nav
-		var li = '<li id="nav01"><a href="#page01">1</a></li>';
-		$("nav#pages ol").children().remove();
+		var li = '<li id="nav01"><a href="#page01">Page</a></li>';
+		$("nav#steps ol ol").children().remove();
 
 		for(var i = 0; i < section_pages; i++) {
-			$("nav#pages ol").append(li);
-			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
-			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(i+1);
+			$("nav#steps #" + current_section + " ol").append(li);
+			var page_hash = zeroFill(section_page + i, 2);
+			$("nav#steps #" + current_section + " li").last().attr("id", "nav" + page_hash);
+			$("nav#steps #" + current_section + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
 		}
 
 		// change nav state
-		$("nav#pages li#nav" + hash.substring(5)).addClass("active");
+		$("nav#steps ol ol li#nav" + hash.substring(5)).addClass("active");
 
 		// validate the form before letting the user move on
 		$("nav a").click( function(e) {
@@ -195,12 +196,17 @@ var section_page = 1;
 
 	$(document).ready(function (){
 
-		// toggle "explain" textarea field when box is checked
-		$('.radio input[value="true"]').click(function() {
+		// toggle "explain" textarea field when answering "yes"
+		$('.yesno .radio input[value="true"]').click(function() {
 		    $(this).parent().parent().parent().find(".explain").show();
 		});
-		$('.radio input[value=""]').click(function() {
+		$('.yesno .radio input[value=""]').click(function() {
 		    $(this).parent().parent().parent().find(".explain").hide();
+		});
+
+		// …or when a box is checked
+		$('.checkbox input').click(function() {
+		    $(this).parent().parent().find(".explain").toggle(this.checked);
 		});
 
 
@@ -211,8 +217,8 @@ var section_page = 1;
 		school_pages = 		experience_first_page - school_first_page;
 
 		// make steps nav work
-		$("nav#steps li#school a").attr("href", "#page" + zeroFill(school_first_page, 2));
-		$("nav#steps li#experience a").attr("href", "#page" + zeroFill(experience_first_page, 2));
+		$("nav#steps li#school > a").attr("href", "#page" + zeroFill(school_first_page, 2));
+		$("nav#steps li#experience > a").attr("href", "#page" + zeroFill(experience_first_page, 2));
 
 
 		// school info: show Corinthian list
