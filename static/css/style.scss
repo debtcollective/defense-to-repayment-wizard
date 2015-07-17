@@ -296,12 +296,10 @@ nav#steps {
 }
 
 
-.example {
+.small {
     color: $mid-grey;
     font-size: 0.85em;
     line-height: 1.5em;
-    max-width: 90%;
-    font-style: italic;
 }
 
 section {
@@ -337,12 +335,6 @@ section {
         margin-bottom: 2em;
         border-bottom: $border;
         font-weight: 100;
-    }
-
-    label + .example {
-        // max-width: none;
-        margin-top: 0.5em;
-        margin-left: 3em;
     }
 
     .button-text {
@@ -616,6 +608,8 @@ nav#pages {
     padding: 1.25em 3em;
     background: $dark-tan;
 
+    display: none; // for now
+
     ol {
         list-style: none;
         font-size: 0.85em;
@@ -662,7 +656,7 @@ nav#pages {
     margin-bottom: 2em;
 }
 
-footer + .example {
+footer + .small {
     margin-top: 1.5em;
     text-align: center;
 }
@@ -802,7 +796,7 @@ section {
     section {
         padding-left: 3em;
         padding-right: 2.75em;
-        min-height: 440px;
+        min-height: 550px;
 
         label.error {
             margin-top: 0.5em;
