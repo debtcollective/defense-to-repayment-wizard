@@ -198,12 +198,10 @@ nav#steps li {
   nav#steps li ol {
     display: none; }
 
-.example {
+.small {
   color: #a7a393;
   font-size: 0.85em;
-  line-height: 1.5em;
-  max-width: 90%;
-  font-style: italic; }
+  line-height: 1.5em; }
 
 section {
   background: #fff;
@@ -227,9 +225,6 @@ section {
     margin-bottom: 2em;
     border-bottom: 1px solid #ecebe7;
     font-weight: 100; }
-  section label + .example {
-    margin-top: 0.5em;
-    margin-left: 3em; }
   section .button-text {
     text-transform: uppercase;
     font-size: 0.9em;
@@ -393,7 +388,8 @@ footer {
 
 nav#pages {
   padding: 1.25em 3em;
-  background: #dcd7c4; }
+  background: #dcd7c4;
+  display: none; }
   nav#pages ol {
     list-style: none;
     font-size: 0.85em;
@@ -425,7 +421,7 @@ nav#pages {
   line-height: 1.5em;
   margin-bottom: 2em; }
 
-footer + .example {
+footer + .small {
   margin-top: 1.5em;
   text-align: center; }
 
@@ -512,7 +508,7 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   section {
     padding-left: 3em;
     padding-right: 2.75em;
-    min-height: 440px; }
+    min-height: 550px; }
     section label.error {
       margin-top: 0.5em; }
     section .input-group.text label {
