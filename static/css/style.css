@@ -453,10 +453,10 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
   border: 0;
   padding-bottom: 0; }
 
-#body16 #next {
+#body17 #next {
   opacity: 0;
   visibility: hidden; }
-#body16 #previous {
+#body17 #previous {
   margin-left: 7.5em; }
 
 #bodyload {
@@ -588,6 +588,8 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
         width: 1.5em;
         margin-left: -1.5em;
         color: #09d2a3; }
+    nav#steps > ol > li {
+      margin-bottom: 0.25em; }
 
   header #back {
     display: block; } }

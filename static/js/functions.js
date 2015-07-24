@@ -54,6 +54,12 @@ var section_page = 1;
 			getStateLaw(state);
 		});
 
+		$("select[name='school_state']").on("change", function() {
+
+			// update state law based on state <select>
+			getStateLaw($(this).find("option:selected").text());
+		});
+
 		// save state data
 		state_laws = tabletop.sheets("State Laws").all();
 
