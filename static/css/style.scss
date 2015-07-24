@@ -3,7 +3,7 @@
 //
 // specify the last page of the form
 //
-$last-page: 16;
+$last-page: 17;
 //
 //////////////////////////////////////////////
 
@@ -920,6 +920,10 @@ section {
                     color: saturate($green, 15%);
                 }
             }
+        }
+
+        & > ol > li {
+            margin-bottom: 0.25em;
         }
     }
 
