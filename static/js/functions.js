@@ -55,7 +55,6 @@ var section_page = 1;
 		});
 
 		$("select[name='school_state']").on("change", function() {
-
 			// update state law based on state <select>
 			getStateLaw($(this).find("option:selected").text());
 		});
@@ -278,6 +277,13 @@ var section_page = 1;
 		// combine values from two wizard fields into one PDF field
 		combineValues("misleading_job_assistance_1", "misleading_job_assistance_2", "misleading_job_assistance");
 		combineValues("misleading_accreditation_1", "misleading_accreditation_2", "misleading_accreditation");
+
+		// file upload
+		$(".file input[type='file']").on("change", function() {
+		    $(this).parent().parent().find("input[type='text']").val($(this).val().replace("C:\\fakepath\\", ""));
+
+		    console.log($(this).val());
+		});
 
 
 		// jquery.validate

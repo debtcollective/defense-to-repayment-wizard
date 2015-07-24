@@ -13,7 +13,7 @@ header h2, nav#pages ol:before {
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-#body00 section button, section input[type="submit"], button {
+#body00 section button, section input[type="submit"], button, section .file > div {
   font-family: "proxima-nova", "Gotham", "Helvetica Neue", "Helvetica", Helmet, Freesans, sans-serif;
   font-weight: 100;
   letter-spacing: 1px;
@@ -31,7 +31,7 @@ header h2, nav#pages ol:before {
   transition: background-color 0.25s;
   text-decoration: none;
   -webkit-appearance: caret; }
-  #body00 section button:hover, section input[type="submit"]:hover, button:hover {
+  #body00 section button:hover, section input[type="submit"]:hover, button:hover, section .file > div:hover {
     color: #fff;
     background: #d30e1d; }
 
@@ -259,6 +259,28 @@ section {
     display: block;
     width: 100%;
     line-height: normal; }
+  section .file {
+    font-size: 0.8em; }
+    section .file span {
+      font-weight: 100;
+      cursor: pointer; }
+    section .file input[type="text"] {
+      width: 50%; }
+    section .file > div {
+      position: relative;
+      overflow: hidden;
+      padding: 0.65em 1.5em 0.5em;
+      margin-left: 0.75em;
+      display: inline-block; }
+      section .file > div input.upload {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        margin: 0;
+        font-size: 20px;
+        opacity: 0; }
   section .input-group input[type="text"], section .input-group input[type="email"] {
     margin: 1em 0; }
   section .input-group.text {
