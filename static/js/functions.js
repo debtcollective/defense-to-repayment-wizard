@@ -4,6 +4,7 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 
 var screen_width = $(window).width();
 
+var sections =					4;  // number of sections
 var school_first_page = 		5;	// first page of school section
 var experience_first_page = 	7; 	// first page of experience section
 
@@ -150,25 +151,21 @@ var section_page = 1;
 		$("nav#steps li.active").removeClass("active");
 		$("nav#steps li#" + current_section).addClass("active");
 
-		// build bottom nav
-		var li = '<li id="nav01"><a href="#page01">Page</a></li>';
-		$("nav#steps ol ol").children().remove();
-
-		for(var i = 0; i < section_pages; i++) {
-			$("nav#steps #" + current_section + " ol").append(li);
-			var page_hash = zeroFill(section_page + i, 2);
-			$("nav#steps #" + current_section + " li").last().attr("id", "nav" + page_hash);
-			$("nav#steps #" + current_section + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
-		}
-
 		// change nav state
 		$("nav#steps ol ol li#nav" + hash.substring(5)).addClass("active");
 
 		// validate the form before letting the user move on
 		$("nav a").click( function(e) {
 			var isValid = $("form").valid();
-			if (!isValid)
+			var validPage = zeroFill(current_page, 2);
+
+			if ($(this).is("#next") && !isValid)
 				e.preventDefault();
+			else if (!($(this).is("#previous")) && isValid) {
+				console.log(validPage);
+				$("#nav" + validPage).addClass("valid");
+			}
+
 		});
 
 
@@ -200,6 +197,20 @@ var section_page = 1;
 	}
 
 	$(document).ready(function (){
+
+
+		// build side nav
+		var li = '<li id="nav01"><a href="#page01">Page</a></li>';
+		$("nav#steps ol ol").children().remove();
+
+		for(var i = 0; i < section_pages; i++) {
+		for(var i = 0; i < section_pages; i++) {
+			$("nav#steps #" + current_section + " ol").append(li);
+			var page_hash = zeroFill(section_page + i, 2);
+			$("nav#steps #" + current_section + " li").last().attr("id", "nav" + page_hash);
+			$("nav#steps #" + current_section + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
+		}
+
 
 		// toggle "explain" textarea field when answering "yes"
 		$('.yesno .radio input[value="true"]').click(function() {
@@ -310,7 +321,7 @@ var section_page = 1;
 			},
 			errorPlacement: function(error, element) {
 			    if (element.attr("type") == "radio" || element.attr("type") == "checkbox" )
-			    	error.insertAfter(".input-group:last-of-type");
+			    	error.insertAfter(".active .input-group:last");
 			    else if (element.attr("name") == "phone_primary_1" || element.attr("name") == "phone_primary_2" )
 			    	error.insertAfter("input[name='phone_primary_3']");
 			    else if (element.attr("name") == "phone_alt_1" || element.attr("name") == "phone_alt_2" )

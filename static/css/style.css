@@ -553,6 +553,9 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
     padding-top: 3em;
     padding-bottom: 2em; }
 
+  #body00 #formwrap {
+    width: 100%; }
+
   nav#pages ol:before {
     content: 'page';
     position: absolute;
