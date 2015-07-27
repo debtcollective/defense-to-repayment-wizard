@@ -86,6 +86,8 @@
 
         <p>When answering these questions, please provide as much detail as possible. The more information you can provide, the better a chance you will have of getting a discharge. We recommend setting aside at least 30 minutes to fill out the form. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
 
+        <p>If you have any documents reflecting your experience at your school, please gather and scan them onto the computer you will use to fill out this form before beginning.</p>
+
         <a href="#page01"><button>Get Started</button></a>
 
         <p>This form is very secure. The information you enter into it will only be used for two purposes: (1) to submit an application to the Department of Education and (2) to help us keep track of who is filling out this form so that we can better plan strategies for convincing the Department of Education to erase illegitimate debts. We will never share it with anybody outside the small group of organizers and lawyers working to that end unless you expressly give us permission to do so.</p>
@@ -282,7 +284,7 @@
 
         <section id="page04" data-title="Your Student Loans">
 
-            <p>Who is your loan servicer? (If you don't know, you can leave it blank.)</p>
+            <p>Who is your loan servicer?</p>
 
             <script id="servicers-list" type="text/x-handlebars-template">
                 <option value="{{Name}}">{{Name}}</option>
@@ -292,14 +294,14 @@
                 <option></option>
             </select>
 
-            <p style="margin-top: 2.5em;">How did you find your federal student loan lender?</p>
+            <p style="margin-top: 2.5em;">Did you choose the lender of your federal student loans?</p>
 
             <div class="input-group">
                 <div class="radio">
                     <input type="radio" name="direct_loan_check" value="" required />
                     <label></label>
                 </div>
-                <label>I chose my own lender</label>
+                <label>Yes</label>
             </div>
 
             <div class="input-group">
@@ -307,10 +309,10 @@
                     <input type="radio" name="direct_loan_check" value="true" required checked />
                     <label></label>
                 </div>
-                <label>My lender was chosen for me</label>
+                <label>No</label>
             </div>
 
-            <p><em>If you took out federal student loans after 2010, your lender was chosen for you.</em></p>
+            <p class="small">Most students did not choose their own federal student loan lender. You should only choose "yes" if you took out some or all of your loans before 2010, and you had the option to take out federal student loans from different lenders.</p>
 
         </section>
 
@@ -417,7 +419,7 @@
                     </select>
                 </div>
 
-                <p class="small">If you can't remember your campus's address and don't have any records stating the address, entering the name of your school into a search engine may turn up its address. Don't worry if you can't find the address--state is enough in that circumstance.</p>
+                <p class="small">If you can't remember your campus's address and don't have any records stating it, entering the name of your school into a search engine may turn up its address. If you can't find the address, you can enter just your school campus's state.</p>
             </div>
 
 
@@ -623,7 +625,7 @@
             </div>
 
             <div class="explain">
-                <p>Please explain in detail.</p>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
                 <textarea maxlength="950" name="misleading_eligible" required></textarea>
             </div>
@@ -659,7 +661,7 @@
             </div>
 
             <div class="explain">
-                <p>Please explain in detail.</p>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
                 <textarea maxlength="950" name="misleading_pay" required></textarea>
             </div>
@@ -691,7 +693,7 @@
             </div>
 
             <div class="explain">
-                <p>Please explain in detail.</p>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
                 <textarea maxlength="950" name="misleading_illegal" required></textarea>
             </div>
@@ -718,7 +720,7 @@
             </div>
 
             <div class="explain">
-                <p>Please explain in detail.</p>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
                 <textarea maxlength="950" name="misleading_other" required></textarea>
             </div>
@@ -796,7 +798,7 @@
 
 
         <section id="page14" data-title="Supporting Documents">
-            <p>Please attach any supporting documents, if you have them.</p>
+            <p>You can use this tool to upload any documentation of your experience at <span class="school-name">your school</span> to accompany your application. This could include: loan agreements, transcripts, diplomas, emails with school administrators, etc. When in doubt, include&nbsp;it.</p>
 
             <div class="input-group file">
                 <input type="text" id="upload1" placeholder="Choose File" disabled="disabled" />
