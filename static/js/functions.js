@@ -157,7 +157,7 @@ var section_page = 1;
 				e.preventDefault();
 			else if (!($(this).is("#previous")) && isValid) {
 				console.log(validPage);
-				$("#nav" + validPage).addClass("valid");
+				$("#nav" + validPage).addClass("complete");
 			}
 
 		});
@@ -196,7 +196,6 @@ var section_page = 1;
 	$(document).ready(function (){
 
 
-
 		// how many pages total?
 		total_pages = 		$("section").length - 2; // -2 for download and intro
 
@@ -205,7 +204,7 @@ var section_page = 1;
 			if (sections_start[i+1])
 				sections_pages[i] = sections_start[i+1] - sections_start[i];
 			else
-				sections_pages[i] = total_pages - sections_start[i];
+				sections_pages[i] = total_pages - sections_start[i] + 1;
 
 			// make steps nav work
 			$("nav#steps li#" + sections[i] + " > a").attr("href", "#page" + zeroFill(sections_start[i], 2));
@@ -221,7 +220,6 @@ var section_page = 1;
 				var page_hash = zeroFill(sections_start[j] + i, 2);
 				$("nav#steps #" + sections[j] + " li").last().attr("id", "nav" + page_hash);
 				$("nav#steps #" + sections[j] + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
-				console.log(sections[j]);
 			}
 		}
 
