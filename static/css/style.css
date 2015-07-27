@@ -565,7 +565,7 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
     bottom: 1.75em; }
 
   .form-language {
-    max-height: 200px;
+    max-height: 235px;
     overflow: scroll;
     padding: 0.5em 0.75em;
     background: #f9f8f3;
