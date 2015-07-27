@@ -4,11 +4,11 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 
 var screen_width = $(window).width();
 
-var sections =					4;  // number of sections
-var school_first_page = 		5;	// first page of school section
-var experience_first_page = 	7; 	// first page of experience section
+var sections =					[ "personal", "school", "experience", "review" ];
+var sections_start =			[ 1, 5, 7, 14 ];
+var sections_pages = 			[];
 
-var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
+var current_section, total_pages, state_laws;
 var section_page = 1;
 
 // remap jQuery to $
@@ -131,21 +131,19 @@ var section_page = 1;
 		$("footer #previous").attr("href", "#page" + prev_page);
 
 		// determine current section
-		if (current_page < school_first_page){
-			current_section = "personal";
-			section_page = 1;
-			section_pages = personal_pages;
-		}
-		else if (current_page >= school_first_page && current_page < experience_first_page) {
-			current_section = "school";
-			section_page = school_first_page;
-			section_pages = school_pages;
-		}
-		else {
-			current_section = "experience";
-			section_page = experience_first_page;
-			section_pages = experience_pages;
-		}
+		for (var i = sections.length - 1; i >= 0; i--) {
+			if (sections_start[i+1] &&
+				current_page >= sections_start[i] &&
+				current_page < sections_start[i+1]) {
+				current_section = sections[i];
+				break;
+			}
+			else if (current_page >= sections_start[i] &&
+					current_page < total_pages) {
+				current_section = sections[i];
+				break;	
+			}
+		};
 
 		// update "steps" nav
 		$("nav#steps li.active").removeClass("active");
@@ -199,16 +197,33 @@ var section_page = 1;
 	$(document).ready(function (){
 
 
+
+		// how many pages total?
+		total_pages = 		$("section").length - 2; // -2 for download and intro
+		
+		// how many pages per section?
+		for (var i = sections.length - 1; i >= 0; i--) {
+			if (sections_start[i+1])
+				sections_pages[i] = sections_start[i+1] - sections_start[i];
+			else
+				sections_pages[i] = total_pages - sections_start[i];
+
+			// make steps nav work
+			$("nav#steps li#" + sections[i] + " > a").attr("href", "#page" + zeroFill(sections_start[i], 2));
+		};
+
+
 		// build side nav
 		var li = '<li id="nav01"><a href="#page01">Page</a></li>';
-		$("nav#steps ol ol").children().remove();
 
-		for(var i = 0; i < section_pages; i++) {
-		for(var i = 0; i < section_pages; i++) {
-			$("nav#steps #" + current_section + " ol").append(li);
-			var page_hash = zeroFill(section_page + i, 2);
-			$("nav#steps #" + current_section + " li").last().attr("id", "nav" + page_hash);
-			$("nav#steps #" + current_section + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
+		for(var j = 0; j < sections.length; j++) {
+			for(var i = 0; i < sections_pages[j]; i++) {
+				$("nav#steps #" + sections[j] + " ol").append(li);
+				var page_hash = zeroFill(sections_start[j] + i, 2);
+				$("nav#steps #" + sections[j] + " li").last().attr("id", "nav" + page_hash);
+				$("nav#steps #" + sections[j] + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
+				console.log(sections[j]);
+			}
 		}
 
 
@@ -224,17 +239,6 @@ var section_page = 1;
 		$('.checkbox input').click(function() {
 		    $(this).parent().parent().find(".explain").toggle(this.checked);
 		});
-
-
-		// how many pages total?
-		total_pages = 		$("section").length - 2; // -2 for download and intro
-		personal_pages = 	school_first_page - 1;
-		experience_pages = 	total_pages - experience_first_page + 1;
-		school_pages = 		experience_first_page - school_first_page;
-
-		// make steps nav work
-		$("nav#steps li#school > a").attr("href", "#page" + zeroFill(school_first_page, 2));
-		$("nav#steps li#experience > a").attr("href", "#page" + zeroFill(experience_first_page, 2));
 
 
 		// school info: show Corinthian list
