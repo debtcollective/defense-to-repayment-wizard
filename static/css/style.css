@@ -595,7 +595,7 @@ section #phone_primary input, section #phone_alt input, section #ssn input {
       font-size: 0.9em; }
       nav#steps li:last-child {
         border-right: 0; }
-      nav#steps li ol {
+      nav#steps li.active ol {
         display: block; }
       nav#steps li a {
         padding: 0.75em 0 0.75em 2.8em;
