@@ -4,14 +4,12 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/18kOeUM3aN2
 
 var screen_width = $(window).width();
 
-var school_first_page = 		5;	// first page of school section
-var experience_first_page = 	8; 	// first page of experience section
+var sections =					[ "personal", "school", "experience", "review" ];
+var sections_start =			[ 1, 5, 7, 14 ];
+var sections_pages = 			[];
 
-var current_section, total_pages, school_pages, experience_pages, personal_pages, state_laws;
+var current_section, total_pages, state_laws;
 var section_page = 1;
-
-// did the user's school shut down?
-var shutdown = false;
 
 // remap jQuery to $
 (function($){
@@ -53,6 +51,11 @@ var shutdown = false;
 			getStateLaw(state);
 		});
 
+		$("select[name='school_state']").on("change", function() {
+			// update state law based on state <select>
+			getStateLaw($(this).find("option:selected").text());
+		});
+
 		// save state data
 		state_laws = tabletop.sheets("State Laws").all();
 
@@ -87,23 +90,18 @@ var shutdown = false;
 	  return number + ""; // always return a string
 	}
 
-	$('#dtr-form').submit(function(event) {
-		var data = $(this).serialize()
-		$.ajax({
-			method: 'POST',
-			url: '/corinthian/dtr_generate',
-			data: data,
-			success: function (data) {
-				window.location.hash = '#download'
-				$('#pdf-view').attr('href', data['pdf_link'])
-			},
-			error: function (data) {
-				console.log(data)
-			}
-		})
-	  event.preventDefault();
-	});
-
+	 $("#dtr-form").ajaxForm({
+     beforeSend: function () {
+        window.location.hash = '#loading'
+     },
+     success: function (data) {
+        window.location.hash = '#download'
+        $('#pdf-view').attr('href', data['pdf_link'])
+     },
+     error: function (data) {
+        alert('Something went wrong. Try using smaller attachments and check your email.')
+     }
+   })
 
 	// show the appropriate page of the form
 	function getPage() {
@@ -123,57 +121,40 @@ var shutdown = false;
 		$("footer #next").attr("href", "#page" + next_page);
 		$("footer #previous").attr("href", "#page" + prev_page);
 
-		// skip shutdown page if the school didn't shut down
-		if (!shutdown && next_page == 11)
-			$("footer #next").attr("href", "#page" + zeroFill(current_page + 2, 2));
-		else if (!shutdown && prev_page == 11)
-			$("footer #previous").attr("href", "#page" + zeroFill(current_page - 2, 2));
-
 		// determine current section
-		if (current_page < school_first_page){
-			current_section = "personal";
-			section_page = 1;
-			section_pages = personal_pages;
-		}
-		else if (current_page >= school_first_page && current_page < experience_first_page) {
-			current_section = "school";
-			section_page = school_first_page;
-			section_pages = school_pages;
-		}
-		else {
-			current_section = "experience";
-			section_page = experience_first_page;
-			section_pages = experience_pages;
-		}
+		for (var i = sections.length - 1; i >= 0; i--) {
+			if (sections_start[i+1] &&
+				current_page >= sections_start[i] &&
+				current_page < sections_start[i+1]) {
+				current_section = sections[i];
+				break;
+			}
+			else if (current_page >= sections_start[i] &&
+					current_page < total_pages) {
+				current_section = sections[i];
+				break;
+			}
+		};
 
 		// update "steps" nav
 		$("nav#steps li.active").removeClass("active");
 		$("nav#steps li#" + current_section).addClass("active");
 
-		// build bottom nav
-		var li = '<li id="nav01"><a href="#page01">1</a></li>';
-		$("nav#pages ol").children().remove();
-
-		var j;
-		for(var i = 0; i < section_pages; i++) {
-			j = i;
-			if (!shutdown && section_page + i == 11)
-				i++
-			else if (!shutdown && section_page + i > 11)
-				j--
-			$("nav#pages ol").append(li);
-			$("nav#pages li").last().attr("id", "nav" + zeroFill(section_page + i, 2));
-			$("nav#pages li").last().find("a").attr("href", "#page" + zeroFill(section_page + i, 2)).text(j+1);
-		}
-
 		// change nav state
-		$("nav#pages li#nav" + hash.substring(5)).addClass("active");
+		$("nav#steps ol ol li#nav" + hash.substring(5)).addClass("active");
 
 		// validate the form before letting the user move on
 		$("nav a").click( function(e) {
 			var isValid = $("form").valid();
-			if (!isValid)
+			var validPage = zeroFill(current_page, 2);
+
+			if ($(this).is("#next") && !isValid)
 				e.preventDefault();
+			else if (!($(this).is("#previous")) && isValid) {
+				console.log(validPage);
+				$("#nav" + validPage).addClass("complete");
+			}
+
 		});
 
 
@@ -209,21 +190,47 @@ var shutdown = false;
 
 	$(document).ready(function (){
 
-		// toggle "explain" textarea field when box is checked
-		$('.checkbox input').click(function() {
-		    $(this).parent().parent().find(".explain").toggle(this.checked);
-		});
-
 
 		// how many pages total?
 		total_pages = 		$("section").length - 2; // -2 for download and intro
-		personal_pages = 	school_first_page - 1;
-		experience_pages = 	total_pages - experience_first_page + 1;
-		school_pages = 		experience_first_page - school_first_page;
 
-		// make steps nav work
-		$("nav#steps li#school a").attr("href", "#page" + zeroFill(school_first_page, 2));
-		$("nav#steps li#experience a").attr("href", "#page" + zeroFill(experience_first_page, 2));
+		// how many pages per section?
+		for (var i = sections.length - 1; i >= 0; i--) {
+			if (sections_start[i+1])
+				sections_pages[i] = sections_start[i+1] - sections_start[i];
+			else
+				sections_pages[i] = total_pages - sections_start[i] + 1;
+
+			// make steps nav work
+			$("nav#steps li#" + sections[i] + " > a").attr("href", "#page" + zeroFill(sections_start[i], 2));
+		};
+
+
+		// build side nav
+		var li = '<li id="nav01"><a href="#page01">Page</a></li>';
+
+		for(var j = 0; j < sections.length; j++) {
+			for(var i = 0; i < sections_pages[j]; i++) {
+				$("nav#steps #" + sections[j] + " ol").append(li);
+				var page_hash = zeroFill(sections_start[j] + i, 2);
+				$("nav#steps #" + sections[j] + " li").last().attr("id", "nav" + page_hash);
+				$("nav#steps #" + sections[j] + " li").last().find("a").attr("href", "#page" + page_hash).text( $("section#page" + page_hash + "").attr("data-title") );
+			}
+		}
+
+
+		// toggle "explain" textarea field when answering "yes"
+		$('.yesno .radio input[value="true"]').click(function() {
+		    $(this).parent().parent().parent().find(".explain").show();
+		});
+		$('.yesno .radio input[value=""]').click(function() {
+		    $(this).parent().parent().parent().find(".explain").hide();
+		});
+
+		// …or when a box is checked
+		$('.checkbox input').click(function() {
+		    $(this).parent().parent().find(".explain").toggle(this.checked);
+		});
 
 
 		// employment question
@@ -248,19 +255,19 @@ var shutdown = false;
 				$("#withdraw").hide();
 		});
 
-		$("input[name='school-close'], input[name='withdraw']").on("change", function() {
-			if ($("input[name='school-close']:checked").val() == "0" || $("input[name='withdraw']:checked").val() == "0")
-				shutdown = true;
-			else
-				shutdown = false;
-		});
-
 		// show the correct page on hash change
 		$(window).on( 'hashchange', getPage );
 
 		// combine values from two wizard fields into one PDF field
 		combineValues("misleading_job_assistance_1", "misleading_job_assistance_2", "misleading_job_assistance");
 		combineValues("misleading_accreditation_1", "misleading_accreditation_2", "misleading_accreditation");
+
+		// file upload
+		$(".file input[type='file']").on("change", function() {
+		    $(this).parent().parent().find("input[type='text']").val($(this).val().replace("C:\\fakepath\\", ""));
+
+		    console.log($(this).val());
+		});
 
 
 		// jquery.validate
@@ -287,7 +294,7 @@ var shutdown = false;
 			},
 			errorPlacement: function(error, element) {
 			    if (element.attr("type") == "radio" || element.attr("type") == "checkbox" )
-			    	error.insertAfter(".input-group:last-of-type");
+			    	error.insertAfter(".active .input-group:last");
 			    else if (element.attr("name") == "phone_primary_1" || element.attr("name") == "phone_primary_2" )
 			    	error.insertAfter("input[name='phone_primary_3']");
 			    else if (element.attr("name") == "phone_alt_1" || element.attr("name") == "phone_alt_2" )
