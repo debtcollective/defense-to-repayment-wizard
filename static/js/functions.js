@@ -94,23 +94,18 @@ var section_page = 1;
 	  return number + ""; // always return a string
 	}
 
-	$('#dtr-form').submit(function(event) {
-		var data = $(this).serialize()
-		$.ajax({
-			method: 'POST',
-			url: '/corinthian/dtr_generate',
-			data: data,
-			success: function (data) {
-				window.location.hash = '#download'
-				$('#pdf-view').attr('href', data['pdf_link'])
-			},
-			error: function (data) {
-				console.log(data)
-			}
-		})
-	  event.preventDefault();
-	});
-
+	 $("#dtr-form").ajaxForm({
+     beforeSend: function () {
+        window.location.hash = '#loading'
+     },
+     success: function (data) {
+        window.location.hash = '#download'
+        $('#pdf-view').attr('href', data['pdf_link'])
+     },
+     error: function (data) {
+        alert('Something went wrong. Try using smaller attachments and check your email.')
+     }
+   })
 
 	// show the appropriate page of the form
 	function getPage() {
@@ -141,7 +136,7 @@ var section_page = 1;
 			else if (current_page >= sections_start[i] &&
 					current_page < total_pages) {
 				current_section = sections[i];
-				break;	
+				break;
 			}
 		};
 
@@ -199,7 +194,7 @@ var section_page = 1;
 
 		// how many pages total?
 		total_pages = 		$("section").length - 2; // -2 for download and intro
-		
+
 		// how many pages per section?
 		for (var i = sections.length - 1; i >= 0; i--) {
 			if (sections_start[i+1])
