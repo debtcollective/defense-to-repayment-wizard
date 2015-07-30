@@ -76,165 +76,235 @@
     <h2><img src="/static/dc_name.png" alt="Debt Collective" /></h2>
 </header>
 
-<div class="wrapper">
+<h1>Defense to Repayment App</h1>
 
-    <h1>Defense to Repayment App</h1>
+<div class="wrapper">
 
     <section id="page00" class="active">
 
-        <p>Welcome Corinthian Collective members! We built this app to help you dispute your federal student loan debt from your school. It will guide you through a series of questions about your experience with Corinthian, and turn your answers into a form that we will submit on your behalf to the US Department of Education. You will be able to download your completed form after you submit to keep for your own records.</p>
+        <p>Welcome! This app will help you dispute your federal student loan debt from your school. It will guide you through a series of questions about your experience and turn your answers into a form that will automatically be electronically submitted to the Department of Education. You will be able to download a copy of the completed form after you submit to keep for your own records.</p>
 
-        <p>The personal information you provide here will only be used to fill out the Defense to Repayment form. We will not share it with anybody else without your permission.</p>
+        <p>When answering these questions, please provide as much detail as possible. The more information you can provide, the better a chance you will have of getting a discharge. We recommend setting aside at least 30 minutes to fill out the form. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
 
-        <p>Please answer the following questions and provide as much detail as you can in your response. The more information you can provide, the better chance you have of getting a loan discharge. Filling out the form will probably take around 30 minutes. If a question doesn’t apply to you, you can leave it blank and click <span class="button-text">Next</span>.</p>
+        <p>If you have any documents reflecting your experience at your school, please gather and scan them onto the computer you will use to fill out this form before beginning.</p>
 
         <a href="#page01"><button>Get Started</button></a>
+
+        <p>This form is very secure. The information you enter into it will only be used for two purposes: (1) to submit an application to the Department of Education and (2) to help us keep track of who is filling out this form so that we can better plan strategies for convincing the Department of Education to erase illegitimate debts. We will never share it with anybody outside the small group of organizers and lawyers working to that end unless you expressly give us permission to do so.</p>
+
+        <p>By creating this app, we only mean to help making the Defense to Repayment application process easier. It does not constitute and cannot substitute for legal advice.</p>
 
     </section>
 
     <nav id="steps">
         <ol>
-            <li id="personal" class="active"><a href="#page01"><span class="step">Step 1</span> Personal Info<span class="extra">rmation</span></a></li>
-            <li id="school"><a href="#page02"><span class="step">Step 2</span> <span class="extra">Your </span>School</a></li>
-            <li id="experience"><a href="#page03"><span class="step">Step 3</span> <span class="extra">Your </span>Experience</a></li>
+            <li id="personal" class="active">
+                <a href="#page01"><span class="step">Step 1</span> Personal Info<span class="extra">rmation</span></a>
+
+                <ol></ol>
+            </li>
+
+            <li id="school">
+                <a href="#page02"><span class="step">Step 2</span> <span class="extra">Your </span>School</a>
+
+                <ol></ol>
+            </li>
+
+            <li id="experience">
+                <a href="#page03"><span class="step">Step 3</span> <span class="extra">Your </span>Experience</a>
+
+                <ol></ol>
+            </li>
+
+            <li id="review">
+                <a href="#page11"><span class="step">Step 4</span> Review<span class="extra"> & Complete</span></a>
+
+                <ol></ol>
+            </li>
         </ol>
     </nav>
 
-    <form id="dtr-form">
-    <section id="page01">
+    <div id="formwrap">
 
-        <div class="intro">
-            <p>First, we need some personal information.</p>
-        </div>
+        <form action="/dtr_generate" method="POST" id="dtr-form" enctype="multipart/form-data">
+        <section id="page01" data-title="Basic">
 
-        <div class="input-group text" id="ssn">
-            <label for="ssn_3">Social Security # (Last&nbsp;4)</label>
-            <input type="password" name="ssn_3" style="max-width: 4em;" minlength="4" maxlength="4" required digits />
-        </div>
+            <div class="intro">
+                <p>First, we need some personal information.</p>
+            </div>
 
-        <div class="input-group text">
-            <label for="name">Name</label>
-            <input type="text" name="name" required />
-        </div>
+            <div class="input-group text" id="ssn">
+                <label for="ssn_3">Social Security # (Last&nbsp;4)</label>
+                <input type="password" name="ssn_3" style="max-width: 4em;" minlength="4" maxlength="4" required digits />
+            </div>
 
-        <div class="input-group text">
-            <label for="address">Address</label>
-            <input type="text" name="address" required />
-        </div>
+            <div class="input-group text">
+                <label for="name">Name</label>
+                <input type="text" name="name" required />
+            </div>
 
-        <div class="input-group text">
-            <label>City</label>
-            <input type="text" name="city" required />
-        </div>
+            <div class="input-group text">
+                <label for="address">Address</label>
+                <input type="text" name="address" required />
+            </div>
 
-        <div class="input-group text">
-            <label for="state">State</label>
+            <div class="input-group text">
+                <label>City</label>
+                <input type="text" name="city" required />
+            </div>
 
-            <select name="state" class="chosen" style="width: 33%" data-placeholder="Choose a state..." required>
-            <option></option>
-              <option value="Alabama">Alabama</option>
-              <option value="Alaska">Alaska</option>
-              <option value="Arizona">Arizona</option>
-              <option value="Arkansas">Arkansas</option>
-              <option value="California">California</option>
-              <option value="Colorado">Colorado</option>
-              <option value="Connecticut">Connecticut</option>
-              <option value="Delaware">Delaware</option>
-              <option value="DC">District of Colombia (DC)</option>
-              <option value="Florida">Florida</option>
-              <option value="Georgia">Georgia</option>
-              <option value="Hawaii">Hawaii</option>
-              <option value="Idaho">Idaho</option>
-              <option value="Illinois">Illinois</option>
-              <option value="Indiana">Indiana</option>
-              <option value="Iowa">Iowa</option>
-              <option value="Kansas">Kansas</option>
-              <option value="Kentucky">Kentucky</option>
-              <option value="Louisiana">Louisiana</option>
-              <option value="Maine">Maine</option>
-              <option value="Maryland">Maryland</option>
-              <option value="Massachusetts">Massachusetts</option>
-              <option value="Michigan">Michigan</option>
-              <option value="Minnesota">Minnesota</option>
-              <option value="Mississippi">Mississippi</option>
-              <option value="Missouri">Missouri</option>
-              <option value="Montana">Montana</option>
-              <option value="Nebraska">Nebraska</option>
-              <option value="Nevada">Nevada</option>
-              <option value="New Hampshire">New Hampshire</option>
-              <option value="New Jersey">New Jersey</option>
-              <option value="New Mexico">New Mexico</option>
-              <option value="New York">New York</option>
-              <option value="North Carolina">North Carolina</option>
-              <option value="North Dakota">North Dakota</option>
-              <option value="Ohio">Ohio</option>
-              <option value="Oklahoma">Oklahoma</option>
-              <option value="Oregon">Oregon</option>
-              <option value="Pennsylvania">Pennsylvania</option>
-              <option value="Rhode Island">Rhode Island</option>
-              <option value="South Carolina">South Carolina</option>
-              <option value="South Dakota">South Dakota</option>
-              <option value="Tennessee">Tennessee</option>
-              <option value="Texas">Texas</option>
-              <option value="Utah">Utah</option>
-              <option value="Vermont">Vermont</option>
-              <option value="Virginia">Virginia</option>
-              <option value="Washington">Washington</option>
-              <option value="West Virginia">West Virginia</option>
-              <option value="Wisconsin">Wisconsin</option>
-              <option value="Wyoming">Wyoming</option>
+            <div class="input-group text">
+                <label for="state">State</label>
+
+                <select name="state" class="chosen" style="width: 33%" data-placeholder="Choose a state..." required>
+                <option></option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Arizona">Arizona</option>
+                  <option value="Arkansas">Arkansas</option>
+                  <option value="California">California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Connecticut">Connecticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="DC">District of Colombia (DC)</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas">Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachusetts">Massachusetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="New Hampshire">New Hampshire</option>
+                  <option value="New Jersey">New Jersey</option>
+                  <option value="New Mexico">New Mexico</option>
+                  <option value="New York">New York</option>
+                  <option value="North Carolina">North Carolina</option>
+                  <option value="North Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="Rhode Island">Rhode Island</option>
+                  <option value="South Carolina">South Carolina</option>
+                  <option value="South Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virginia">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
+                </select>
+            </div>
+
+            <div class="input-group text" id="zip">
+                <label for="zip">Zip</label>
+                <input type="text" name="zip" style="max-width: 5.5em;" required digits minlength="5" maxlength="5" />
+            </div>
+        </section>
+
+
+        <section id="page02" data-title="Contact">
+
+            <div class="intro">
+                <p>Add your contact information. Include at least one phone number or email.</p>
+            </div>
+
+            <div class="input-group text" id="phone_primary">
+                <label for="phone_primary" class="optional">Primary Phone</label>
+                <span class="light">(</span>
+                <input type="text" name="phone_primary_1" style="max-width: 3.25em;" minlength="3" maxlength="3" digits />
+                <span class="light">) &nbsp;</span>
+                <input type="text" name="phone_primary_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
+                <span class="light"> - </span>
+                <input type="text" name="phone_primary_3" style="max-width: 4em;" minlength="4" maxlength="4" digits />
+            </div>
+
+            <div class="input-group text">
+                <label>Email</label>
+                <input type="email" name="email" />
+            </div>
+
+        </section>
+
+
+        <section id="page03" data-title="Employment">
+
+            <div id="employment-status">
+                <p>Are you currently employed?</p>
+
+                <div class="input-group">
+                    <div class="radio">
+                        <input type="radio" name="employed" value="0" required />
+                        <label></label>
+                    </div>
+                    <label>Yes</label>
+                </div>
+
+                <div class="input-group">
+                    <div class="radio">
+                        <input type="radio" name="employed" value="1" required />
+                        <label></label>
+                    </div>
+                    <label>No</label>
+                </div>
+            </div>
+
+            <div id="employment-type" style="margin-top: 2em;">
+                <p>Is your job in your field of study?</p>
+
+                <div class="input-group">
+                    <div class="radio">
+                        <input type="radio" name="in_field" value="0" required />
+                        <label></label>
+                    </div>
+                    <label>Yes</label>
+                </div>
+
+                <div class="input-group">
+                    <div class="radio">
+                        <input type="radio" name="in_field" value="1" required />
+                        <label></label>
+                    </div>
+                    <label>No</label>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section id="page04" data-title="Your Student Loans">
+
+            <p>Who is your loan servicer?</p>
+
+            <script id="servicers-list" type="text/x-handlebars-template">
+                <option value="{{Name}}">{{Name}}</option>
+            </script>
+
+            <select id="servicers-select" class="chosen no-init" name="servicer" data-placeholder="Choose a servicer...">
+                <option></option>
             </select>
-        </div>
 
-        <div class="input-group text" id="zip">
-            <label for="zip">Zip</label>
-            <input type="text" name="zip" style="max-width: 5.5em;" required digits minlength="5" maxlength="5" />
-        </div>
-    </section>
-
-
-    <section id="page02">
-
-        <div class="intro">
-            <p>Add your contact information. Include at least one phone number or email.</p>
-        </div>
-
-        <div class="input-group text" id="phone_primary">
-            <label for="phone_primary" class="optional">Primary Phone</label>
-            <span class="light">(</span>
-            <input type="text" name="phone_primary_1" style="max-width: 3.25em;" minlength="3" maxlength="3" digits />
-            <span class="light">) &nbsp;</span>
-            <input type="text" name="phone_primary_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
-            <span class="light"> - </span>
-            <input type="text" name="phone_primary_3" style="max-width: 4em;" minlength="4" maxlength="4" digits />
-        </div>
-
-        <div class="input-group text" id="phone_alt">
-            <label for="phone_alt" class="optional">Secondary Phone</label>
-            <span class="light">(</span>
-            <input type="text" name="phone_alt_1" style="max-width: 3.25em;" minlength="3" maxlength="3" />
-            <span class="light">) &nbsp;</span>
-            <input type="text" name="phone_alt_2" style="max-width: 3.25em;" minlength="3" maxlength="3" />
-            <span class="light"> - </span>
-            <input type="text" name="phone_alt_3" style="max-width: 4em;" minlength="4" maxlength="4" />
-        </div>
-
-        <div class="input-group text">
-            <label>Email</label>
-            <input type="email" name="email" />
-        </div>
-
-    </section>
-
-
-    <section id="page03">
-
-        <div id="employment-status">
-            <p>Are you currently employed?</p>
+            <p style="margin-top: 2.5em;">Did you choose the lender of your federal student loans?</p>
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="0" required />
+                    <input type="radio" name="direct_loan_check" value="" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
@@ -242,626 +312,606 @@
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="employed" value="1" required />
+                    <input type="radio" name="direct_loan_check" value="true" required checked />
                     <label></label>
                 </div>
                 <label>No</label>
             </div>
-        </div>
 
-        <div id="employment-type" style="margin-top: 2em;">
-            <p>Is your job in your field of study?</p>
+            <p class="small">Most students did not choose their own federal student loan lender. You should only choose "yes" if you took out some or all of your loans before 2010, and you had the option to take out federal student loans from different lenders.</p>
+
+        </section>
+
+
+        <section id="page05" data-title="Basic Info">
+
+            <div class="intro">
+                <p>Next, we need to know about the school you went to.</p>
+            </div>
+
+
+            <div class="checkbox">
+                <input type="checkbox" name="corinthian" value="true" />
+                <label></label>
+            </div>
+            <label for="corinthian">I attended a Corinthian campus (Everest, WyoTech, Heald)</label>
+
+
+            <div id="corinthian-list" style="clear: left;">
+                <p style="margin-bottom: 0.75em;">Which campus did you attend?</p>
+
+                <script id="schools-list" type="text/x-handlebars-template">
+                    <option value="{{Brand}} {{Campus}}" data-address="{{Address}}" data-state="{{State}}">{{Brand}} {{Campus}}</option>
+                </script>
+
+                <select id="schools-select" name="corinthian_name" class="chosen no-init" data-placeholder="Choose a campus...">
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <div id="school-info">
+                <div class="input-group text">
+                    <label for="school_name">School Name</label>
+                    <input type="text" name="school_name" required />
+                </div>
+
+                <div class="input-group text">
+                    <label for="address">School Address</label>
+                    <input type="text" name="school_address" />
+                </div>
+
+                <div class="input-group text">
+                    <label>School City</label>
+                    <input type="text" name="school_city" />
+                </div>
+
+                <div class="input-group text">
+                    <label for="school_state">School State</label>
+
+                    <select name="school_state" class="chosen" style="width: 33%" data-placeholder="Choose a state..." required>
+                        <option></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="GU">Guam</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <p class="small">If you can't remember your campus's address and don't have any records stating it, entering the name of your school into a search engine may turn up its address. If you can't find the address, you can enter just your school campus's state.</p>
+            </div>
+
+
+            <p style="margin-top: 2em;">When did you attend <span class="school-name">your school</span>?</p>
+
+            <div id="attendance-from" class="input-group" style="border: 0;">
+                <label style="margin-right: 1em;">From</label>
+                <select name="attendance_from_month" class="chosen" style="margin: 0;">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <input type="text" name="attendance_from_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" required />
+            </div>
+
+            <div id="attendance-to" class="input-group" style="border: 0;">
+                <label style="width: auto; margin-right: 1em;">To</label>
+                <select name="attendance_to_month" class="chosen" style="margin: 0;">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <input type="text" name="attendance_to_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" required />
+            </div>
+
+            <input type="hidden" name="state_law" value="" />
+        </section>
+
+
+        <section id="page06" data-title="Your Program">
+            <p style="margin-bottom: 0;">What was the name of your program?</p>
+            <div class="input-group" style="margin-top: 0; border-bottom: 0;">
+                <input type="text" name="program_name" />
+
+                <p class="small" style="margin-top: -0.25em; font-style: italic;">e.g. Medical Assisting, Business Management</p>
+            </div>
+
+
+            <p>What type of degree were you working on? (Select your highest degree.)</p>
+
+            <div class="input-group degree">
+                <div class="radio">
+                    <input type="radio" name="credential_2" value="Associates" />
+                    <label></label>
+                </div>
+                <label for="credential_2">Associates</label>
+            </div>
+
+            <div class="input-group degree">
+                <div class="radio">
+                    <input type="radio" name="credential_2" value="Certificate" />
+                    <label></label>
+                </div>
+                <label for="credential_2">Certificate</label>
+            </div>
+
+            <div class="input-group degree" style="border: 0; margin-bottom: 1.5em;">
+                <div class="radio">
+                    <input type="radio" name="credential_2" value="Bachelors" />
+                    <label></label>
+                </div>
+                <label for="credential_2">Bachelors</label>
+            </div>
+
+            <div class="input-group degree" style="border: 0; margin-bottom: 1.5em;">
+                <div class="radio">
+                    <input type="radio" name="credential_2" value="Masters" />
+                    <label></label>
+                </div>
+                <label for="credential_2">Masters</label>
+            </div>
+
+            <p>Did you complete the program?</p>
 
             <div class="input-group">
                 <div class="radio">
-                    <input type="radio" name="in_field" value="0" required />
+                    <input type="radio" name="completed" value="0" required />
+                    <label></label>
+                </div>
+                <label for="completed">Yes</label>
+            </div>
+
+            <div class="input-group">
+                <div class="radio">
+                    <input type="radio" name="completed" value="1" required />
+                    <label></label>
+                </div>
+                <label for="completed">No</label>
+            </div>
+        </section>
+
+
+        <section id="page07" data-title="Job Placement">
+            <div class="intro">
+                <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">your&nbsp;school</span>.</p>
+            </div>
+
+            <p>Did <span class="school-name">your school</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>? This could&nbsp;include:</p>
+
+            <ul>
+                <li>Citing false or misleading statistics about job placement rates</li>
+                <li>Promising inflated salaries</li>
+                <li>Promising but failing to provide support in finding and landing a job.</li>
+            </ul>
+
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_job_check" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
             </div>
 
-            <div class="input-group">
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="in_field" value="1" required />
+                    <input type="radio" name="misleading_job_check" value="" required />
                     <label></label>
                 </div>
                 <label>No</label>
             </div>
-        </div>
 
-    </section>
+            <div class="explain">
+                <p>Please explain in detail.</p>
 
-
-    <section id="page04">
-
-        <p>Who is your loan servicer? (If you don't know, you can leave it blank.)</p>
-
-        <script id="servicers-list" type="text/x-handlebars-template">
-            <option value="{{Name}}">{{Name}}</option>
-        </script>
-
-        <select id="servicers-select" class="chosen" name="servicer" data-placeholder="Choose a servicer...">
-            <option></option>
-        </select>
-
-    </section>
-
-
-    <section id="page05">
-
-        <div class="intro">
-            <p>Next, we need to know about the school you went to.</p>
-        </div>
-
-        <p style="margin-bottom: 0.75em; display: block;">Which campus did you attend?</p>
-
-        <script id="schools-list" type="text/x-handlebars-template">
-            <option value="{{Brand}} {{Campus}}" data-address="{{Address}}" data-state="{{State}}">{{Brand}} {{Campus}}</option>
-        </script>
-
-        <select id="schools-select" name="school_name" class="chosen" data-placeholder="Choose a campus..." required>
-            <option value=""></option>
-        </select>
-
-        <input type="hidden" name="school_address" value="N/A" />
-        <input type="hidden" name="school_state" value="N/A" />
-
-        <input type="hidden" name="state_law" value="" />
-
-        <p style="margin-top: 2.5em; margin-bottom: 0;">What was the name of your program?</p>
-        <div class="input-group" style="margin-top: 0;">
-            <input type="text" name="program_name" />
-        </div>
-    </section>
-
-
-    <section id="page06">
-        <p>When did you attend <span class="school-name">Corinthian</span>?</p>
-
-        <div id="attendance-from" class="input-group" style="border: 0;">
-            <label style="margin-right: 1em;">From</label>
-            <select name="attendance_from_month" class="chosen" style="margin: 0;">
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select>
-            <input type="text" name="attendance_from_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" required />
-        </div>
-
-        <div id="attendance-to" class="input-group" style="border: 0;">
-            <label style="width: auto; margin-right: 1em;">To</label>
-            <select name="attendance_to_month" class="chosen" style="margin: 0;">
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select>
-            <input type="text" name="attendance_to_year" style="width: 4.5em; margin: 0; margin-left: 0.5em; display: inline;" placeholder="Year" required />
-        </div>
-
-        <p>What type of degree were you working on? (Select your highest degree.)</p>
-
-        <div class="input-group degree">
-            <div class="radio">
-                <input type="radio" name="credential_2" value="Associates" />
-                <label></label>
+                <textarea maxlength="950" name="misleading_job" required></textarea>
             </div>
-            <label for="credential_2">Associates</label>
-        </div>
-
-        <div class="input-group degree">
-            <div class="radio">
-                <input type="radio" name="credential_2" value="Certificate" />
-                <label></label>
-            </div>
-            <label for="credential_2">Certificate</label>
-        </div>
-
-        <div class="input-group degree" style="border: 0; margin-bottom: 1.5em;">
-            <div class="radio">
-                <input type="radio" name="credential_2" value="Bachelors" />
-                <label></label>
-            </div>
-            <label for="credential_2">Bachelors</label>
-        </div>
-
-        <div class="input-group degree" style="border: 0; margin-bottom: 1.5em;">
-            <div class="radio">
-                <input type="radio" name="credential_2" value="Masters" />
-                <label></label>
-            </div>
-            <label for="credential_2">Masters</label>
-        </div>
-
-        <p>Did you complete the program?</p>
-
-        <div class="input-group">
-            <div class="radio">
-                <input type="radio" name="completed" value="0" required />
-                <label></label>
-            </div>
-            <label for="completed">Yes</label>
-        </div>
-
-        <div class="input-group">
-            <div class="radio">
-                <input type="radio" name="completed" value="1" required />
-                <label></label>
-            </div>
-            <label for="completed">No</label>
-        </div>
-    </section>
+        </section>
 
 
-    <section id="page07">
+        <section id="page08" data-title="Accreditation">
+            <p>Did <span class="school-name">your school</span> mislead you about the <strong>quality of the education</strong> you would receive? This could&nbsp;include:</p>
 
-        <div id="school-close">
-            <p>Did your school close before you graduated?</p>
+            <ul>
+                <li>Falsely claiming that the school had the proper accreditation to allow its graduates to take a particular licensing exam</li>
+                <li>Falsely claiming that it offered the classes necessary to achieve employment and/or certification in a particular field</li>
+                <li>Citing misleading statistics about the pass rate of students on required licensing or certification exams.</li>
+            </ul>
 
-            <div class="input-group">
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="0" required />
+                    <input type="radio" name="misleading_accreditation_check" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
             </div>
 
-            <div class="input-group">
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="school-close" value="1" required />
+                    <input type="radio" name="misleading_accreditation_check" value="" required />
                     <label></label>
                 </div>
                 <label>No</label>
             </div>
-        </div>
 
-        <div id="withdraw" style="margin-top: 2em;">
-            <p>Did you withdraw within <strong>120 days</strong> of your school closing?</p>
+            <div class="explain">
+                <p>Please explain in detail.</p>
 
-            <div class="input-group">
+                <textarea maxlength="950" name="misleading_accreditation" required></textarea>
+            </div>
+        </section>
+
+
+        <section id="page09" data-title="Eligibility">
+            <p>Did <span class="school-name">your school</span> mislead you about whether you were <strong>eligible to benefit</strong> from the program? This could&nbsp;include:</p>
+
+            <ul>
+                <li>Enrolling you even though you did not have a high school diploma or GED</li>
+                <li>Claiming that a felony record or disability would not stand in the way of employment in a particular field.</li>
+            </ul>
+
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="0" required />
+                    <input type="radio" name="misleading_eligible_check" value="true" required />
                     <label></label>
                 </div>
                 <label>Yes</label>
             </div>
 
-            <div class="input-group">
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="1" required />
+                    <input type="radio" name="misleading_eligible_check" value="" required />
                     <label></label>
                 </div>
                 <label>No</label>
             </div>
 
-            <div class="input-group">
+            <div class="explain">
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
+
+                <textarea maxlength="950" name="misleading_eligible" required></textarea>
+            </div>
+        </section>
+
+
+        <section id="page10" data-title="Cost/Payment">
+            <p>Did <span class="school-name">your school</span> mislead you about <strong>how you would pay for the program</strong>? This could&nbsp;include:</p>
+
+            <ul>
+                <li>Understating the total cost of the program</li>
+                <li>Signing loan paperwork without your permission</li>
+                <li>Understating the amount of loans necessary</li>
+                <li>Treating grants and loans as if they were the same thing</li>
+                <li>Treating federal and private loans as if they were the same thing
+                <li>Refusing to disclose loan terms or allow review of loan documents</li>
+            </ul>
+
+            <div class="input-group yesno">
                 <div class="radio">
-                    <input type="radio" name="withdraw" value="2" required />
+                    <input type="radio" name="misleading_pay_check" value="true" required />
                     <label></label>
                 </div>
-                <label>I'm not sure</label>
+                <label>Yes</label>
             </div>
-        </div>
-    </section>
 
-
-    <section id="page08">
-        <div class="intro">
-            <p>Now we’ll prompt you to describe different aspects of your experience with <span class="school-name">Corinthian</span>.</p>
-        </div>
-
-        <p>How did <span class="school-name">Corinthian</span> lie to you or mislead you about your <strong>job&nbsp;prospects</strong>? Check all that&nbsp;apply.</p>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_stats_check" value="true" />
-                <label></label>
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_pay_check" value="" required />
+                    <label></label>
+                </div>
+                <label>No</label>
             </div>
-            <label for="misleading_job_stats_check">They misled me about the kind of job I could get after graduation, including citing misleading job placement statistics</label>
 
             <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_stats"></textarea>
-            </div>
-        </div>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_1_check" value="true" />
-                <label></label>
+                <textarea maxlength="950" name="misleading_pay" required></textarea>
             </div>
-            <label for="misleading_job_assistance_1_check">They misled me about the money I could earn after earning a Corinthian degree</label>
+        </section>
+
+
+        <section id="page11" data-title="Illegal Activity">
+            <p>Did <span class="school-name">your school</span> mislead you about the extent of the illegal activities there, and the effect those activities would have on <span class="school-name">your school</span>’s reputation and continued existence? This could include:</p>
+
+            <ul>
+                <li>The school shutting down in light of lawsuits or financial mismanagement</li>
+                <li>Finding that having <span class="school-name">your school</span> on a resume repels employers who have heard about its illegal practices</li>
+            </ul>
+
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_illegal_check" value="true" required />
+                    <label></label>
+                </div>
+                <label>Yes</label>
+            </div>
+
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_illegal_check" value="" required />
+                    <label></label>
+                </div>
+                <label>No</label>
+            </div>
 
             <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_assistance_1"></textarea>
-            </div>
-        </div>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_assistance_2_check" value="true" />
-                <label></label>
+                <textarea maxlength="950" name="misleading_illegal" required></textarea>
             </div>
-            <label for="misleading_job_assistance_2_check">They failed to provide promised job placement assistance</label>
+        </section>
+
+
+        <section id="page12" data-title="Other">
+            <p>Did <span class="school-name">your school</span> mislead you in other ways that you didn't already describe?</p>
+
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_other_check" value="true" required />
+                    <label></label>
+                </div>
+                <label>Yes</label>
+            </div>
+
+            <div class="input-group yesno">
+                <div class="radio">
+                    <input type="radio" name="misleading_other_check" value="" required />
+                    <label></label>
+                </div>
+                <label>No</label>
+            </div>
 
             <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_assistance_2"></textarea>
+                <p>What did <span class="school-name">your school</span> do? If any of the listed behaviors apply, please state which.</p>
+
+                <textarea maxlength="950" name="misleading_other" required></textarea>
             </div>
-        </div>
+        </section>
 
-        <!-- combine the last two questions into one on the PDF -->
-        <input type="hidden" name="misleading_job_assistance_check" value="" />
-        <input type="hidden" name="misleading_job_assistance" value="" />
 
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_job_other_check" value="true" />
-                <label></label>
+        <section id="page13" data-title="Measure of Injury">
+            <p>Now we'll ask you to explain how the conduct you’ve already described here by <span class="school-name">your school</span> caused you harm and put you in debt.</p>
+
+            <p>Because of this conduct, I've suffered the following harm:</p>
+
+             <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="injury_debt_check" value="true" />
+                    <label></label>
+                </div>
+                <label for="injury_debt_check">Student loan debt</label>
+
+                <div class="explain">
+                    <p>Please describe how the debt has affected your life.</p>
+                    <textarea maxlength="950" name="injury_debt"></textarea>
+                </div>
             </div>
-            <label for="misleading_job_other_check">They made other false promises relating to job prospects to convince me to enroll</label>
+            <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="injury_school_check" value="true" />
+                    <label></label>
+                </div>
+                <label for="injury_school_check">I couldn't enroll in another school because my credits wouldn’t transfer.</label>
 
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_job_other"></textarea>
+                <div class="explain">
+                    <p>Please explain in detail.</p>
+                    <textarea maxlength="950" name="injury_school"></textarea>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="injuty_opportunity_check" value="true" />
+                    <label></label>
+                </div>
+                <label for="injury_opportunity_check">I couldn't enroll in another school because I couldn't take out more student loan&nbsp;debt.</label>
 
-
-    <section id="page09">
-        <p>How did <span class="school-name">Corinthian</span> mislead you about the <strong>quality of the education you would receive</strong>?</p>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_pass_rate_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_pass_rate_check">They provided false information about how many graduates of my program pass licensing exams or earn certifications</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_pass_rate"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_1_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_accreditation_1_check">They misled me about whether my credits would transfer to other colleges</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_accreditation_1"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_accreditation_2_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_accreditation_2_check">They misrepresented how seriously employers would treat my degree</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_accreditation_2"></textarea>
-            </div>
-        </div>
-
-        <!-- combine the last two questions into one on the PDF -->
-        <input type="hidden" name="misleading_accreditation_check" value="" />
-        <input type="hidden" name="misleading_accreditation" value="" />
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_quality_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_quality_other_check">They misled me about the quality of the education I would receive in other ways</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_quality_other"></textarea>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="page10">
-        <p>In what ways did <span class="school-name">Corinthian</span> mislead you about <strong>how you would pay for the&nbsp;program</strong>?</p>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_truecost_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_truecost_check">They misled me about the true cost of the program.</label>
-
-            <div class="explain">
-                <p>Please explain.</p>
-                <textarea maxlength="950" name="misleading_truecost"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_grants_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_grants_check">They misled me about how much of my education would be covered by grants that would not have to be repaid.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_grants"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_loans_check" value="true" />
-                <label></label>
-            </div>
-            <label name="misleading_loans_check">They misled me about the total amount of money I would have to borrow to complete my program.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_loans"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_loan_type_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_loan_type_check">They misled me about whether my loans were federal or private.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_loan_type"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_terms_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_terms">They misled me about when I would have to start repaying my federal student loans and how much my payments would be.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_terms"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_pay_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_pay_other_check">They misled me in other ways about the cost of the program or financial aid I would receive.</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_pay_other"></textarea>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="page11">
-        <p>How did <span class="school-name">Corinthian</span> mislead you about your options as the school shut down? Check all that apply.</p>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_likelihood_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_likelihood_check">They misled me about the likelihood that my school would shut down</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_likelihood"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="misleading_teachout_check" value="true" />
-                <label></label>
-            </div>
-            <label for="misleading_teachout_check">They misled me about my option to decline the “teach-out” at the school.</label>
-
-            <p class="example">For example, did they fail to inform you that you had a right to receive a complete refund if you did not take the teach out?</p>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="misleading_teachout"></textarea>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="page12">
-        <p>Did <span class="school-name">Corinthian</span> mislead you in other ways that you didn't already describe? Please explain. Include as many details as possible.</p>
-
-        <div class="input-group">
-            <textarea maxlength="1200" style="min-height: 8em;" name="misleading_other"></textarea>
-        </div>
-    </section>
-
-
-    <section id="page13">
-        <p>Now we'll ask you to explain how the conduct you’ve already described here by <span class="school-name">Corinthian</span> caused you harm you and put you in debt.</p>
-
-        <p>Because of this conduct, I've suffered the following harm:</p>
-
-         <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="injury_debt_check" value="true" />
-                <label></label>
-            </div>
-            <label for="injury_debt_check">Student loan debt</label>
-
-            <div class="explain">
-                <p>Please describe how the debt has affected your life.</p>
-                <textarea maxlength="950" name="injury_debt"></textarea>
-            </div>
-        </div>
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="injury_school_check" value="true" />
-                <label></label>
-            </div>
-            <label for="injury_school_check">I couldn't enroll in another school because my credits wouldn’t transfer.</label>
-
-            <div class="explain">
-                <p>Please explain.</p>
-                <textarea maxlength="950" name="injury_school"></textarea>
-            </div>
-        </div>
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="injuty_opportunity_1_check" value="true" />
-                <label></label>
-            </div>
-            <label for="injury_opportunity_1_check">I couldn't enroll in another school because I couldn't take out more student loan&nbsp;debt.</label>
-
-            <div class="explain">
-                <p>Please explain.</p>
-                <textarea maxlength="950" name="injury_opportunity"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="injury_employment_check" value="true" />
-                <label></label>
-            </div>
-            <label for="injury_employment_check">I had a hard time finding a job in my field because <span class="school-name">Corinthian</span> was on my resume</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="injury_employment"></textarea>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="injury_other_check" value="true" />
-                <label></label>
-            </div>
-            <label for="injury_other_check">Other injury, including stress or emotional pain</label>
-
-            <div class="explain">
-                <p>Please explain. Include as many details as possible.</p>
-                <textarea maxlength="950" name="injury_other"></textarea>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="page14">
-        <p>If <span class="school-name">Corinthian</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
-
-        <div class="input-group">
-            <div class="checkbox">
-                <input type="checkbox" name="agreement" value="true" required />
-                <label></label>
+                <div class="explain">
+                    <p>Please explain in detail.</p>
+                    <textarea maxlength="950" name="injury_opportunity"></textarea>
+                </div>
             </div>
 
-            <level>I agree</level>
-        </div>
-    </section>
+            <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="injury_employment_check" value="true" />
+                    <label></label>
+                </div>
+                <label for="injury_employment_check">I had a hard time finding a job in my field because <span class="school-name">your school</span> was on my resume</label>
+
+                <div class="explain">
+                    <p>Please explain in detail.</p>
+                    <textarea maxlength="950" name="injury_employment"></textarea>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="injury_other_check" value="true" />
+                    <label></label>
+                </div>
+                <label for="injury_other_check">Other injury, including stress or emotional pain</label>
+
+                <div class="explain">
+                    <p>Please explain in detail.</p>
+                    <textarea maxlength="950" name="injury_other"></textarea>
+                </div>
+            </div>
+        </section>
 
 
-    <section id="page15">
-        <p>Please review your responses to ensure they are accurate before submitting.</p>
-    </section>
+        <section id="page14" data-title="Supporting Documents">
+            <p>You can use this tool to upload any documentation of your experience at <span class="school-name">your school</span> to accompany your application. This could include: loan agreements, transcripts, diplomas, emails with school administrators, etc. When in doubt, include&nbsp;it.</p>
 
-    <section id="page16">
-        <p>You're almost done! By signing below, you declare the following:</p>
+            <div class="input-group file">
+                <input type="text" id="upload1" placeholder="Choose File" disabled="disabled" />
+                <div>
+                    <span>Upload</span>
+                    <input name="upload1" type="file" class="upload" />
+                </div>
+            </div>
 
-        <div class="form-language">
-            <p>I acknowledge that any person who knowingly makes a false statement or misrepresentation on this form or any accompanying document is subject to penalties that may include fines, imprisonment, or both, under the U.S. Criminal Code and 20 U.S.C. § 1097.</p>
+            <div class="input-group file" id="upload2">
+                <input type="text" placeholder="Choose File" disabled="disabled" />
+                <div>
+                    <span>Upload</span>
+                    <input name="upload2" type="file" class="upload" />
+                </div>
+            </div>
 
-            <p>I certify, under penalty of perjury, that all of the information I have provided on this form and in any accompanying documentation is true and accurate to the best of my knowledge and belief.</p>
-
-            <p>I certify that I will provide, upon request, testimony, a sworn statement, or other documentation reasonably available to me that demonstrates to the satisfaction of the Department that I meet the qualifications for defense to repayment of my student loans.</p>
-
-            <p>I certify that, if my defense is successful, upon request I will provide assistance and cooperation to the U.S. Department of Education (the Department)in any proceedings or enforcement actions against the school related to my defense or the conduct asserted herein.</p>
-
-            <p>I hereby assign and transfer to the U.S. Department of Education (the Department) any right to a refund on the amount discharged that I may have received from the school and/or any owners, affiliates, or assignees of the school, and from any third party that may pay claims for a refund because of the actions or omissions of the school, up to the amount discharged by the Department on my loan(s).</p>
-
-            <p>I authorize the loan holder to which I submit this request (and its agents or contractors) to contact me regarding my request or my loan(s), including repayment of my loan(s), at the number that I provide on this form or any future number that I provide for my cellular telephone or other wireless device using automated telephone dialing equipment or artificial or prerecorded voice or text messages.</p>
-        </div>
-
-        <div class="input-group text">
-            <label for="signature">Type your full name.</label>
-            <input type="text" name="signature" />
-        </div>
-
-        <input type="hidden" name="date_today" value="3/31/2015" />
-
-        <input type="submit" value="Sign and submit" />
-    </section>
-</form>
+            <div class="input-group file" id="upload3">
+                <input type="text" placeholder="Choose File" disabled="disabled" />
+                <div>
+                    <span>Upload</span>
+                    <input name="upload3" type="file" class="upload" />
+                </div>
+            </div>
+        </section>
 
 
-    <section id="download">
+        <section id="page15" data-title="Agreement">
+            <p>If <span class="school-name">my school</span> hadn't lied and misled me in the ways I just described, I would not have attended or continued to attend.</p>
 
-        <p style="margin: 2em auto; max-width: 500px;">Your Defense to Repayment Form has been submitted!<br />Please download and save it for your records.</p>
+            <div class="input-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="agreement" value="true" required />
+                    <label></label>
+                </div>
 
-        <a href="" id="pdf-view" target="_blank"><button><i class="fa fa-file-pdf-o"></i> &nbsp;Download your form</button></a>
-
-        <p>The Corinthian Collective will submit your form to the US Department of Education. We are giving them 30 days to respond. For more updates, check our <a href="http://blog.debtcollective.org">blog</a>.</p>
-
-        <p id="soc">Do you know any other current or former students of Everest, Heald, or Wyotech? Spread the word.<br /><br />
-
-        <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(http://debtcollective.org/corinthiandtr, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><button><i class="fa fa-facebook"></i></button></a>
-        <a href="http://twitter.com/intent/tweet?text=If%20you%20went%20to%20Everest,%20Wyotech%20or%20Heald,%20apply%20for%20a%20loan%20discharge!%20I%20just%20did.%20http://debtcollective.org/corinthiandtr" target="_blank"><button style="margin-left: 1em;"><i class="fa fa-twitter"></i></button></a></p>
-
-
-        <p style="text-align: center;"><a href="http://debtcollective.org" class="back">Back to the Debt Collective</a></p>
-
-    </section>
+                <level>I agree</level>
+            </div>
+        </section>
 
 
-    <footer>
-        <nav>
-            <a href="#page00" id="previous">Back</a>
-            <a href="#page02" id="next"><button>Next</button></a>
-        </nav>
+        <section id="page16" data-title="Review">
+            <p>Please review your responses to ensure they are accurate before submitting.</p>
+        </section>
 
-        <nav id="pages">
-            <ol></ol>
-        </nav>
-    </footer>
+        <section id="page17" data-title="Signature">
+            <p>You're almost done! By signing below, you declare the following:</p>
 
-    <p class="example" style="font-style: normal;">If you have trouble filling out the form, please email us at <a style="color: #000" href="mailto:support@debtcollective.org">support@debtcollective.org</a></p>
+            <div class="form-language">
+                <p>I have read and understand all of the information in this form.</p>
+
+                <p>I agree to provide, upon request, testimony, a sworn statement, or other documentation reasonably available to me that demonstrates to the satisfaction of the Department of Education or its designee that I meet the qualifications for borrower defense to repayment loan discharge.</p>
+
+                <p>All of the information I provided is true and complete to the best of my knowledge and I agree, if asked, to provide information reasonably available to me to the Department of Education that will verify the accuracy of my completed attestation.</p>
+
+                <p>I understand that the Department of Education has the authority to verify information reported on this application with other federal or state agencies or other entities. I authorize the Department of Education, along with its agents and contractors, to contact me regarding this request at the phone number above using automated dialing equipment or artificial or prerecorded voice or text messages.</p>
+
+                <p>I understand that if I purposely provided false or misleading information on this application, I may be subject to the penalties specified in 18 U.S. Code § 1001.</p>
+
+                <p>I certify that, if my defense is successful, upon request I will provide assistance and cooperation to the U.S. Department of Education (the Department) in any proceedings or enforcement actions against the school related to my defense or the conduct asserted herein.</p>
+            </div>
+
+            <div class="input-group text">
+                <label for="signature">Type your full name.</label>
+                <input type="text" name="signature" required />
+            </div>
+
+            <input type="hidden" name="date_today" value="3/31/2015" />
+
+            <input type="submit" value="Sign and submit" />
+        </section>
+        </form>
+
+
+        <section id="download">
+
+            <p style="margin: 2em auto; max-width: 500px;">Your Defense to Repayment Form has been submitted!<br />Please download and save it for your records.</p>
+
+            <a href="" id="pdf-view" target="_blank"><button><i class="fa fa-file-pdf-o"></i> &nbsp;Download your form</button></a>
+
+            <p>You should hear from the Department of Education about your application within a few weeks. For more updates, check our <a href="http://blog.debtcollective.org">blog</a>.</p>
+
+            <p id="soc">Do you know any other current or former students of <span class="school-name">your school</span>? Spread the word.<br /><br />
+
+            <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(http://debtcollective.org/defense-to-repayment, 'mywin',
+    'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><button><i class="fa fa-facebook"></i></button></a>
+            <a href="http://twitter.com/intent/tweet?text=If%20you%20went%20to%20Everest,%20Wyotech%20or%20Heald,%20apply%20for%20a%20loan%20discharge!%20I%20just%20did.%20http://debtcollective.org/defense-to-repayment" target="_blank"><button style="margin-left: 1em;"><i class="fa fa-twitter"></i></button></a></p>
+
+
+            <p style="text-align: center;"><a href="http://debtcollective.org" class="back">Back to the Debt Collective</a></p>
+
+        </section>
+
+
+        <footer>
+            <nav>
+                <a href="#page00" id="previous">Back</a>
+                <a href="#page02" id="next"><button>Next</button></a>
+            </nav>
+
+            <nav id="pages">
+                <ol></ol>
+            </nav>
+        </footer>
+
+        <p class="small">If you have trouble filling out the form, please email us at <a style="color: #000" href="mailto:support@debtcollective.org">support@debtcollective.org</a></p>
+    </div>
 
 </div>
 
