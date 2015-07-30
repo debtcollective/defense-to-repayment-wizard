@@ -193,7 +193,7 @@ var section_page = 1;
 
 
 		// how many pages total?
-		total_pages = 		$("section").length - 2; // -2 for download and intro
+		total_pages = 		$("section[data-title]").length;
 
 		// how many pages per section?
 		for (var i = sections.length - 1; i >= 0; i--) {
@@ -289,8 +289,6 @@ var section_page = 1;
 		// file upload
 		$(".file input[type='file']").on("change", function() {
 		    $(this).parent().parent().find("input[type='text']").val($(this).val().replace("C:\\fakepath\\", ""));
-
-		    console.log($(this).val());
 		});
 
 
