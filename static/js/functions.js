@@ -37,15 +37,19 @@ var section_page = 1;
 		});
 
 
-		$("#schools-select").chosen({ width: "50%" }).on("change", function() {
+		$("#schools-select").on("change", function() {
 			$(".school-name").html( $(this).val() );
+
+			// fill in the name field
+			$("input[name='school_name']").attr("value", $(this).val() );
 
 			// fill in the address field
 			$("input[name='school_address']").attr("value", $(this).find("option:selected").attr("data-address") );
 
 			// fill in the school_state field
 			var state = $(this).find("option:selected").attr("data-state");
-			$("input[name='school_state']").attr("value", state );
+			$("select[name='school_state'] option:selected").val("");
+			$("select[name='school_state']").find("option:contains('" + state + "')").attr("selected", true);
 
 			// update state law based on state <select>
 			getStateLaw(state);
@@ -159,17 +163,14 @@ var section_page = 1;
 
 
 		// initialize chosen plugin for <select>s
-		if (hash && $(hash + " select.chosen").length
-			// make sure it's not the schools or servicers
-			&& current_page != school_first_page
-			&& current_page != school_first_page-1) {
+		if (hash && $(hash + " select.chosen").length) {
 
 			// some may need custom widths
 			var ch_width = null;
 			if (current_page == 1 && screen_width > 480)
 				ch_width = "33%";
 
-			$(hash + " select.chosen").chosen({ width: ch_width, disable_search_threshold: 12 });
+			$(hash + " select.chosen").not(".no-init").chosen({ width: ch_width, disable_search_threshold: 12 });
 		}
 	}
 
@@ -230,6 +231,29 @@ var section_page = 1;
 		// …or when a box is checked
 		$('.checkbox input').click(function() {
 		    $(this).parent().parent().find(".explain").toggle(this.checked);
+		});
+
+
+		// school info: show Corinthian list
+		$("input[name='corinthian']").on("change", function() {
+			if (this.checked) {
+				$("#corinthian-list").show();
+				$("#school-info").hide();
+				$("#schools-select").chosen({width: "50%"});
+			}
+			else {
+				$("#corinthian-list").hide();
+				$("#school-info").show();
+				$("input[name='school_name']").val("");
+				$("input[name='school_address']").val("");
+				$("input[name='school_city']").val("");
+				$("select[name='school_state'] option:selected").val("");
+			}
+		});
+
+		// when school name is updated, update text on all pages
+		$("input[name='school_name']").on("change", function() {
+			$(".school-name").html( $(this).val() );
 		});
 
 
