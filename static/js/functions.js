@@ -25,7 +25,7 @@ var section_page = 1;
 
     function showInfo(data, tabletop) {
 
-    	console.log("spreadsheet loaded");
+    	// console.log("spreadsheet loaded");
 
     	// list of schools
 		var schools_source = $('#schools-list').html();
@@ -56,8 +56,14 @@ var section_page = 1;
 		});
 
 		$("select[name='school_state']").on("change", function() {
+
+			var state = $(this).find("option:selected").text();
+
 			// update state law based on state <select>
-			getStateLaw($(this).find("option:selected").text());
+			getStateLaw(state);
+
+			// fill in full state name
+			$("input[name='school_state_full']").val( state );
 		});
 
 		// save state data
@@ -155,7 +161,6 @@ var section_page = 1;
 			if ($(this).is("#next") && !isValid)
 				e.preventDefault();
 			else if (!($(this).is("#previous")) && isValid) {
-				console.log(validPage);
 				$("#nav" + validPage).addClass("complete");
 			}
 
