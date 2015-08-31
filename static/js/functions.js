@@ -17,10 +17,17 @@ var section_page = 1;
 	// parse JSON from tabletop.js
 
 	function init() {
+
 	    Tabletop.init( {
 	    	key: public_spreadsheet_url,
 	        callback: showInfo,
 	    });
+
+	    $.get('/dtr/data', function (data) {
+	    	if (data.warning) return
+	    	fillform(data)
+	      window.location.hash = '#page01'
+	    })
 	}
 
     function showInfo(data, tabletop) {
