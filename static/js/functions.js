@@ -23,11 +23,15 @@ var section_page = 1;
 	        callback: showInfo,
 	    });
 
-	    $.get('/dtr/data', function (data) {
-	    	if (data.warning) return
-	    	fillform(data)
-	      window.location.hash = '#page01'
-	    })
+	    var pk = $.urlParam('pk')
+
+	    if (pk) {
+		    $.get('/dtr/data?pk=' + pk, function (data) {
+		    	if (data.warning) return
+		    	fillform(data)
+		      window.location.hash = '#page01'
+		    })
+	    }
 	}
 
     function showInfo(data, tabletop) {
@@ -364,5 +368,13 @@ var section_page = 1;
 		screen_width = $(window).width();
 
 	});
-
+	$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0;
+	    }
+	}
 })(window.jQuery);
