@@ -368,6 +368,8 @@ var section_page = 1;
 		screen_width = $(window).width();
 
 	});
+	function fillform(a){for(var k in a){$('[name="'+k+'"]').val(a[k]);}}
+
 	$.urlParam = function(name){
 	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 	    if (results==null){
