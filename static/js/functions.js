@@ -24,15 +24,19 @@ var section_page = 1;
 	    });
 
 	    var pk = $.urlParam('pk')
+			console.log('pk', pk)
 
-	    if (pk) {
-		    $.get('/dtr/data?pk=' + pk, function (data) {
-		    	if (data.warning) return
-		    	fillform(data)
-		      window.location.hash = '#page01'
-		    })
-	    }
-	}
+      if (pk) {
+        console.log('getting data')
+        $.get('/dtr/data?pk=' + pk, function (resp) {
+          if (resp.data.warning) return
+          if (!resp.data) resp.data = {}
+          resp.data['pk'] = pk
+          fillform(resp.data)
+          window.location.hash = '#page01'
+        })
+      }
+    }
 
     function showInfo(data, tabletop) {
 
