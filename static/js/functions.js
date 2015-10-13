@@ -29,8 +29,8 @@ var section_page = 1;
       if (pk) {
         console.log('getting data')
         $.get('/dtr/data?pk=' + pk, function (resp) {
-          if (resp.data.warning) return
           if (!resp.data) resp.data = {}
+          if (resp.data.warning) return
           resp.data['pk'] = pk
           fillform(resp.data)
           window.location.hash = '#page01'
@@ -109,18 +109,24 @@ var section_page = 1;
 	  return number + ""; // always return a string
 	}
 
-	 $("#dtr-form").ajaxForm({
-     beforeSend: function () {
-        window.location.hash = '#loading'
-     },
-     success: function (data) {
-        window.location.hash = '#download'
-        $('#pdf-view').attr('href', data['pdf_link'])
-     },
-     error: function (data) {
-        alert('Something went wrong. Try using smaller attachments and check your email.')
-     }
-   })
+  $("#dtr-form").submit(function () {
+  	 $(this).ajaxSubmit({
+       beforeSend: function () {
+          window.location.hash = '#loading'
+          $('footer').attr('style', 'display:none;')
+       },
+       success: function (data) {
+          window.location.hash = '#download'
+          $('#pdf-view').attr('href', data['pdf_link'])
+          $('footer').attr('style', 'display:block;')
+       },
+       error: function (data) {
+          alert('Something went wrong. Try using smaller attachments and check your email.')
+       }
+     })
+     return false
+  })
+
 
 	// show the appropriate page of the form
 	function getPage() {
