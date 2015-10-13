@@ -214,7 +214,7 @@ var section_page = 1;
 
 
 		// how many pages total?
-		total_pages = 		$("section").length - 2; // -2 for download and intro
+		total_pages = 		$("section").length - 3; // -3 for download and intro and loadin
 
 		// how many pages per section?
 		for (var i = sections.length - 1; i >= 0; i--) {
