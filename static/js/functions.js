@@ -378,22 +378,33 @@ var section_page = 1;
 		screen_width = $(window).width();
 
 	});
-	function fillform(a){for(var k in a){$('[name="'+k+'"]').val(a[k]);}}
+	function fillform(a){
+    for(var k in a){
+      if (!isNaN(parseInt(a[k]))) {
+        var input = $('[name="'+k+'"][value=\''+a[k]+'\']')
+        if (input && input.length > 0) input.prop('checked', true)
+        else $('[name="'+k+'"]').val(a[k])
+      }
+      else {
+        $('[name="'+k+'"]').val(a[k])
+      }
+    }
+  }
 
 	$.urlParam = function(name){
-	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	    if (results==null){
-	       return null;
-	    }
-	    else{
-	       return results[1] || 0;
-	    }
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 	}
 
   function stopRKey(evt) {
-      var evt = (evt) ? evt : ((event) ? event : null);
-        var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-          if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+    var evt = (evt) ? evt : ((event) ? event : null);
+    var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+    if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
   }
 
   document.onkeypress = stopRKey;
