@@ -73,6 +73,7 @@ $base: 17px;
     transition: background-color 0.25s;
     text-decoration: none;
     -webkit-appearance: caret;
+    cursor: pointer;
     //height: 2.2em;
 
     &:hover {
@@ -429,6 +430,20 @@ section {
                 font-size: 20px;
                 opacity: 0;
             }
+
+            &.clear {
+                background: $mid-grey;
+
+                &.off {
+                    opacity: 0;
+                }
+            }
+        }
+
+        .error {
+            font-size: $base;
+            margin-top: 0;
+            margin-bottom: 0.25em;
         }
     }
 

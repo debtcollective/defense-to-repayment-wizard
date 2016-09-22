@@ -30,7 +30,8 @@ header h2, nav#pages ol:before {
   vertical-align: middle;
   transition: background-color 0.25s;
   text-decoration: none;
-  -webkit-appearance: caret; }
+  -webkit-appearance: caret;
+  cursor: pointer; }
   #body00 section button:hover, section input[type="submit"]:hover, button:hover, section .file > div:hover {
     color: #fff;
     background: #d30e1d; }
@@ -281,6 +282,14 @@ section {
         margin: 0;
         font-size: 20px;
         opacity: 0; }
+      section .file > div.clear {
+        background: #a7a393; }
+        section .file > div.clear.off {
+          opacity: 0; }
+    section .file .error {
+      font-size: 17px;
+      margin-top: 0;
+      margin-bottom: 0.25em; }
   section .input-group input[type="text"], section .input-group input[type="email"] {
     margin: 1em 0; }
   section .input-group.text {

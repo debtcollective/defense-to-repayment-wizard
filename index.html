@@ -126,7 +126,7 @@
 
     <div id="formwrap">
 
-        <form action="/dtr_generate" method="POST" id="dtr-form" enctype="multipart/form-data">
+        <form action="http://debtcollective.org/dtr_generate" method="POST" id="dtr-form" enctype="multipart/form-data">
         <section id="page01" data-title="Basic">
 
             <div class="intro">
@@ -809,14 +809,16 @@
 
 
         <section id="page14" data-title="Supporting Documents">
-            <p>You can use this tool to upload any documentation of your experience at <span class="school-name">your school</span> to accompany your application. This could include: loan agreements, transcripts, diplomas, emails with school administrators, etc. When in doubt, include&nbsp;it.</p>
+            <p>You can use this tool to upload any documentation of your experience at <span class="school-name">your school</span> to accompany your application. This could include: loan agreements, transcripts, diplomas, emails with school administrators, etc.</p>
 
             <div class="input-group file">
                 <input type="text" id="upload1" placeholder="Choose File" disabled="disabled" />
+
                 <div>
                     <span>Upload</span>
                     <input name="upload1" type="file" class="upload" />
                 </div>
+                <div class="clear off">Clear</div>
             </div>
 
             <div class="input-group file" id="upload2">
@@ -825,6 +827,7 @@
                     <span>Upload</span>
                     <input name="upload2" type="file" class="upload" />
                 </div>
+                <div class="clear off">Clear</div>
             </div>
 
             <div class="input-group file" id="upload3">
@@ -833,6 +836,7 @@
                     <span>Upload</span>
                     <input name="upload3" type="file" class="upload" />
                 </div>
+                <div class="clear off">Clear</div>
             </div>
         </section>
 
